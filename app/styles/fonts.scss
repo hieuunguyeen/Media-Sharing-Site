@@ -1,0 +1,15 @@
+// Futura
+$font-futura: "futura";
+
+@font-face {
+    font-family: 'futura';
+    src: (url("../fonts/futura-condensed.woff") format("woff"),);
+}
+
+// Roboto
+$font-roboto: "roboto", sans-serif;
+
+@font-face {
+    font-family: 'roboto';
+    src: (url("../fonts/Roboto-Regular.ttf"),);
+}

@@ -1,0 +1,19 @@
+@import "vars";
+/// Mixin for media queries
+@mixin phone {
+    @media (max-width: #{$width-tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$width-tablet}) and (max-width: #{$width-desktop - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$width-desktop}) {
+        @content;
+    }
+}
