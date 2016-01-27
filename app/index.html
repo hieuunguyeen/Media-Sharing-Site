@@ -20,52 +20,62 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
-    
+
   </head>
   <body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
+
+    <div class="overlay overlay--cover"></div>
+
+    <section class="modal-box">
+      <div class="modal-box__content">
+        <figure class="modal-box__image">
+            <img src="http://placehold.it/1366x768" alt="">
+            <figcaption class="image-info">
+              <i class="glyphicon glyphicon-heart"></i>
+              <i class="glyphicon glyphicon-thumbs-up"></i>
+              <span class="image-info__views">Views: 58</span>
+              <span class="image-info__author">Author: Somebody</span>
+            </figcaption>
+          </figure>
+        <aside class="modal-box__metadata">
+          <h3>Links</h3>
+          <div class="metadata__links">
+            <label for="direct-link"></label>
+            <span class="copy">Copy</span><input class="link direct-link" name="direct-link" type="text" placeholder="something direct here">
+            <br>
+            <label for="image-link"></label>
+            <span class="copy">Copy</span><input class="link image-link" name="image-link" type="text" placeholder="something image here">
+          </div>
+          <h3>Metadata</h3>
+          <div class="metadata__data">
+            <p>
+              <h5>Taken Date: <span class="taken-date">12/12/12</span></h5>
+              <h5>Resolution: <span class="resolution">1366x768</span></h5>
+              <h5>Pixels per Inch: <span class="dpi">72</span></h5>
+              <h5>Size: <span class="size">3.33 KB</span></h5>
+              <h5>Image Type: <span class="image-type">GIF Image</span></h5>
+            </p>
+          </div>
+          <ul class="metadata__share">
+            <li class="facebook"><a href="#">Facebook</a></li>
+            <li class="twitter"><a href="#">Twitter</a></li>
+            <li class="pinterest"><a href="#">Pinterest</a></li>
+            <li class="googleplus"><a href="#">Google+</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">Media Sharing site</h3>
-      </div>
-
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4><a href="https://html5boilerplate.com/">HTML5 Boilerplate</a></h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-          <h4><a href="http://libsass.org/">Sass</a></h4>
-          <p>Sass is a mature, stable, and powerful professional grade CSS extension language.</p>
-          
-
-          <h4><a href="http://getbootstrap.com/">Bootstrap</a></h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-
-          <h4><a href="http://modernizr.com/">Modernizr</a></h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-          
-        </div>
-      </div>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
     </div>
-    
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -73,7 +83,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    
+
     <!-- build:js(.) scripts/plugins.js -->
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
@@ -88,7 +98,7 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
-    
+
 
     <!-- build:js(.tmp) scripts/main.js -->
     <script src="scripts/main.js"></script>
