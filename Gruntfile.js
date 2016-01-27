@@ -74,6 +74,7 @@ module.exports = function (grunt) {
             '.tmp/scripts/{,*/}*.js'
           ],
           port: 9000,
+          browser: "firefox",
           server: {
             baseDir: ['.tmp', config.app],
             routes: {

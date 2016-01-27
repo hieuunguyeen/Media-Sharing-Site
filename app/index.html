@@ -27,27 +27,33 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="overlay overlay--cover"></div>
+    <div class="overlay"></div>
 
     <section class="modal-box">
       <div class="modal-box__content">
         <figure class="modal-box__image">
             <img src="http://placehold.it/1366x768" alt="">
             <figcaption class="image-info">
-              <i class="glyphicon glyphicon-heart"></i>
               <i class="glyphicon glyphicon-thumbs-up"></i>
-              <span class="image-info__views">Views: 58</span>
-              <span class="image-info__author">Author: Somebody</span>
+              <i class="glyphicon glyphicon-comment"></i>
+              <h4>Views: <span class="image-info__views">58</span></h4>
+              <h4>Author: <span class="image-info__author">Somebody</span></h4>
             </figcaption>
           </figure>
         <aside class="modal-box__metadata">
           <h3>Links</h3>
           <div class="metadata__links">
-            <label for="direct-link"></label>
-            <span class="copy">Copy</span><input class="link direct-link" name="direct-link" type="text" placeholder="something direct here">
+            <label for="direct-link">Direct Link</label>
+            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
             <br>
-            <label for="image-link"></label>
-            <span class="copy">Copy</span><input class="link image-link" name="image-link" type="text" placeholder="something image here">
+            <label for="image-link">Image Link</label>
+            <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
+            <label for="direct-link">Direct Link</label>
+            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
+            <br>
+            <label for="image-link">Image Link</label>
+            <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
+            <br>
           </div>
           <h3>Metadata</h3>
           <div class="metadata__data">
@@ -67,6 +73,7 @@
           </ul>
         </aside>
       </div>
+      <button class="close-button"><span>Close</span></button>
     </section>
 
     <div class="container">
