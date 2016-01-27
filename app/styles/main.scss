@@ -3,19 +3,269 @@
 @import "pure";
 @import "vars";
 
-// Glyphicon Icons
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-
 // endbower
 
-body {
-    font-family: $font-roboto;
-    background-color: $color-light;
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
 }
 
+/* Space out content a bit */
+body {
+    padding-bottom: 20px;
+    font-family: $font-roboto;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+    }
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+
+    .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+    }
+}
+
+.overlay {
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: $color-dark;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.overlay.overlay--cover {
+  display: block;
+  visibility: visible;
+}
+
+.modal-box {
+  position: fixed;
+  transition: all 0.3s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  z-index: 99;
+  visibility: hidden;
+  backface-visibility: hidden;
+  padding: 2.5%;
+  letter-spacing: 0.5px;
+  transition: box-shadow 0.1s ease;
+
+  .modal-box__content {
+    color: $color-light;
+    background: $color-dark;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
+
+    .modal-box__image {
+        margin: 0;
+    }
+  }
+}
+
+.overlay--cover + .modal-box {
+    visibility: visible;
+    box-shadow: 0px 0px 6px rgb(0, 0, 0);
+
+    .modal-box__content {
+    	transform: scale(1);
+    	opacity: 1;
+    }
+}
+
+.modal-box__image img {
+  max-width: 960px;
+  height: auto;
+}
+
+.image-info {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    background: $color-red;
+
+    .glyphicon {
+        font-size: 24px;
+        margin: 0 16px;
+        cursor: pointer;
+        color: $color-light;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: darken($color-red, 20%);
+        }
+    }
+
+    h4:last-child {
+        margin-left: auto;
+    }
+
+    h4 {
+        color: $color-light;
+        font-weight: 700;
+    }
+
+    span {
+        color: $color-dark;
+        font-weight: normal;
+    }
+}
+
+.modal-box__metadata {
+  text-align: center;
+  margin: 0 32px;
+
+  h3 {
+      margin: 0;
+      margin-bottom: 16px;
+  }
+}
+
+.metadata__links, .metadata__data {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.metadata__links {
+
+  .link {
+    margin: 10px 0;
+    padding: 8px 16px;
+    color: $color-dark;
+    border: none;
+    outline: none;
+    min-width: 240px;
+  }
+
+  .copy {
+    margin-right: 10px;
+  }
+}
+
+.metadata__data {
+  border-radius: 3px;
+  border: 1px solid $color-light;
+  padding: 0 8px;
+
+  span {
+    float: right;
+  }
+}
+
+.metadata__share {
+  position: relative;
+  padding: 0;
+  margin-top: 16px;
+
+  li {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    text-indent: 100%;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  a {
+    color: $color-light;
+    position: relative;
+  }
+
+  .facebook {
+    background: url('../images/facebook-logo.png') center center / cover;
+  }
+
+  .twitter {
+    background: url('../images/twitter-logo.png') center center / cover;
+  }
+
+  .pinterest {
+    background: url('../images/pinterest-logo.png') center center / cover;
+  }
+
+  .googleplus {
+    background: url('../images/google-plus-logo.png') center center / cover;
+  }
+}
+
+.close-button {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    border: 0;
+    outline: 0;
+    transform: translate(-50%, 50%);
+    min-width: 96px;
+    line-height: 48px;
+    font-size: 1.25em;
+    transition: all 0.3s ease;
+    opacity: 0;
+
+    &:hover {
+        background: $color-red;
+        color: $color-light;
+    }
+}
+
+.overlay--cover + .modal-box .close-button {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+
+/* Responsive: Portrait tablets and up */
 nav {
     position: fixed;
     float: left;
