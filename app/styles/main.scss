@@ -18,7 +18,6 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
     padding-bottom: 20px;
     font-family: $font-roboto;
 }
@@ -267,26 +266,303 @@ body {
 
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+nav {
+    position: fixed;
+    float: left;
+    width: $nav-width;
+    height: 100vh;
+    color: $color-light;
+    background-color: $color-dark;
+
+    img#logo {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: calc(#{$nav-width} - 40px);
+        transform: translateX(-50%);
+        filter: huerotate(180deg);
+    }
+
+    #nav-panel {
+        position: relative;
+        width: 100%;
+        height: 300px;
+
+        i {
+            font-size: $font-size-x-large;
+            width: 100%;
+            height: 25%;
+            cursor: pointer;
+            transition: background-color .1s ease-in-out;
+
+            @extend .flex__center;
+        }
+
+        i:hover {
+            transition: background-color .1s ease-in-out;
+        }
+
+        #hot-nav-btn:hover {
+            background-color: $color-red;
+        }
+
+        #picture-nav-btn:hover {
+            background-color: $color-blue;
+        }
+
+        #video-nav-btn:hover {
+            background-color: $color-green;
+        }
+
+        #audio-nav-btn:hover {
+            background-color: $color-yellow;
+        }
+    }
+
+    #setting-btn {
+        font-size: $font-size-x-large;
+        position: absolute;
+        top: 92.4%;
+        width: 100%;
+        height: 75px;
+        cursor: pointer;
+        transition: background-color .1s ease-in-out;
+
+        @extend .flex__center;
+
+        &:hover {
+            transition: background-color .1s ease-in-out;
+            background-color: lighten($color-dark, 10%);
+        }
+    }
+}
+
+header {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    right: 0;
+    width: calc(100vw - #{$nav-width} - 17px);
+    height: $header-height;
+    background-color: $color-light;
+
+    @include phone {
+        width: 100vw;
+        padding: 0;
+    }
+
+
+    i:hover {
+        transition: background-color .1s ease-in-out;
+    }
+
+    #search-panel {
+        font-size: 20px;
+        width: 100%;
+        height: calc(#{$header-height} - 5px );
+
+        form {
+            width: 95%;
+        }
+
+        #search-text {
+            font-size: $font-size-regular;
+            width: 100%;
+            min-height: $button-height;
+            padding-left: 16px;
+            border: 0;
+            border-bottom: 1px solid $color-accent;
+        }
+    }
+
+    #control-panel {
+        width: 100%;
+        height: calc(#{$header-height} - 5px );
+        padding: 0 10px;
+
+        #upload-btn {
+            background-color: transparent;
+        }
+
+        #signin-btn {
+            color: $color-light;
+            background-color: $color-red;
+        }
+    }
+
+    #search-panel-phone {
+        height: $font-size-xx-large;
+
+        form {
+            min-width: 100%;
+            min-height: 100%;
+            position: relative;
+        }
+
+        #search-text-phone {
+            font-size: $font-size-regular;
+            width: 100%;
+            min-height: $button-height;
+            padding-left: 30px;
+            border: 0;
+        }
+    }
+
+    #control-panel-phone {
+        button {
+            margin: 0;
+            display: inline;
+            width: 50%;
+
+            span {
+                font-size: $font-size-large;
+            }
+        }
+    }
+
+    #upload-btn-phone {
+        background-color: $color-light;
+        color: $color-dark;
+    }
+
+    #signin-btn-phone {
+        background-color: $color-red;
+        color: $color-light;
+    }
+
+    #hot-tab-phone, #picture-tab-phone, #video-tab-phone, #audio-tab-phone {
+        font-size: $font-size-large;
+        height: $font-size-xx-large;
+        text-align: center;
+        position: relative;
+        border: {
+            bottom: 1px solid $color-accent;
+            top: 1px solid $color-accent;
+        };
+
+        i {
+            @extend .position__center;
+        }
+    }
+
+    #hot-tab-phone:hover {
+        background-color: $color-red;
+    }
+
+    #picture-tab-phone:hover {
+        background-color: $color-blue;
+    }
+
+    #video-tab-phone:hover {
+        background-color: $color-green;
+    }
+
+    #audio-tab-phone:hover {
+        background-color: $color-yellow;
+    }
+}
+
+main {
+    position: absolute;
+    right: 0;
+    width: calc(100vw - #{$nav-width} - 17px);
+    min-height: 100vh;
+    margin-top: $header-height;
+    padding: $main-padding;
+
+    @include phone {
+        width: 100vw;
+    }
+
+
     .container {
-        max-width: 730px;
+        width: 100%;
+        min-height: 100px;
+        padding: 0;
     }
+}
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
+button {
+    width: $button-width;
+    height: $button-height;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+}
+
+.position__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.position__center-horizontal {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.position__center-vertical {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.flex {
+    display: flex;
+}
+
+.flex__center {
+    @extend .flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.flex__direction-column {
+    flex-direction: column;
+
+    @extend .flex;
+}
+
+.flex__direction-row {
+    flex-direction: row;
+
+    @extend .flex;
+}
+
+.hidden__phone {
+    @include phone {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
     }
+}
 
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
+.hidden__tablet {
+    @include tablet {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
     }
+}
 
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
+.hidden__desktop {
+    @include desktop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
     }
 }
