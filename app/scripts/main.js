@@ -4,6 +4,6 @@ $('.close-button').click(function () {
     $('.overlay').removeClass('overlay--cover');
 });
 
-$('.glyphicon-heart').click(function () {
+$('#logo').click(function () {
     $('.overlay').addClass('overlay--cover');
 });

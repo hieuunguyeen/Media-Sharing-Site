@@ -74,7 +74,8 @@ body {
   position: absolute;
   background: $color-dark;
   transition: all 0.3s ease;
-  z-index: 10;
+  z-index: 90;
+  overflow: hidden;
 }
 
 .overlay.overlay--cover {
@@ -88,20 +89,21 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: auto;
   z-index: 99;
   visibility: hidden;
   backface-visibility: hidden;
-  padding: 2.5%;
-  letter-spacing: 0.5px;
+  padding: 16px;
+  letter-spacing: 0.25px;
   transition: box-shadow 0.1s ease;
+  height: 90vh;
 
   .modal-box__content {
     color: $color-light;
-    background: $color-dark;
+    background: transparent;
     position: relative;
     margin: 0 auto;
     display: flex;
+    flex-flow: row;
     transform: scale(0.8);
     opacity: 0;
     transition: all 0.3s ease;
@@ -123,7 +125,7 @@ body {
 }
 
 .modal-box__image img {
-  max-width: 960px;
+  max-width: 60vw;
   height: auto;
 }
 
@@ -162,7 +164,11 @@ body {
 
 .modal-box__metadata {
   text-align: center;
-  margin: 0 32px;
+  margin: 40px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-content: center;
 
   h3 {
       margin: 0;
@@ -242,16 +248,17 @@ body {
 
 .close-button {
     position: absolute;
-    left: 50%;
-    bottom: 0;
+    top: 0;
+    right: 0;
     border: 0;
-    outline: 0;
-    transform: translate(-50%, 50%);
-    min-width: 96px;
-    line-height: 48px;
-    font-size: 1.25em;
-    transition: all 0.3s ease;
+    background: $color-light;
+    color: $color-dark;
+    margin: 0;
     opacity: 0;
+    visibility: hidden;
+    z-index: 90;
+    width: 48px;
+    transition: all 0.3s 0.1s ease;
 
     &:hover {
         background: $color-red;
@@ -261,7 +268,7 @@ body {
 
 .overlay--cover + .modal-box .close-button {
     opacity: 1;
-    transition: opacity 0.2s ease;
+    visibility: visible;
 }
 
 
@@ -466,7 +473,6 @@ main {
     position: absolute;
     right: 0;
     width: calc(100vw - #{$nav-width} - 17px);
-    min-height: 100vh;
     margin-top: $header-height;
     padding: $main-padding;
 
@@ -565,4 +571,29 @@ button {
         height: 1px;
         opacity: 0;
     }
+}
+
+@media screen and (max-width: 980px) {
+    .modal-box__content.modal-box__content {
+        max-width: 100vw;
+        flex-wrap: wrap;
+
+        .modal-box__image {
+          flex-basis: 100%;
+        }
+
+        .modal-box__image img {
+          max-width: 90vw;
+        }
+
+        .modal-box__metadata {
+          flex-flow: row wrap;
+        }
+    }
+
+    .metadata__data {
+        flex-basis: 100%;
+    }
+
+
 }

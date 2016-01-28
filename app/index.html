@@ -27,7 +27,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="overlay overlay--cover"></div>
+    <div class="overlay"></div>
 
     <section class="modal-box">
       <div class="modal-box__content">
@@ -41,21 +41,7 @@
             </figcaption>
           </figure>
         <aside class="modal-box__metadata">
-          <h3>Links</h3>
-          <div class="metadata__links">
-            <label for="direct-link">Direct Link</label>
-            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
-            <br>
-            <label for="image-link">Image Link</label>
-            <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
-            <label for="direct-link">Direct Link</label>
-            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
-            <br>
-            <label for="image-link">Image Link</label>
-            <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
-            <br>
-          </div>
-          <h3>Metadata</h3>
+          <!-- metadata -->
           <div class="metadata__data">
             <p>
               <h5>Taken Date: <span class="taken-date">12/12/12</span></h5>
@@ -65,6 +51,19 @@
               <h5>Image Type: <span class="image-type">GIF Image</span></h5>
             </p>
           </div>
+          <!-- copy links -->
+          <div class="metadata__links">
+            <label for="direct-link">Direct Link</label>
+            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
+            <br>
+            <label for="image-link">Image Link</label>
+            <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
+            <br>
+            <label for="direct-link">HTML Link</label>
+            <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="something html here">
+            <br>
+          </div>
+          <!-- share options -->
           <ul class="metadata__share">
             <li class="facebook"><a href="#">Facebook</a></li>
             <li class="twitter"><a href="#">Twitter</a></li>
@@ -72,9 +71,8 @@
             <li class="googleplus"><a href="#">Google+</a></li>
           </ul>
         </aside>
-
       </div>
-      <button class="close-button"><span>Close</span></button>
+      <button class="close-button"><span>×</span></button>
     </section>
 
     <nav class="hidden__phone">
