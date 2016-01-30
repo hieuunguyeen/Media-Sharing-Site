@@ -8,14 +8,6 @@ $color-red: #de3b59;
 $color-blue: darken(#19f3bf, 10%);
 $color-accent: #ccc;
 
-// Elements
-$nav-width: 100px;
-$main-padding: 0 5%;
-$header-height: 80px;
-
-$button-width: 100px;
-$button-height: $header-height * 0.6;
-
 // Devices
 $width-tablet: 600px;
 $width-desktop: 1024px;
@@ -29,3 +21,11 @@ $font-size-x-large: 32px;
 $font-size-xx-large: 48px;
 $font-size-xxx-large: 64px;
 $font-size-xxxx-large: 96px;
+
+// Elements
+$nav-width: 90px;
+$main-padding: 0 5%;
+$header-height: 80px;
+
+$button-width: 100px;
+$button-height: $header-height * 0.6;

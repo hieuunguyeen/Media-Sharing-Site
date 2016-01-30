@@ -16,13 +16,18 @@
   // Colors
   $color-dark: #221f26;
   $color-light: #f5f5f5;
+  
+  $color-green: lighten(#3bd23d, 5%);
   $color-yellow: #edbd2e;
   $color-red: #de3b59;
   $color-blue: #19f3bf;
   
+  $color-accent: #ccc;
+  
   // Devices
-  $width-tablet: 768px;
+  $width-tablet: 600px;
   $width-desktop: 1024px;
+  $width-x-desktop: 1600px;
 
   // Font size
   $font-size-small: 12px;
