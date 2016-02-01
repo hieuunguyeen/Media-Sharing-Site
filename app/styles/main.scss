@@ -77,7 +77,10 @@ body {
 
 .modal-box__image img {
     max-width: 60vw;
+    max-height: 75vh;
     height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .image__functions {
@@ -120,11 +123,13 @@ body {
         color: currentColor;
         font-weight: 700;
         font-size: 16px;
+        flex-basis: 25;
     }
 
     span {
         color: $color-light;
         font-weight: normal;
+        display: block;
     }
 }
 
@@ -565,6 +570,11 @@ button {
 }
 
 @media screen and (max-width: 980px) {
+    .modal-box {
+        max-height: 100%;
+        overflow: auto;
+    }
+
     .modal-box__content.modal-box__content {
         max-width: 100vw;
         flex-wrap: wrap;
