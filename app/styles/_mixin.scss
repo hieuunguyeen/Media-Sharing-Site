@@ -18,3 +18,15 @@
         @content;
     }
 }
+
+@mixin device-portrait {
+    @media screen and (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin device-landscape {
+    @media screen and (orientation: landscape) and (max-width: #{$width-desktop}) {
+        @content;
+    }
+}

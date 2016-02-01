@@ -1,0 +1,386 @@
+.overlay {
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: $color-dark;
+    transition: all 0.3s ease;
+    z-index: 90;
+    overflow: hidden;
+}
+
+.overlay.overlay--cover {
+    display: block;
+    visibility: visible;
+}
+
+.modal-box {
+    position: fixed;
+    transition: all 0.3s ease;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    visibility: hidden;
+    backface-visibility: hidden;
+    padding: 16px;
+    letter-spacing: 0.25px;
+    transition: box-shadow 0.1s ease;
+    max-height: 90vh;
+
+    .modal-box__content {
+        color: $color-light;
+        background: transparent;
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        flex-flow: row;
+        transform: scale(0.8);
+        opacity: 0;
+        transition: all 0.3s ease;
+
+        .modal-box__image {
+            margin: 0;
+            position: relative;
+        }
+    }
+}
+
+.overlay--cover + .modal-box {
+    visibility: visible;
+    box-shadow: 0px 0px 6px rgb(0, 0, 0);
+
+    .modal-box__content {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-box__image img {
+    max-width: 60vw;
+    height: auto;
+}
+
+.image__functions {
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    background: $color-red;
+
+    .glyphicon {
+        font-size: 24px;
+        margin: 0 16px;
+        cursor: pointer;
+        color: $color-light;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: darken($color-red, 20%);
+        }
+
+        &:last-child {
+            margin-left: auto;
+        }
+    }
+}
+
+.image__info {
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.66);
+    justify-content: space-between;
+    padding: 0 16px;
+    color: $color-red;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    h4 {
+        color: currentColor;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    span {
+        color: $color-light;
+        font-weight: normal;
+    }
+}
+
+.modal-box__image:hover .image__info {
+    opacity: 1;
+}
+
+.image__description {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 16px 16px;
+    background: $color-red;
+    color: $color-light;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image__description.show {
+    opacity: 1;
+}
+
+.modal-box__metadata {
+    text-align: center;
+    margin: 40px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-content: center;
+
+    h3 {
+        margin: 0;
+        margin-bottom: 16px;
+    }
+}
+
+.metadata__links, .metadata__data {
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.metadata__links {
+    .link {
+        margin: 10px 0;
+        padding: 8px 16px;
+        color: $color-dark;
+        border: none;
+        outline: none;
+        min-width: 240px;
+    }
+
+    .copy {
+        margin-right: 10px;
+    }
+}
+
+.metadata__data {
+    border-radius: 3px;
+    border: 1px solid $color-light;
+    padding: 0 8px;
+
+    span {
+        float: right;
+    }
+}
+
+.metadata__share {
+    position: relative;
+    padding: 0;
+    margin-top: 16px;
+
+    li {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        overflow: hidden;
+        text-indent: 100%;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    a {
+        color: $color-light;
+        position: relative;
+    }
+
+    .facebook {
+        background: url("../images/facebook-logo.png") center (center / cover);
+    }
+
+    .twitter {
+        background: url("../images/twitter-logo.png") center (center / cover);
+    }
+
+    .pinterest {
+        background: url("../images/pinterest-logo.png") center (center / cover);
+    }
+
+    .googleplus {
+        background: url("../images/google-plus-logo.png") center (center / cover);
+    }
+}
+
+.modal-box__metadata--phone {
+    display: none;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    background: $color-light;
+    color: $color-dark;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 90;
+    width: 48px;
+    transition: all 0.3s 0.1s ease;
+
+    &:hover {
+        background: $color-red;
+        color: $color-light;
+    }
+}
+
+.overlay--cover + .modal-box .close-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (max-width: #{$width-desktop}) {
+    .modal-box {
+        max-height: 100%;
+        overflow: auto;
+    }
+
+    .modal-box__content.modal-box__content {
+        max-width: 100vw;
+        flex-wrap: wrap;
+        margin: 48px 0;
+
+        .modal-box__image {
+            flex-basis: 100%;
+        }
+
+        .modal-box__image img {
+            max-width: 90vw;
+        }
+
+        .modal-box__metadata {
+            flex-flow: row wrap;
+            margin: 40px auto;
+        }
+    }
+
+    .metadata__data {
+        flex-basis: 100%;
+    }
+
+    .image__info {
+        h4, span {
+            font-size: 1em;
+        }
+    }
+}
+
+@media screen and (max-width: #{$width-phone}) {
+    .modal-box__metadata {
+        display: none;
+    }
+
+    .image__info {
+        h4 {
+            flex-basis: 100%;
+        }
+
+        span {
+            float: right;
+        }
+    }
+
+    .modal-box__metadata--phone.modal-box__metadata--phone {
+        display: block;
+        width: 100%;
+        margin-top: 32px;
+
+        /* Tab Navigation for Overlay */
+        .metadata-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: $color-red;
+
+            a {
+                text-decoration: none;
+                flex: 1;
+                color: #fff;
+                background: $color-dark;
+                transition: color 0.3s ease, background 0.2s ease;
+                text-align: center;
+                padding: 4px 0;
+                background: darken($color-dark, 2.5%);
+
+                &:hover {
+                    color: $color-light;
+                    background: darken($color-dark, 5%);
+                }
+            }
+
+            a:last-child {
+                margin-right: 0;
+            }
+
+            a.active {
+                background: $color-light;
+                color: currentColor;
+            }
+
+            i, span {
+                margin: 0;
+                padding: 0;
+                line-height: 1;
+                font-size: 18px;
+            }
+
+            span {
+                display: none;
+            }
+        }
+
+        /* Tabs for Overlay */
+        .metadata__tab--phone {
+            display: none;
+            background: $color-light;
+            color: $color-dark;
+            padding: 16px;
+        }
+
+        .metadata__tab--phone.active {
+            display: block;
+        }
+
+        .tab--data span {
+            float: right;
+        }
+
+        .tab--share ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .tab--links.active {
+            display: flex;
+            flex-flow: row wrap;
+
+            label {
+                flex-basis: 100%;
+                margin: 4px 0;
+            }
+
+            .copy {
+                flex-basis: 15%;
+            }
+
+            input {
+                flex-basis: 85%;
+            }
+        }
+    }
+}
