@@ -1,0 +1,39 @@
+angular.module('myApp', [])
+	.controller('UploadController', function ($scope, $http) {
+		$scope.setMediaFile = function (element) {
+			$scope.mimeType = element.files[0].type;
+			$scope.type = element.files[0].type.split('/')[0];
+		};
+
+		$scope.postImage = function () {
+			$scope.fd = new FormData(angular.element('#uploadForm')[0]); //change this to the upload form ID
+			$scope.fd.append('user', 5); //change this user to the logged in user
+			$scope.fd.append('title', 'title'); //read title from the form, or remove and add form input
+			$scope.fd.append('description', 'description'); //read description from the form, or remove and add form input
+			$scope.fd.append('type', $scope.type); //read type (image/audio/video) from the form, or remove and add form input
+			$scope.fd.append('mime-type', $scope.mimeType); //For example video/mp4 or audio/mp3
+
+			/* #EXAMPLE#
+			<form if="uploadForm">
+				<input name="file" type="file" onchange="angular.element(this).scope().setMediaFile(this)">
+				<input name="title" type="text">
+				<input name="description" type="text">
+				<button ng-click="postImage();">Upload</button>
+			</form>
+			*/
+
+			$http.post('http://util.mw.metropolia.fi/ImageRekt/api/v2/upload',
+				$scope.fd, {
+					transformRequest: angular.identity,
+					headers: {
+						'Content-Type': undefined
+					}
+				});
+			/* #Debugging#
+			request.then(function (response) {
+				console.log(response);
+			}, function (response) {
+				console.log(response);
+			});*/
+		};
+	});
