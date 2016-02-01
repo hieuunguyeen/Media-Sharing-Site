@@ -239,6 +239,10 @@ button {
     height: $button-height;
     margin: 0 10px;
     border: 1px solid #ccc;
+
+    @include phone {
+        border: 0;
+    }
 }
 
 .position__center {

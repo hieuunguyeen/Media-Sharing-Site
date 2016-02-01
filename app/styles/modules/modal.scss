@@ -279,7 +279,7 @@
     }
 }
 
-@media screen and (max-width: #{$width-phone}) {
+@media screen and (max-width: #{$width-tablet}) {
     .modal-box__metadata {
         display: none;
     }
