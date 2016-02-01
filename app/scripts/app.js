@@ -1,6 +1,11 @@
 angular.module('myApp', [])
 	.controller('UploadController', function ($scope, $http) {
 
+		$scope.setMediaFile = function(e) {
+			$scope.mimeType = e.files[0].type;
+			$scope.type = e.files[0].type.split("/").[0];
+		}
+
 		$scope.postImage = function () {
 			$scope.fd = new FormData(angular.element('#formi')[0]); //change this to the upload form ID
 			$scope.fd.append('user', 5); //change this user to the logged in user
