@@ -25,12 +25,11 @@
     z-index: 99;
     visibility: hidden;
     backface-visibility: hidden;
-    filter: blur(0);
+    filter: none;
     padding: 16px;
     letter-spacing: 0.25px;
     transition: box-shadow 0.1s ease;
     max-height: 90vh;
-    outline: 1px solid transparent;
 
     .modal-box__content {
         color: $color-light;
