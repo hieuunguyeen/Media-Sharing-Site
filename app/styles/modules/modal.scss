@@ -21,11 +21,11 @@
     transition: all 0.3s ease;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) translateZ(0) scale(1.0, 1.0);
+    transform: translate(-50%, -50%) translateZ(0) scale(1, 1);
     z-index: 99;
     visibility: hidden;
     backface-visibility: hidden;
-    filter: none;
+    -webkit-filter: blur(0);
     padding: 16px;
     letter-spacing: 0.25px;
     transition: box-shadow 0.1s ease;
