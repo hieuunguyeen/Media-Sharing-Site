@@ -36,9 +36,10 @@ nav {
     }
 
     #nav-panel {
-        position: relative;
         width: 100%;
         height: 40%;
+
+        @extend .position__center;
 
         i {
             font-size: calc(#{$nav-width} / 2.8);
@@ -69,22 +70,8 @@ nav {
         #audio-nav-btn:hover {
             background-color: $color-yellow;
         }
-    }
 
-    #setting-btn {
-        font-size: $font-size-x-large;
-        width: 100%;
-        height: 75px;
-        cursor: pointer;
-        transition: background-color .1s ease-in-out;
-        position: absolute;
-        top: 100%;
-        transform: translateY(-100%);
-
-        @extend .flex__center;
-
-        &:hover {
-            transition: background-color .1s ease-in-out;
+        #setting-btn:hover {
             background-color: lighten($color-dark, 10%);
         }
     }
@@ -97,6 +84,7 @@ header {
     right: 0;
     width: calc(100vw - #{$nav-width} - 40px);
     height: $header-height;
+    background-color: inherit;
 
     @include phone {
         width: 100vw;
@@ -142,6 +130,10 @@ header {
         }
     }
 
+    #tabs-phone {
+        background-color: inherit;
+    }
+
     #search-panel-phone {
         height: $font-size-xx-large;
 
@@ -154,7 +146,7 @@ header {
         #search-text-phone {
             font-size: $font-size-regular;
             width: 100%;
-            min-height: $button-height;
+            height: $button-height;
             padding-left: 30px;
             border: 0;
         }
@@ -184,7 +176,7 @@ header {
 
     #hot-tab-phone, #picture-tab-phone, #video-tab-phone, #audio-tab-phone, #setting-tab-phone {
         font-size: $font-size-large;
-        height: $font-size-xx-large;
+        height: $button-height;
         text-align: center;
         position: relative;
         border: {
@@ -222,18 +214,11 @@ main {
     position: absolute;
     right: 0;
     width: calc(100vw - #{$nav-width} - 17px);
-    margin-top: calc(#{$font-size-xx-large} * 2);
+    margin-top: calc(#{$button-height} * 2);
     padding: $main-padding;
 
     @include phone {
         width: 100vw;
-    }
-
-
-    .container {
-        width: 100%;
-        min-height: 100px;
-        padding: 0;
     }
 }
 
@@ -290,8 +275,6 @@ button {
     @extend .flex;
 }
 
-.hidden {}
-
 .hidden__phone {
     @include phone {
         position: absolute;
@@ -329,4 +312,22 @@ button {
         opacity: 0;
         z-index: 100;
     }
+}
+
+.container {
+    width: 100%;
+    min-height: 100px;
+    padding: 0;
+
+    .content {
+        height: 300px;
+        background-color: $color-light;
+        margin: 40px 0;
+    }
+
+    #hot-picture-stripe {}
+
+    #hot-video-stripe {}
+
+    #hot-audio-stripe {}
 }

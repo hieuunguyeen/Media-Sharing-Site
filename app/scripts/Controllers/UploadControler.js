@@ -32,8 +32,8 @@ angular.module('myApp', [])
 			/* #Debugging#
 			request.then(function (response) {
 				console.log(response);
-			}, function (response) {
-				console.log(response);
+			}, function (err) {
+				console.log(err);
 			});*/
 		};
 	});
