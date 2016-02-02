@@ -1,5 +1,5 @@
 angular.module('myApp', [])
-	.controller('UploadController', function ($scope, $http, $sce) {
+	.controller('GetDataController', function ($scope, $http, $sce) {
 		$scope.getImages = function () {
 			$http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/files/type/image').then($scope.imageSuccess, $scope.imageError);
 		};
