@@ -4,6 +4,8 @@
   @include phone
   @include tablet
   @include desktop
+  @include device-portrait
+  @include device-landscape
  ````
 #### Fonts:
   ````scss
