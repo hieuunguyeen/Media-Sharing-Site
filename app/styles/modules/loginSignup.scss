@@ -1,0 +1,106 @@
+.modal--login {
+
+    .modal-box__content {
+        flex-wrap: wrap;
+    }
+}
+
+.content--half {
+    flex-basis: 40%;
+    padding:  0 32px;
+    margin: 0 auto;
+    margin-top: 32px;
+
+}
+
+.content--half:first-child::after {
+    position: absolute;
+    content: '';
+    height: 70%;
+    width: 1px;
+    background: $color-light;
+    right: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modal__notice {
+    flex-basis: 100%;
+    text-align: center;
+    margin-top: 32px;
+}
+
+.content__title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.content__form form {
+    display: flex;
+    flex-flow: column wrap;
+    color: $color-dark;
+    justify-content: center;
+
+    .modal-form__input {
+        padding: 8px 16px;
+        margin: 8px 0;
+        outline: 0;
+        border: 0;
+        width: 100%;
+    }
+
+    button {
+        margin: 32px 0;
+        margin-left: auto;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $color-light;
+            background: $color-red;
+            border: 0;
+        }
+    }
+
+    input[type="checkbox"] {
+        margin-top: 8px;
+    }
+
+    label[for="rememberMe"] {
+        color: $color-light;
+    }
+}
+
+@media screen and (max-width: #{$width-desktop}) {
+    .modal--login {
+        width: 100%;
+
+        .content__title {
+            font-size: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: #{$width-tablet}) {
+    .modal--login {
+        width: 100%;
+
+        .modal-box__content {
+            flex-flow: column wrap;
+        }
+    }
+
+    .content--half:first-child {
+        position: relative;
+    }
+
+    .content--half:first-child::after {
+        position: absolute;
+        content: '';
+        height: 2px;
+        width: 80%;
+        background: $color-light;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+    }
+}

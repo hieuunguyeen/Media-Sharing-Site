@@ -1,21 +1,30 @@
 
-$('.close-button').click(function () {
-    $('.overlay').removeClass('overlay--cover');
-});
+(function() {
+    $('.close-button').click(function () {
+        $('.overlay').removeClass('overlay--cover');
+        $(this).closest('.modal-box').removeClass('modal-box--cover');
+    });
 
-$('#logo').click(function () {
-    $('.overlay').addClass('overlay--cover');
-});
+    $('#logo').click(function () {
+        $('.overlay').addClass('overlay--cover');
+        $('.modal-box[modal-data="lightbox"]').addClass('modal-box--cover');
+    });
 
-$('.glyphicon-subtitles').click(function () {
-    $('.image__description').toggleClass('show');
-});
+    $('.glyphicon-subtitles').click(function () {
+        $('.image__description').toggleClass('show');
+    });
 
-$('.metadata-nav a').click(function () {
-    var tabPos = $(this).index();
-    console.log(tabPos);
-    $(this).siblings().removeClass('active');
-    $(this).addClass('active');
+    $('.metadata-nav a').click(function () {
+        var tabPos = $(this).index();
+        console.log(tabPos);
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
 
-    $('.metadata__tab--phone').removeClass('active').eq(tabPos).addClass('active');
-});
+        $('.metadata__tab--phone').removeClass('active').eq(tabPos).addClass('active');
+    });
+
+    $('#signin-btn, #signin-btn-phone').click(function () {
+        $('.overlay').addClass('overlay--cover');
+        $('.modal-box[modal-data="login"]').addClass('modal-box--cover');
+    });
+})();

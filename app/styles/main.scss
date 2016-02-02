@@ -5,12 +5,12 @@
 
 @import "modules/modal";
 @import "modules/scrollbar";
+@import "modules/loginSignup";
 
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-
 // endbower
 
 /* Space out content a bit */

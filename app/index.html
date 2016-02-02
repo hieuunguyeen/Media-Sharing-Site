@@ -31,7 +31,7 @@
 
     <div class="overlay"></div>
 
-    <section class="modal-box" id="item-popup">
+    <section class="modal-box modal--lightbox" id="item-popup" modal-data="lightbox">
       <div class="modal-box__content">
         <figure class="modal-box__image">
             <img class="image__content" src="http://placehold.it/768x768" alt="">
@@ -41,7 +41,7 @@
               <i class="glyphicon glyphicon-subtitles"></i>
             </figcaption>
             <figcaption class="image__info">
-                <h4>Name: <span class="image-info__views">Random Image</span></h4>
+                <h4>Name: <span class="image-info__views">Random Image Lightbox</span></h4>
                 <h4>Uploaded: <span class="image-info__author">16/11/2015</span></h4>
                 <h4>Views: <span class="image-info__views">58</span></h4>
                 <h4>Author: <span class="image-info__author">SomebodySomebody</span></h4>
@@ -64,7 +64,7 @@
           <!-- copy links -->
           <div class="metadata__links">
             <label for="direct-link">Direct Link</label>
-            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
+            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here lightbox">
             <br>
             <label for="image-link">Image Link</label>
             <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
@@ -109,7 +109,7 @@
                 <label for="direct-link">Direct Link</label>
                 <br>
                 <span class="copy">Copy</span>
-                <input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
+                <input readonly class="link direct-link" name="direct-link" type="text" value="something direct here login">
                 <br>
                 <label for="image-link">Image Link</label>
                 <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
@@ -129,10 +129,66 @@
         </aside>
       </div>
       <button class="close-button"><span>×</span></button>
-  </section>  
+
+  </section>
+
+  <section class="modal-box modal--login" modal-data="login">
+      <div class="modal-box__content">
+          <div class="content--half">
+              <h3 class="content__title">Sign In</h3>
+              <div class="content__form">
+                  <form action="" class="modal-form">
+                      <span>
+                          <input class="modal-form__input" type="text" placeholder="Username" name="username">
+                          <label for="username"></label>
+                      </span>
+                      <span>
+                          <input class="modal-form__input" type="password" placeholder="Password" name="password">
+                          <label for="password"></label>
+                      </span>
+                      <span>
+                          <input type="checkbox" label="Remember Me" name="rememberMe">
+                          <label for="rememberMe">Remember Me</label>
+                      </span>
+                      <button type="submit">Register</button>
+                  </form>
+              </div>
+          </div>
+          <div class="content--half">
+              <h3 class="content__title">Not Have Account Yet?</h3>
+              <div class="content__form">
+                  <form action="" class="modal-form">
+                      <span>
+                          <input class="modal-form__input" type="text" placeholder="Choose Username" name="username">
+                          <label for="username"></label>
+                      </span>
+                      <span>
+                          <input class="modal-form__input" type="password" placeholder="Choose Password" name="password">
+                          <label for=""></label>
+                      </span>
+                      <span>
+                          <input class="modal-form__input" type="password" placeholder="Verify Password" name="rePasword">
+                          <label for="rePassword"></label>
+                      </span>
+                      <span>
+                          <input class="modal-form__input" type="email" placeholder="Email" name="email">
+                          <label for="email"></label>
+                      </span>
+                      <span>
+                          <input type="checkbox" label="Remember Me" name="rememberMe">
+                          <label for="rememberMe">Remember Me</label>
+                      </span>
+                      <button type="submit">Log in</button>
+                  </form>
+              </div>
+          </div>
+          <h5 class="modal__notice">By signing up, you agree to our Terms and that you have read our Privacy Policy and Content Policy.</h5>
+      </div>
+      <button class="close-button"><span>×</span></button>
+  </section>
 
     <nav class="hidden__phone">
-        <img src="images/logo.png" alt="" id="logo">
+        <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox">
         <div id="nav-panel">
             <i class="glyphicon glyphicon-fire" id="hot-nav-btn"></i>
             <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
@@ -167,7 +223,7 @@
             </div><div class="pure-g pure-u-sm-2-5" id="control-panel-phone">
                 <button id="upload-btn-phone">
                     <span class="fa fa-upload"></span>
-                </button><button id="signin-btn-phone">
+                </button><button id="signin-btn-phone" modal-data="login">
                     <span class="fa fa-sign-in"></span>
                 </button>
             </div>
