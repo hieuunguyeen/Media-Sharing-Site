@@ -108,7 +108,6 @@
         color: currentColor;
         font-weight: 700;
         font-size: 16px;
-        flex-basis: 25%;
     }
 
     span {
@@ -136,6 +135,7 @@
 
 .image__description.show {
     opacity: 1;
+    z-index: 11;
 }
 
 .modal-box__metadata {

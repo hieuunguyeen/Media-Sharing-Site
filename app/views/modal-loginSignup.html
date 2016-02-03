@@ -1,7 +1,7 @@
-<section class="modal-box modal--login" modal-data="login">
+<section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}" ng-controller="loginFormController as form">
     <div class="modal-box__content">
         <div class="content--half">
-            <h3 class="content__title">Sign In</h3>
+            <h3 class="content__title">Log In</h3>
             <div class="content__form">
                 <form action="" class="modal-form">
                     <span>
@@ -16,12 +16,12 @@
                         <input type="checkbox" label="Remember Me" name="rememberMe">
                         <label for="rememberMe">Remember Me</label>
                     </span>
-                    <button type="submit">Register</button>
+                    <button type="submit">Log in</button>
                 </form>
             </div>
         </div>
         <div class="content--half">
-            <h3 class="content__title">Not Have Account Yet?</h3>
+            <h3 class="content__title">Sign Up</h3>
             <div class="content__form">
                 <form action="" class="modal-form">
                     <span>
@@ -44,11 +44,11 @@
                         <input type="checkbox" label="Remember Me" name="rememberMe">
                         <label for="rememberMe">Remember Me</label>
                     </span>
-                    <button type="submit">Log in</button>
+                    <button type="submit">Register</button>
                 </form>
             </div>
         </div>
         <h5 class="modal__notice">By signing up, you agree to our Terms and that you have read our Privacy Policy and Content Policy.</h5>
     </div>
-    <button class="close-button"><span>×</span></button>
+    <button class="close-button" ng-click="loginOverlay = false"><span>×</span></button>
 </section>

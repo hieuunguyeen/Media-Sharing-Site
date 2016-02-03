@@ -1,4 +1,4 @@
-<section class="modal-box modal--lightbox" id="item-popup" modal-data="lightbox" ng-class="{'modal-box--cover': overlayed}" ng-controller="lightboxController as lightbox">
+<section class="modal-box modal--lightbox" id="item-popup" modal-data="lightbox" ng-class="{'modal-box--cover': lightboxOverlay}" ng-controller="lightboxController as lightbox">
   <div class="modal-box__content">
     <figure class="modal-box__image">
         <img class="image__content" src="http://placehold.it/768x768" alt="">
@@ -96,6 +96,6 @@
         </div>
     </aside>
   </div>
-  <button class="close-button" ng-click="overlayed = false"><span>×</span></button>
+  <button class="close-button" ng-click="lightboxOverlay = false"><span>×</span></button>
 
 </section>

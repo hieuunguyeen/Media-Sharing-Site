@@ -24,17 +24,19 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-class="{'body--overlay': loginOverlay || lightboxOverlay}">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="overlay" ng-class="{'overlay--cover': overlayed}"></div>
+    <div class="overlay" ng-class="{'overlay--cover': loginOverlay || lightboxOverlay}"></div>
 
     <light-box></light-box>
 
+    <login-form></login-form>
+
     <nav class="hidden__phone">
-        <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox" ng-click="overlayed = true">
+        <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox" ng-click="lightboxOverlay = true">
         <div id="nav-panel">
             <i class="glyphicon glyphicon-fire" id="hot-nav-btn"></i>
             <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
@@ -56,7 +58,7 @@
                 <button id="upload-btn"><span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
                     <p class="hidden__tablet hidden__phone" style="display:inline">UPLOAD</p>
                 </button>
-                <button id="signin-btn"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
+                <button id="signin-btn" ng-click="loginOverlay = true"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
                     <p class="hidden__tablet hidden__phone " style="display:inline">SIGN IN</p>
                 </button>
             </div>
@@ -135,12 +137,16 @@
     <!-- build:js(.tmp) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <script src="scripts/app.js"></script>
+
+    <!-- Directives -->
+    <script src="scripts/directives/singleImage.js"></script>
+    <script src="scripts/directives/loginForm.js"></script>
+
+    <!-- Controllers -->
     <script src="scripts/Controllers/GetDataController.js"></script>
     <script src="scripts/Controllers/UploadController.js"></script>
-    <script src="scripts/directives/singleImage.js"></script>
     <script src="scripts/Controllers/lightboxController.js"></script>
-
-
+    <script src="scripts/Controllers/loginFormController.js"></script>
 
     <!-- endbuild -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

@@ -11,4 +11,8 @@ angular.module('myApp')
         lightbox.tabSelected = function(checkTab) {
             return lightbox.metadataTab === checkTab;
         };
+
+        $('.glyphicon-subtitles').click(function () {
+            $('.image__description').toggleClass('show');
+        });
     });
