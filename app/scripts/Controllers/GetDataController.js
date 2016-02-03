@@ -1,7 +1,9 @@
-angular.module('myApp', [])
+angular.module('myApp')
     .controller('GetDataController', function($scope, $http, $sce) {
 
-        var link = 'http://util.mw.metropolia.fi/uploads/'
+        var link = 'http://util.mw.metropolia.fi/uploads/';
+
+        console.log('getDataController is working?');
 
         // Get Image
         $scope.getImages = function() {
