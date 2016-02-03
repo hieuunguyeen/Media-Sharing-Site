@@ -20,17 +20,18 @@
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <!-- endbuild -->
 </head>
 
-<body>
+<body ng-app="myApp">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <div class="overlay"></div>
 
-    <section class="modal-box">
+    <section class="modal-box" id="item-popup">
       <div class="modal-box__content">
         <figure class="modal-box__image">
             <img class="image__content" src="http://placehold.it/768x768" alt="">
@@ -140,6 +141,7 @@
             <i class="glyphicon glyphicon-cog" id="setting-btn"></i>
         </div>
     </nav>
+
     <header class="pure-g">
         <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4 hidden__phone">
             <div id="search-panel" class="flex__center">
@@ -149,8 +151,8 @@
             </div>
         </div><div class="pure-u-md-1-3 pure-u-lg-1-4 hidden__phone">
             <div id="control-panel" class="flex__center">
-                <button id="upload-btn"><span class="fa fa-user-plus hidden__desktop" style="font-size:24px;"></span>
-                    <p class="hidden__tablet hidden__phone" style="display:inline">REGISTER</p>
+                <button id="upload-btn"><span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
+                    <p class="hidden__tablet hidden__phone" style="display:inline">UPLOAD</p>
                 </button>
                 <button id="signin-btn"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
                     <p class="hidden__tablet hidden__phone " style="display:inline">SIGN IN</p>
@@ -164,7 +166,7 @@
                 </form>
             </div><div class="pure-g pure-u-sm-2-5" id="control-panel-phone">
                 <button id="upload-btn-phone">
-                    <span class="fa fa-user-plus"></span>
+                    <span class="fa fa-upload"></span>
                 </button><button id="signin-btn-phone">
                     <span class="fa fa-sign-in"></span>
                 </button>
@@ -184,13 +186,29 @@
             </div>
         </div>
     </header>
-    <main>
+
+    <main ng-controller="GetDataController">
         <div class="container" id="hot-picture-stripe">
-            <div class="content">asdsad</div>
+            <h1 ng-click="runAll()">Hot pictures</h1>
+            <div class="content" ng-repeat="image in allImages">
+                <div class="thumbnail__picture">
+                    <img alt="" ng-src="http://util.mw.metropolia.fi/uploads/{{image.path}}">
+                </div>
+            </div>
         </div><div class="container" id="hot-video-stripe">
-            <div class="content">asdsad</div>
+           <h1>Hot videos</h1>
+            <div class="content" ng-repeat="video in allVideos">
+                <div class="thumbnail__video">
+                    <video preload="metadata" controls>
+                        <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + video.path)}}">
+                    </video>
+                </div>
+            </div>
         </div><div class="container" id="hot-audio-stripe">
-            <div class="content">asdsad</div>
+            <h1 ng-click="getAudio()">Hot audio</h1>
+            <div class="content">
+                <div class="thumbnail__audio"></div>
+            </div>
         </div>
     </main>
     <!-- build:js(.) scripts/vendor.js -->
@@ -214,6 +232,8 @@
     <!-- endbuild -->
     <!-- build:js(.tmp) scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/Controllers/GetDataController.js"></script>
+    <script src="scripts/Controllers/UploadController.js"></script>
     <!-- endbuild -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
