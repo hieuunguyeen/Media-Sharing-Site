@@ -1,4 +1,4 @@
-angular.module('myApp', [])
+angular.module('myApp')
 	.controller('UploadController', function ($scope, $http) {
 		$scope.setMediaFile = function (element) {
 			$scope.mimeType = element.files[0].type;
