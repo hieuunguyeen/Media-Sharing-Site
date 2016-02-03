@@ -1,5 +1,5 @@
 angular.module('myApp', [])
-	.controller('UploadController', function ($scope, $http) {
+	.controller('UploadController', function ($scope, ajaxFactory) {
 		$scope.setMediaFile = function (element) {
 			$scope.mimeType = element.files[0].type;
 			$scope.type = element.files[0].type.split('/')[0];
@@ -22,13 +22,8 @@ angular.module('myApp', [])
 			</form>
 			*/
 
-			$http.post('http://util.mw.metropolia.fi/ImageRekt/api/v2/upload',
-				$scope.fd, {
-					transformRequest: angular.identity,
-					headers: {
-						'Content-Type': undefined
-					}
-				});
+			ajaxFactory.uploadFile($scope.fd);
+			
 			/* #Debugging#
 			request.then(function (response) {
 				console.log(response);
