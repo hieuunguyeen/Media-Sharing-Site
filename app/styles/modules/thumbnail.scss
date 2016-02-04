@@ -18,34 +18,47 @@
 .thumbnail__picture {
     position: relative;
 
-    img {
+    figure {
+        position: relative;
         height: 100%;
-        object-fit: cover;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        figcaption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            z-index: 20;
+            margin: 0;
+            border: 0;
+            color: transparent;
+        }
+
+        caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        &:hover > figcaption {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
+            color: $color-light;
+        }
+
+        i, p {
+            display: inline;
+        }
     }
 
-    &:hover > .metadata__data {
-        transform: translateY(0%);
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 30%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
-        z-index: 20;
-        margin: 0;
-        border: 0;
-        color: $color-light;
-        display: flex;
-    }
-
-    .metadata__data {
-        transform: translateY(0%);
-    }
-}
-
-.thumbnail__video {
-    video {
-        height: 100%;
+    .thumbnail__video {
+        video {
+            height: 100%;
+        }
     }
 }
 
