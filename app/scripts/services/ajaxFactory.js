@@ -12,5 +12,9 @@ angular.module('myApp')
             });
         };
 
+        ajaxFunctions.getFiles = function(args) {
+            return $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/files/type/' + args);
+        };
+
         return ajaxFunctions;
     });

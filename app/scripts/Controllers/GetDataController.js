@@ -1,48 +1,37 @@
 angular.module('myApp')
-    .controller('getDataController', function($scope, $http, $sce) {
+    .controller('getDataController', function($scope, $http, $sce, $interval, ajaxFactory) {
 
         var link = 'http://util.mw.metropolia.fi/uploads/';
 
         console.log('getDataController is working?');
 
-        // Get Image
-        $scope.getImages = function() {
-            $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/files/type/image')
-                .then(function(result) {
-                    $scope.allImages = result.data;
-                }, function(result) {
-                    console.log(result);
-                });
-        };
-
-        // Get Vid
-        $scope.getVideo = function() {
-            $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/files/type/video')
-                .then(function(result) {
-                    $scope.allVideos = result.data;
-
-                    console.log(result);
-                }, function(result) {
-                    console.log(result);
-                });
-        };
-
-        //Get Audio
-        $scope.getAudio = function() {
-            $http.get('http://util.mw.metropolia.fi/ImageRekt/api/v2/files/type/audio')
-                .then(function(result) {
-                    $scope.allAudios = result.data;
-                    console.log(result);
-                }, function(result) {
-                    console.log(result);
-                });
-        };
-
         //Load all content
         $scope.runAll = function() {
-            $scope.getImages();
-            $scope.getVideo();
-            $scope.getAudio();
+            ajaxFactory.getFiles('image')
+                .then(function (success) {
+                    $scope.allImages = success.data;
+                    console.log(success.data);
+                }, function (error) {
+                    console.log(error.data);
+                });
+
+            ajaxFactory.getFiles('audio')
+                .then(function (success) {
+                    $scope.allAudios = success.data;
+                    console.log(success.data);
+                }, function (error) {
+                    console.log(error.data);
+                });
+
+            ajaxFactory.getFiles('video')
+                .then(function (success) {
+                    $scope.allVideos = success.data;
+                    console.log(success.data);
+                }, function (error) {
+                    console.log(error.data);
+                });
+
+            $interval($scope.runAll, 3000);
         };
 
         //transform to trusted link for videos and audio

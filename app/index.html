@@ -94,7 +94,7 @@
         </div>
     </header>
 
-    <main ng-controller="getDataController">
+    <main ng-controller="getDataController" ng-init="runAll()">
         <div class="container" id="hot-picture-stripe">
             <h1>Hot pictures</h1>
             <div class="content">
@@ -144,6 +144,9 @@
     <script src="scripts/Controllers/uploadController.js"></script>
     <script src="scripts/Controllers/lightboxController.js"></script>
     <script src="scripts/Controllers/loginFormController.js"></script>
+
+    <!-- Controllers -->
+    <script src="scripts/services/ajaxFactory.js"></script>
 
     <!-- endbuild -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
