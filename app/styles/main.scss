@@ -83,7 +83,9 @@ nav {
         }
     }
 }
-
+.header-up {
+    top: -96px;
+    }
 header {
     position: fixed;
     z-index: 20;
@@ -92,12 +94,12 @@ header {
     width: calc(100vw - #{$nav-width} - 40px);
     height: $header-height;
     background-color: inherit;
+    transition: top 0.2s ease-in-out;
 
     @include phone {
         width: 100vw;
         padding: 0;
     }
-
 
     i:hover {
         transition: background-color .1s ease-in-out;
