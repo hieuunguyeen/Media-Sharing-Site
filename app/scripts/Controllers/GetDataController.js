@@ -1,7 +1,9 @@
 angular.module('myApp')
-    .controller('GetDataController', function($scope, $http, $sce) {
+    .controller('getDataController', function($scope, $http, $sce) {
 
-        var link = 'http://util.mw.metropolia.fi/uploads/'
+        var link = 'http://util.mw.metropolia.fi/uploads/';
+
+        console.log('getDataController is working?');
 
         // Get Image
         $scope.getImages = function() {
@@ -46,7 +48,7 @@ angular.module('myApp')
         //transform to trusted link for videos and audio
         //Usa like this:
         //<source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + video.path)}}">
-        $scope.trustURL = function(videoUrl) {
-            return $sce.trustAsResourceUrl(videoUrl);
+        $scope.trustURL = function(url) {
+            return $sce.trustAsResourceUrl(url);
         };
     });

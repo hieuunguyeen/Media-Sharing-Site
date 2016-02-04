@@ -24,115 +24,19 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="myApp">
+<body ng-app="myApp" ng-class="{'body--overlay': loginOverlay || lightboxOverlay}">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="overlay"></div>
+    <div class="overlay" ng-class="{'overlay--cover': loginOverlay || lightboxOverlay}"></div>
 
-    <section class="modal-box" id="item-popup">
-      <div class="modal-box__content">
-        <figure class="modal-box__image">
-            <img class="image__content" src="http://placehold.it/768x768" alt="">
-            <figcaption class="image__functions">
-              <i class="glyphicon glyphicon-thumbs-up"></i>
-              <i class="glyphicon glyphicon-comment"></i>
-              <i class="glyphicon glyphicon-subtitles"></i>
-            </figcaption>
-            <figcaption class="image__info">
-                <h4>Name: <span class="image-info__views">Random Image</span></h4>
-                <h4>Uploaded: <span class="image-info__author">16/11/2015</span></h4>
-                <h4>Views: <span class="image-info__views">58</span></h4>
-                <h4>Author: <span class="image-info__author">SomebodySomebody</span></h4>
-            </figcaption>
-            <figcaption class="image__description">
-                <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos accusantium, eius quibusdam sequi, at provident nemo itaque ipsa deserunt pariatur vero quam officiis est illo! Laudantium voluptatem omnis, cumque totam minima odit quae excepturi porro!</p>
-            </figcaption>
-          </figure>
-        <aside class="modal-box__metadata">
-          <!-- metadata -->
-          <div class="metadata__data">
-            <p>
-              <h5>Taken Date: <span class="taken-date">12/12/12</span></h5>
-              <h5>Resolution: <span class="resolution">1366x768</span></h5>
-              <h5>Pixels per Inch: <span class="dpi">72</span></h5>
-              <h5>Size: <span class="size">3.33 KB</span></h5>
-              <h5>Image Type: <span class="image-type">GIF Image</span></h5>
-            </p>
-          </div>
-          <!-- copy links -->
-          <div class="metadata__links">
-            <label for="direct-link">Direct Link</label>
-            <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
-            <br>
-            <label for="image-link">Image Link</label>
-            <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
-            <br>
-            <label for="direct-link">HTML Link</label>
-            <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="something html here">
-            <br>
-          </div>
-          <!-- share options -->
-          <ul class="metadata__share">
-            <li class="facebook"><a href="#">Facebook</a></li>
-            <li class="twitter"><a href="#">Twitter</a></li>
-            <li class="pinterest"><a href="#">Pinterest</a></li>
-            <li class="googleplus"><a href="#">Google+</a></li>
-          </ul>
-        </aside>
-        <aside class="modal-box__metadata--phone">
-            <div class="metadata-nav">
-                <a class="active" href="#">
-                    <i class="glyphicon glyphicon-info-sign"></i>
-                    <span>Metadata</span>
-                </a>
-                <a href="#">
-                    <i class="glyphicon glyphicon-link"></i>
-                    <span>Links</span>
-                </a>
-                <a href="#">
-                    <i class="glyphicon glyphicon-share"></i>
-                    <span>Share</span>
-                </a>
-            </div>
-            <div class="metadata__tab--phone tab--data active">
-                <p>
-                  <h5>Taken Date: <span class="taken-date">12/12/12</span></h5>
-                  <h5>Resolution: <span class="resolution">1366x768</span></h5>
-                  <h5>Pixels per Inch: <span class="dpi">72</span></h5>
-                  <h5>Size: <span class="size">3.33 KB</span></h5>
-                  <h5>Image Type: <span class="image-type">GIF Image</span></h5>
-                </p>
-            </div>
-            <div class="metadata__tab--phone tab--links">
-                <label for="direct-link">Direct Link</label>
-                <br>
-                <span class="copy">Copy</span>
-                <input readonly class="link direct-link" name="direct-link" type="text" value="something direct here">
-                <br>
-                <label for="image-link">Image Link</label>
-                <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
-                <br>
-                <label for="direct-link">HTML Link</label>
-                <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="something html here">
-                <br>
-            </div>
-            <div class="metadata__tab--phone tab--share">
-                <ul class="metadata__share">
-                  <li class="facebook"><a href="#">Facebook</a></li>
-                  <li class="twitter"><a href="#">Twitter</a></li>
-                  <li class="pinterest"><a href="#">Pinterest</a></li>
-                  <li class="googleplus"><a href="#">Google+</a></li>
-                </ul>
-            </div>
-        </aside>
-      </div>
-      <button class="close-button"><span>×</span></button>
-  </section>  
+    <light-box></light-box>
+
+    <login-form></login-form>
 
     <nav class="hidden__phone">
-        <img src="images/logo.png" alt="" id="logo">
+        <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox" ng-click="lightboxOverlay = true">
         <div id="nav-panel">
             <i class="glyphicon glyphicon-fire" id="hot-nav-btn"></i>
             <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
@@ -142,24 +46,27 @@
         </div>
     </nav>
 
-    <header class="pure-g">
-        <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4 hidden__phone">
+    <header class="pure-g hidden__phone" id="desktop-header">
+        <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4">
             <div id="search-panel" class="flex__center">
                 <form action="">
                     <input type="text" id="search-text" placeholder="Search">
                 </form>
             </div>
-        </div><div class="pure-u-md-1-3 pure-u-lg-1-4 hidden__phone">
+        </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
             <div id="control-panel" class="flex__center">
                 <button id="upload-btn"><span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
-                    <p class="hidden__tablet hidden__phone" style="display:inline">UPLOAD</p>
+                    <p class="hidden__tablet" style="display:inline">UPLOAD</p>
                 </button>
-                <button id="signin-btn"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
-                    <p class="hidden__tablet hidden__phone " style="display:inline">SIGN IN</p>
+                <button id="signin-btn" ng-click="loginOverlay = true"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
+                    <p class="hidden__tablet" style="display:inline">SIGN IN</p>
                 </button>
             </div>
         </div>
-        <div class="pure-g pure-u-1 hidden__tablet hidden__desktop">
+    </header>
+
+    <header class="hidden__tablet hidden__desktop" id="phone-header">
+        <div class="pure-g pure-u-1">
             <div class="pure-u-sm-3-5" id="search-panel-phone">
                 <form action="">
                     <input type="text" id="search-text-phone" placeholder="Search">
@@ -167,12 +74,12 @@
             </div><div class="pure-g pure-u-sm-2-5" id="control-panel-phone">
                 <button id="upload-btn-phone">
                     <span class="fa fa-upload"></span>
-                </button><button id="signin-btn-phone">
+                </button><button id="signin-btn-phone" modal-data="login">
                     <span class="fa fa-sign-in"></span>
                 </button>
             </div>
         </div>
-        <div class="pure-g pure-u-1 hidden__tablet hidden__desktop" id="tabs-phone">
+        <div class="pure-g pure-u-1" id="tabs-phone">
             <div class="pure-u-sm-1-5" id="hot-tab-phone">
                 <i class="glyphicon glyphicon-fire"></i>
             </div><div class="pure-u-sm-1-5" id="picture-tab-phone">
@@ -187,27 +94,37 @@
         </div>
     </header>
 
-    <main ng-controller="GetDataController">
+    <main ng-controller="getDataController">
         <div class="container" id="hot-picture-stripe">
             <h1 ng-click="runAll()">Hot pictures</h1>
-            <div class="content" ng-repeat="image in allImages">
-                <div class="thumbnail__picture">
+            <div class="content">
+                <div class="thumbnail__picture" ng-repeat="image in allImages">
                     <img alt="" ng-src="http://util.mw.metropolia.fi/uploads/{{image.path}}">
+                    <div class="metadata__data">
+                        <div style="position:absolute; bottom: 0; right:0;">
+                            <i class="glyphicon glyphicon-thumbs-up">20</i>
+                            <i class="glyphicon glyphicon-comment">20</i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div><div class="container" id="hot-video-stripe">
            <h1>Hot videos</h1>
-            <div class="content" ng-repeat="video in allVideos">
-                <div class="thumbnail__video">
+            <div class="content">
+                <div class="thumbnail__video" ng-repeat="video in allVideos">
                     <video preload="metadata" controls>
                         <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + video.path)}}">
                     </video>
                 </div>
             </div>
         </div><div class="container" id="hot-audio-stripe">
-            <h1 ng-click="getAudio()">Hot audio</h1>
+            <h1>Hot audio</h1>
             <div class="content">
-                <div class="thumbnail__audio"></div>
+                <div class="thumbnail__audio" ng-repeat="audio in allAudios">
+                    <audio preload="metadata" controls>
+                      <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + audio.path)}}">
+                    </audio>
+                </div>
             </div>
         </div>
     </main>
@@ -232,8 +149,19 @@
     <!-- endbuild -->
     <!-- build:js(.tmp) scripts/main.js -->
     <script src="scripts/main.js"></script>
-    <script src="scripts/Controllers/UploadController.js"></script>
-	<script src="scripts/Controllers/GetDataController.js"></script>
+    <script src="scripts/app.js"></script>
+
+    <!-- Directives -->
+    <script src="scripts/directives/singleImage.js"></script>
+    <script src="scripts/directives/loginForm.js"></script>
+    <script src="scripts/directives/thumbnail-image.js"></script>
+
+    <!-- Controllers -->
+    <script src="scripts/Controllers/getDataController.js"></script>
+    <script src="scripts/Controllers/uploadController.js"></script>
+    <script src="scripts/Controllers/lightboxController.js"></script>
+    <script src="scripts/Controllers/loginFormController.js"></script>
+
     <!-- endbuild -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
