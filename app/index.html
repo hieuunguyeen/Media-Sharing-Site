@@ -99,13 +99,7 @@
             <h1 ng-click="runAll()">Hot pictures</h1>
             <div class="content">
                 <div class="thumbnail__picture" ng-repeat="image in allImages">
-                    <img alt="" ng-src="http://util.mw.metropolia.fi/uploads/{{image.path}}">
-                    <div class="metadata__data">
-                        <div style="position:absolute; bottom: 0; right:0;">
-                            <i class="glyphicon glyphicon-thumbs-up">20</i>
-                            <i class="glyphicon glyphicon-comment">20</i>
-                        </div>
-                    </div>
+                    <thumbnail-image></thumbnail-image>
                 </div>
             </div>
         </div><div class="container" id="hot-video-stripe">
