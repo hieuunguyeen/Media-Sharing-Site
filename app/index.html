@@ -38,7 +38,7 @@
     <nav class="hidden__phone">
         <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox" ng-click="lightboxOverlay = true">
         <div id="nav-panel">
-            <i class="glyphicon glyphicon-fire" id="hot-nav-btn"></i>
+            <i class="glyphicon glyphicon-fire" active id="hot-nav-btn"></i>
             <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
             <i class="glyphicon glyphicon-film" id="video-nav-btn"></i>
             <i class="glyphicon glyphicon-music" id="audio-nav-btn"></i>
@@ -106,9 +106,7 @@
            <h1>Hot videos</h1>
             <div class="content">
                 <div class="thumbnail__video" ng-repeat="video in allVideos">
-                    <video preload="metadata" controls>
-                        <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + video.path)}}">
-                    </video>
+                    <thumbnail-video></thumbnail-video>
                 </div>
             </div>
         </div><div class="container" id="hot-audio-stripe">
@@ -138,6 +136,7 @@
     <script src="scripts/directives/singleImage.js"></script>
     <script src="scripts/directives/loginForm.js"></script>
     <script src="scripts/Directives/thumbnailImage.js"></script>
+    <script src="scripts/Directives/thumbnailVideo.js"></script>
 
     <!-- Controllers -->
     <script src="scripts/Controllers/getDataController.js"></script>

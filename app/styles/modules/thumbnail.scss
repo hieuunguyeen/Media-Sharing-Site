@@ -54,8 +54,12 @@
             display: inline;
         }
     }
+}
 
-    .thumbnail__video {
+.thumbnail__video {
+    figure {
+        height: 100%;
+
         video {
             height: 100%;
         }

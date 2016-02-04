@@ -12,6 +12,7 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
 // endbower
 
 /* Space out content a bit */
@@ -62,23 +63,23 @@ nav {
             transition: background-color .1s ease-in-out;
         }
 
-        #hot-nav-btn:hover {
+        #hot-nav-btn:hover, #hot-nav-btn:active {
             background-color: $color-red;
         }
 
-        #picture-nav-btn:hover {
+        #picture-nav-btn:hover, #picture-nav-btn:active {
             background-color: $color-blue;
         }
 
-        #video-nav-btn:hover {
+        #video-nav-btn:hover, #video-nav-btn:active {
             background-color: $color-green;
         }
 
-        #audio-nav-btn:hover {
+        #audio-nav-btn:hover, #audio-nav-btn:active {
             background-color: $color-yellow;
         }
 
-        #setting-btn:hover {
+        #setting-btn:hover, #setting-btn:active {
             background-color: lighten($color-dark, 10%);
         }
     }
