@@ -22,13 +22,8 @@ angular.module('myApp')
 			</form>
 			*/
 
-			$http.post('http://util.mw.metropolia.fi/ImageRekt/api/v2/upload',
-				$scope.fd, {
-					transformRequest: angular.identity,
-					headers: {
-						'Content-Type': undefined
-					}
-				});
+			ajaxFactory.uploadFile($scope.fd);
+			
 			/* #Debugging#
 			request.then(function (response) {
 				console.log(response);
