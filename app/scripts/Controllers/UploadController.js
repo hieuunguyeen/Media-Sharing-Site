@@ -1,3 +1,10 @@
+// $scope
+//
+// var mimetype : media mime type
+// var type : media real type
+// function setMediaFile: get data from the uploaded media
+// function postImage : send media to server
+
 angular.module('myApp')
 	.controller('uploadController', function ($scope, $http) {
 		$scope.setMediaFile = function (element) {

@@ -1,3 +1,9 @@
+// $scope
+//
+// var hotPageItemLimit : Number of items that will be display on homepage
+// var allImages / allVideo / allAudio: contains all images received from server
+// function runAll : Get all items
+
 angular.module('myApp')
     .controller('getDataController', function($scope, $http, $sce, $interval, ajaxFactory) {
 
@@ -7,6 +13,9 @@ angular.module('myApp')
 
         //Load all content
         $scope.runAll = function() {
+
+        	$scope.hotPageItemLimit = 20;
+
             ajaxFactory.getFiles('image')
                 .then(function (success) {
                     $scope.allImages = success.data;
@@ -31,7 +40,7 @@ angular.module('myApp')
                     console.log(error.data);
                 });
 
-            $interval($scope.runAll, 150000);
+            $interval($scope.runAll, 1000*60*15);
         };
 
         //transform to trusted link for videos and audio
