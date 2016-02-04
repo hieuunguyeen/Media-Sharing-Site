@@ -22,12 +22,13 @@
 }
 
 ::-webkit-scrollbar-track {
-    border: 0px none #ffffff;
+    background: #ccc;
+    border: 0px none #ccc;
 }
 
 ::-webkit-scrollbar-track:active {
     background: #ccc;
-    border: 0px none #ffffff;
+    border: 0px none #ccc;
 }
 
 ::-webkit-scrollbar-corner {

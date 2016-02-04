@@ -1,5 +1,5 @@
 angular.module('myApp')
-	.controller('UploadController', function ($scope, $http) {
+	.controller('uploadController', function ($scope, $http) {
 		$scope.setMediaFile = function (element) {
 			$scope.mimeType = element.files[0].type;
 			$scope.type = element.files[0].type.split('/')[0];
