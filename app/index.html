@@ -55,7 +55,7 @@
             </div>
         </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
             <div id="control-panel" class="flex__center">
-                <button id="upload-btn"><span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
+                <button id="upload-btn"><span class="fa fa-upload hidden" style="font-size:24px;"></span>
                     <p class="hidden__tablet" style="display:inline">UPLOAD</p>
                 </button>
                 <button id="signin-btn" ng-click="loginOverlay = true"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
@@ -72,7 +72,7 @@
                     <input type="text" id="search-text-phone" placeholder="Search">
                 </form>
             </div><div class="pure-g pure-u-sm-2-5" id="control-panel-phone">
-                <button id="upload-btn-phone">
+                <button id="upload-btn-phone" class="hidden">
                     <span class="fa fa-upload"></span>
                 </button><button id="signin-btn-phone" modal-data="login">
                     <span class="fa fa-sign-in"></span>
@@ -98,7 +98,7 @@
         <div class="container" id="hot-picture-stripe">
             <h1>Hot pictures</h1>
             <div class="content">
-                <div class="thumbnail__picture" ng-repeat="image in allImages">
+                <div class="thumbnail__picture" data-ng-repeat="(key, value) in dataset">
                     <thumbnail-image></thumbnail-image>
                 </div>
             </div>

@@ -31,7 +31,7 @@ angular.module('myApp')
                     console.log(error.data);
                 });
 
-            $interval($scope.runAll, 3000);
+            $interval($scope.runAll, 150000);
         };
 
         //transform to trusted link for videos and audio

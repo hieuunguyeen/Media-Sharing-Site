@@ -12,6 +12,7 @@ $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
 // endbower
 
 /* Space out content a bit */
@@ -83,9 +84,11 @@ nav {
         }
     }
 }
+
 .header-up {
     top: -96px;
-    }
+}
+
 header {
     position: fixed;
     z-index: 20;
@@ -100,6 +103,7 @@ header {
         width: 100vw;
         padding: 0;
     }
+
 
     i:hover {
         transition: background-color .1s ease-in-out;
@@ -282,6 +286,17 @@ button {
     flex-direction: row;
 
     @extend .flex;
+}
+
+.hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    z-index: 100;
 }
 
 .hidden__phone {
