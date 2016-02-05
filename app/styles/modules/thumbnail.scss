@@ -26,8 +26,13 @@
 
         img {
             height: 100%;
-            width: 100%:
+            width: 100%;
             object-fit: cover;
+        }
+
+        &:hover figcaption {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
+            color: $color-light;
         }
 
         figcaption {
@@ -40,11 +45,6 @@
             margin: 0;
             color: transparent;
             transition: all 0.3s ease;
-        }
-
-        &:hover > figcaption {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
-            color: $color-light;
         }
 
         .single-image__buttons {

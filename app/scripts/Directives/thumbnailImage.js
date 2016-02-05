@@ -3,6 +3,7 @@ angular.module('myApp')
         return {
             replace: true,
             restrict: 'E',
-            templateUrl: 'views/thumbnail-image.html'
+            templateUrl: 'views/thumbnail-image.html',
+            
         }
     });
