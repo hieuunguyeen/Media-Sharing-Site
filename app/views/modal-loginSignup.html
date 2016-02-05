@@ -1,49 +1,49 @@
-<section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}" ng-controller="loginFormController as form">
+<section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}">
     <div class="modal-box__content">
-        <div class="content--half">
+        <div class="content--half" ng-controller="loginController">
             <h3 class="content__title">Log In</h3>
             <div class="content__form">
-                <form action="" class="modal-form">
+                <form class="modal-form" id="login-form">
                     <span>
-                        <input class="modal-form__input" type="text" placeholder="Username" name="username">
+                        <input ng-model="username" class="modal-form__input" required type="text" placeholder="Username" name="username">
                         <label for="username"></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="password" placeholder="Password" name="password">
+                        <input ng-model="password" class="modal-form__input" required type="password" placeholder="Password" name="password">
                         <label for="password"></label>
                     </span>
-                    <span>
-                        <input type="checkbox" label="Remember Me" name="rememberMe">
+                    <!-- <span>
+                        <input required type="checkbox" label="Remember Me" name="rememberMe">
                         <label for="rememberMe">Remember Me</label>
-                    </span>
-                    <button type="submit">Log in</button>
+                    </span> -->
+                    <button ng-click="postLogin">Log in</button>
                 </form>
             </div>
         </div>
-        <div class="content--half">
+        <div class="content--half" ng-controller="signupController">
             <h3 class="content__title">Sign Up</h3>
             <div class="content__form">
-                <form action="" class="modal-form">
+                <form ng-submit="postRegister()" class="modal-form" id="register-form">
                     <span>
-                        <input class="modal-form__input" type="text" placeholder="Choose Username" name="username">
+                        <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="username">
                         <label for="username"></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="password" placeholder="Choose Password" name="password">
+                        <input class="modal-form__input" required type="password" placeholder="Choose Password" name="password" ng-model="password">
                         <label for=""></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="password" placeholder="Verify Password" name="rePasword">
+                        <input class="modal-form__input" required type="password" placeholder="Verify Password" name="rePasword" ng-model="rePassword">
                         <label for="rePassword"></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="email" placeholder="Email" name="email">
+                        <input class="modal-form__input" required type="email" placeholder="Email" name="email" ng-model="email">
                         <label for="email"></label>
                     </span>
-                    <span>
+                    <!-- <span>
                         <input type="checkbox" label="Remember Me" name="rememberMe">
                         <label for="rememberMe">Remember Me</label>
-                    </span>
+                    </span> -->
                     <button type="submit">Register</button>
                 </form>
             </div>
