@@ -19,13 +19,10 @@
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
-<<<<<<< HEAD
     <script src="https://rawgit.com/jseidelin/exif-js/master/exif.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-=======
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
->>>>>>> master
     <!-- endbuild -->
 </head>
 
@@ -120,38 +117,9 @@
             </div>
         </div>
     </header>
-
-<<<<<<< HEAD
-    <main ng-controller="remoteDataController" ng-init="runAll()">
-        <div class="container" id="hot-picture-stripe">
-            <h1>Hot pictures</h1>
-            <div class="content">
-                <div class="thumbnail__picture" ng-repeat="image in allImages | limitTo:20">
-                    <thumbnail-image></thumbnail-image>
-                </div>
-            </div>
-        </div><div class="container" id="hot-video-stripe">
-           <h1>Hot videos</h1>
-            <div class="content">
-                <div class="thumbnail__video" ng-repeat="video in allVideos | limitTo:hotPageItemLimit">
-                    <thumbnail-video></thumbnail-video>
-                </div>
-            </div>
-        </div><div class="container" id="hot-audio-stripe">
-            <h1>Hot audio</h1>
-            <div class="content">
-                <div class="thumbnail__audio" ng-repeat="audio in allAudios | limitTo:hotPageItemLimit">
-                    <audio preload="metadata" controls>
-                      <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + audio.path)}}">
-                    </audio>
-                </div>
-            </div>
-        </div>
-=======
     <!-- Main Content -->
     <main>
         <div ng-view></div>
->>>>>>> master
     </main>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -182,18 +150,9 @@
     <!-- Controllers -->
     <script src="scripts/Controllers/remoteDataController.js"></script>
     <script src="scripts/Controllers/lightboxController.js"></script>
-<<<<<<< HEAD
-    <script src="scripts/Controllers/loginFormController.js"></script>
-    <script src="scripts/Controllers/thumbImageController.js"></script>
-=======
     <script src="scripts/Controllers/thumbImageController.js"></script>
     <script src="scripts/Controllers/userController.js"></script>
->>>>>>> 4d8ea8b9147481d6a5524bc360527af6254c4f82
 
-<<<<<<< HEAD
-
-=======
->>>>>>> master
     <!-- Services -->
     <script src="scripts/services/ajaxFactory.js"></script>
     <script src="scripts/services/mediaFactory.js"></script>

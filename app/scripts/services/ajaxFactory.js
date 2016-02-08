@@ -15,9 +15,7 @@ angular.module('myApp')
         ajaxFunctions.getFiles = function(args) {
             return $http.get(urlBase + 'files/type/' + args);
         };
-
-<<<<<<< HEAD
-=======
+        
         ajaxFunctions.postRegisterForm = function(form) {
             return $http({
                 method: 'POST',
@@ -29,7 +27,6 @@ angular.module('myApp')
             });
         };
 
->>>>>>> 4d8ea8b9147481d6a5524bc360527af6254c4f82
         ajaxFunctions.getFileById = function(fileId) {
             return $http.get(urlBase + 'file/' + fileId);
         }

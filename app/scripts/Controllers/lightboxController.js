@@ -1,9 +1,5 @@
 angular.module('myApp')
-<<<<<<< HEAD
-    .controller('lightboxController', function ($scope,$rootScope) {
-=======
     .controller('lightboxController', function ($scope, $rootScope, mediaFactory) {
->>>>>>> 4d8ea8b9147481d6a5524bc360527af6254c4f82
         var lightbox = this;
 
         lightbox.metadataTab = 1;
@@ -19,13 +15,6 @@ angular.module('myApp')
         $('.glyphicon-subtitles').click(function () {
             $('.image__description').toggleClass('show');
         });
-
-<<<<<<< HEAD
-        $scope.$on('xxx', function () {
-            console.log($rootScope.imgData);
-            $('body').addClass('body--overlay');
-        });
-=======
         $scope.$on('sendMedia', function () {
             var media = mediaFactory.mediaData;
             console.log(media);
@@ -48,6 +37,5 @@ angular.module('myApp')
             $('body').removeClass('body--overlay');
             $('.overlay').removeClass('overlay--cover');
         };
->>>>>>> 4d8ea8b9147481d6a5524bc360527af6254c4f82
 
     });
