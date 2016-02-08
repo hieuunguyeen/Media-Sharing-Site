@@ -1,15 +1,29 @@
+<<<<<<< HEAD
 <section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}" ng-controller="loginFormController as form">
     <div class="modal-box__content">
         <div class="content--half" ng-controller="loginFormController">
+=======
+<section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}">
+    <div class="modal-box__content" ng-controller="userController">
+        <div class="content--half">
+>>>>>>> 4d8ea8b9147481d6a5524bc360527af6254c4f82
             <h3 class="content__title">Log In</h3>
             <div class="content__form">
                 <form ng-submit="login()" class="modal-form">
                     <span>
+<<<<<<< HEAD
                         <input class="modal-form__input" type="text" placeholder="Username" name="usernameLogin" ng-model="username">
                         <label for="username"></label>
                     </span>
                     <span>
                         <input class="modal-form__input" type="password" placeholder="Password" name="passwordLogin" ng-model="password">
+=======
+                        <input class="modal-form__input" type="text" placeholder="Username" name="usernameLogin" ng-model="loginUsername">
+                        <label for="username"></label>
+                    </span>
+                    <span>
+                        <input class="modal-form__input" type="password" placeholder="Password" name="passwordLogin" ng-model="loginPassword">
+>>>>>>> 4d8ea8b9147481d6a5524bc360527af6254c4f82
                         <label for="password"></label>
                     </span>
                     <span>
@@ -23,27 +37,27 @@
         <div class="content--half">
             <h3 class="content__title">Sign Up</h3>
             <div class="content__form">
-                <form action="" class="modal-form">
+                <form ng-submit="postRegister()" class="modal-form" id="register-form">
                     <span>
-                        <input class="modal-form__input" type="text" placeholder="Choose Username" name="username">
+                        <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="signupUsername">
                         <label for="username"></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="password" placeholder="Choose Password" name="password">
+                        <input class="modal-form__input" required type="password" placeholder="Choose Password" name="password" ng-model="signupPassword">
                         <label for=""></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="password" placeholder="Verify Password" name="rePasword">
+                        <input class="modal-form__input" required type="password" placeholder="Verify Password" name="rePasword" ng-model="rePassword">
                         <label for="rePassword"></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="email" placeholder="Email" name="email">
+                        <input class="modal-form__input" required type="email" placeholder="Email" name="email" ng-model="email">
                         <label for="email"></label>
                     </span>
-                    <span>
+                    <!-- <span>
                         <input type="checkbox" label="Remember Me" name="rememberMe">
                         <label for="rememberMe">Remember Me</label>
-                    </span>
+                    </span> -->
                     <button type="submit">Register</button>
                 </form>
             </div>
