@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('signupController', function ($scope, ajaxFactory,$httpParamSerializer) {
+    .controller('signupController', function ($scope, ajaxFactory) {
 
         $scope.postRegister = function() {
         	var fd = {
