@@ -2,8 +2,15 @@
   "name": "media-sharing-site",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.3"
+    "angular": "^1.4.0",
+    "bootstrap": "3.3.4",
+    "angular-animate": "^1.4.0",
+    "angular-cookies": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.4.0",
+    "angular-touch": "^1.4.0",
+    "angular-ui-sortable": "~0.13.4"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -16,7 +23,6 @@
   },
   "devDependencies": {
     "chai": "~3.4.2",
-    "mocha": "~2.3.4",
-    "angular": "~1.4.9"
+    "mocha": "~2.3.4"
   }
 }
