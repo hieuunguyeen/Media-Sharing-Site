@@ -19,13 +19,25 @@ angular.module('myApp')
         ajaxFunctions.postRegisterForm = function(form) {
             return $http({
                 method: 'POST',
-                url: 'http://util.mw.metropolia.fi/ImageRekt/api/v2/register',
+                url: urlBase + 'register',
                 headers: {
                     'Content-Type' : 'application/x-www-form-urlencoded'
                 },
                 data: $httpParamSerializer(form)
             });
         };
+
+        ajaxFunctions.getFileById = function(fileId) {
+            return $http.get(urlBase + 'file/' + fileId);
+        }
+
+        ajaxFunctions.userLogin = function (userData) {
+            return $http.post(urlBase + 'login', $httpParamSerializer(userData), {
+                headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        }
 
         return ajaxFunctions;
     });

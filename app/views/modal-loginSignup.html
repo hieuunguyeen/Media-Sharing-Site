@@ -1,22 +1,22 @@
 <section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}">
     <div class="modal-box__content">
-        <div class="content--half" ng-controller="loginController">
+        <div class="content--half" ng-controller="loginFormController">
             <h3 class="content__title">Log In</h3>
             <div class="content__form">
-                <form class="modal-form" id="login-form">
+                <form ng-submit="login()" class="modal-form">
                     <span>
-                        <input ng-model="username" class="modal-form__input" required type="text" placeholder="Username" name="username">
+                        <input class="modal-form__input" type="text" placeholder="Username" name="usernameLogin" ng-model="username">
                         <label for="username"></label>
                     </span>
                     <span>
-                        <input ng-model="password" class="modal-form__input" required type="password" placeholder="Password" name="password">
+                        <input class="modal-form__input" type="password" placeholder="Password" name="passwordLogin" ng-model="password">
                         <label for="password"></label>
                     </span>
-                    <!-- <span>
-                        <input required type="checkbox" label="Remember Me" name="rememberMe">
+                    <span>
+                        <input type="checkbox" label="Remember Me" name="rememberMe">
                         <label for="rememberMe">Remember Me</label>
-                    </span> -->
-                    <button ng-click="postLogin">Log in</button>
+                    </span>
+                    <button type="submit">Log in</button>
                 </form>
             </div>
         </div>

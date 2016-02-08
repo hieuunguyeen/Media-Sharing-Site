@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('lightboxController', function () {
+    .controller('lightboxController', function ($scope,$rootScope) {
         var lightbox = this;
 
         lightbox.metadataTab = 1;
@@ -17,13 +17,9 @@ angular.module('myApp')
             $('.image__description').toggleClass('show');
         });
 
-        var imgData = {};
+        $scope.$on('xxx', function () {
+            console.log($rootScope.imgData);
+            $('body').addClass('body--overlay');
+        });
 
-        lightbox.imgInfo = function () {
-            $('.image-content').attr('src', 'http://util.mw.metropolia.fi/upload' + imgData.path);
-            $('.image-info__name').text(imgData.title);
-            $('.image-info__upload-date').text(imgData.uploadTime);
-            $('.image-info__author').text(imgData.userId);
-            $('.image__description').find('p').text(imgData.description);
-        }
     });
