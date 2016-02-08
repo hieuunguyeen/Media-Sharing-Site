@@ -1,15 +1,15 @@
 <section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}">
-    <div class="modal-box__content">
-        <div class="content--half" ng-controller="loginFormController">
+    <div class="modal-box__content" ng-controller="userController">
+        <div class="content--half">
             <h3 class="content__title">Log In</h3>
             <div class="content__form">
                 <form ng-submit="login()" class="modal-form">
                     <span>
-                        <input class="modal-form__input" type="text" placeholder="Username" name="usernameLogin" ng-model="username">
+                        <input class="modal-form__input" type="text" placeholder="Username" name="usernameLogin" ng-model="loginUsername">
                         <label for="username"></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" type="password" placeholder="Password" name="passwordLogin" ng-model="password">
+                        <input class="modal-form__input" type="password" placeholder="Password" name="passwordLogin" ng-model="loginPassword">
                         <label for="password"></label>
                     </span>
                     <span>
@@ -20,16 +20,16 @@
                 </form>
             </div>
         </div>
-        <div class="content--half" ng-controller="signupController">
+        <div class="content--half">
             <h3 class="content__title">Sign Up</h3>
             <div class="content__form">
                 <form ng-submit="postRegister()" class="modal-form" id="register-form">
                     <span>
-                        <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="username">
+                        <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="signupUsername">
                         <label for="username"></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" required type="password" placeholder="Choose Password" name="password" ng-model="password">
+                        <input class="modal-form__input" required type="password" placeholder="Choose Password" name="password" ng-model="signupPassword">
                         <label for=""></label>
                     </span>
                     <span>
