@@ -6,7 +6,6 @@ angular.module('myApp')
                 then(function (success) {
                     mediaFactory.setVariables('mediaData', success.data);
                     $rootScope.$broadcast('sendMedia');
-                    console.log(success.data);
                 }, function (error) {
                     mediaFactory.handleError(error);
                 });
