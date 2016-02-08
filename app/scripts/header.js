@@ -30,9 +30,7 @@ $(document).ready(function () {
 		// If they scrolled down and are past the navbar, add class .nav-up.
 		// This is necessary so you never see what is "behind" the navbar.
 		if (st > lastScrollTop && st > headerHeight) {
-			// Scroll Down
-            
-        console.log(st);     
+			// Scroll Down 
 			$('#phone-header').removeClass('header-down').addClass('header-up');
 		} else {
 			// Scroll Up
