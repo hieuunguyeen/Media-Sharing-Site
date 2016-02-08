@@ -20,7 +20,8 @@
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
     <!-- endbuild -->
 </head>
 
@@ -34,18 +35,30 @@
     <light-box></light-box>
 
     <login-form></login-form>
-
+    
+    <!-- Nav for big screen -->
     <nav class="hidden__phone">
         <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox" ng-click="lightboxOverlay = true">
         <div id="nav-panel">
-            <i class="glyphicon glyphicon-fire" active id="hot-nav-btn"></i>
-            <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
-            <i class="glyphicon glyphicon-film" id="video-nav-btn"></i>
-            <i class="glyphicon glyphicon-music" id="audio-nav-btn"></i>
-            <i class="glyphicon glyphicon-cog" id="setting-btn"></i>
+            <a href="#/hot">
+                <i class="glyphicon glyphicon-fire" active id="hot-nav-btn"></i>
+            </a>
+            <a href="#/explore-image">
+                <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
+            </a>
+            <a href="#/explore-video">
+                <i class="glyphicon glyphicon-film" id="video-nav-btn"></i>
+            </a>
+            <a href="#/explore-audio">
+                <i class="glyphicon glyphicon-music" id="audio-nav-btn"></i>
+            </a>
+            <a href="#/settings">
+                <i class="glyphicon glyphicon-cog" id="setting-btn"></i>
+            </a>
         </div>
     </nav>
 
+    <!-- All screen headers -->
     <header class="pure-g hidden__phone" id="desktop-header">
         <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4">
             <div id="search-panel" class="flex__center">
@@ -81,44 +94,32 @@
         </div>
         <div class="pure-g pure-u-1" id="tabs-phone">
             <div class="pure-u-sm-1-5" id="hot-tab-phone">
-                <i class="glyphicon glyphicon-fire"></i>
+                <a href="#/hot">
+                    <i class="glyphicon glyphicon-fire"></i>
+                </a>
             </div><div class="pure-u-sm-1-5" id="picture-tab-phone">
-                <i class="glyphicon glyphicon-picture"></i>
+                <a href="#/explore-image">
+                    <i class="glyphicon glyphicon-picture"></i>
+                </a>
             </div><div class="pure-u-sm-1-5" id="video-tab-phone">
-                <i class="glyphicon glyphicon-film"></i>
+                <a href="#/explore-video">
+                    <i class="glyphicon glyphicon-film"></i>
+                </a>
             </div><div class="pure-u-sm-1-5" id="audio-tab-phone">
-                <i class="glyphicon glyphicon-music"></i>
+                <a href="#/explore-audio">
+                     <i class="glyphicon glyphicon-music"></i>
+                </a>
             </div><div class="pure-u-sm-1-5" id="setting-tab-phone">
-                <i class="glyphicon glyphicon-cog"></i>
+                <a href="#/setting">
+                    <i class="glyphicon glyphicon-cog"></i>
+                </a>
             </div>
         </div>
     </header>
 
-    <main ng-controller="remoteDataController" ng-init="runAll()">
-        <div class="container" id="hot-picture-stripe">
-            <h1>Hot pictures</h1>
-            <div class="content">
-                <div class="thumbnail__picture" ng-repeat="image in allImages | limitTo:hotPageItemLimit">
-                    <thumbnail-image></thumbnail-image>
-                </div>
-            </div>
-        </div><div class="container" id="hot-video-stripe">
-           <h1>Hot videos</h1>
-            <div class="content">
-                <div class="thumbnail__video" ng-repeat="video in allVideos | limitTo:hotPageItemLimit">
-                    <thumbnail-video></thumbnail-video>
-                </div>
-            </div>
-        </div><div class="container" id="hot-audio-stripe">
-            <h1>Hot audio</h1>
-            <div class="content">
-                <div class="thumbnail__audio" ng-repeat="audio in allAudios | limitTo:hotPageItemLimit">
-                    <audio preload="metadata" controls>
-                      <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + audio.path)}}">
-                    </audio>
-                </div>
-            </div>
-        </div>
+    <!-- Main Content -->
+    <main>
+        <div ng-view></div>
     </main>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -133,12 +134,18 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/header.js"></script>
 
+    <!-- Config -->
+    <script src="scripts/config/config.js"></script>
+
     <!-- Directives -->
     <script src="scripts/directives/singleImage.js"></script>
     <script src="scripts/directives/loginForm.js"></script>
     <script src="scripts/Directives/thumbnailImage.js"></script>
     <script src="scripts/Directives/thumbnailVideo.js"></script>
     <script src="scripts/Directives/thumbnailAudio.js"></script>
+    <script src="scripts/directives/thumbnailAudioVertical.js"></script>
+    <script src="scripts/directives/thumbnailVideoVertical.js"></script>
+    <script src="scripts/directives/thumbnailImageVertical.js"></script>
 
     <!-- Controllers -->
     <script src="scripts/Controllers/remoteDataController.js"></script>
@@ -146,8 +153,7 @@
     <script src="scripts/Controllers/thumbImageController.js"></script>
     <script src="scripts/Controllers/userController.js"></script>
 
-
-    <!-- Controllers -->
+    <!-- Services -->
     <script src="scripts/services/ajaxFactory.js"></script>
 
     <!-- endbuild -->

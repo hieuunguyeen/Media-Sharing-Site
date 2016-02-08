@@ -1,0 +1,10 @@
+<figure ng-controller="thumbImgController" ng-click="getImageModal(image.fileId)">
+    <img iid="{{image.fileId}}" class="" alt="{{image.title}}" ng-src="http://util.mw.metropolia.fi/uploads/{{image.path}}">
+    <figcaption>
+    	<div class="single-image__buttons">
+    		<p>{{image.fileId}}</p>
+    		<i class="glyphicon glyphicon-thumbs-up"></i><p>20</p>
+        	<i class="glyphicon glyphicon-comment"></i><p>20</p>
+    	</div>
+    </figcaption>
+</figure>

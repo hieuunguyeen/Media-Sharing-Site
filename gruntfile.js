@@ -69,10 +69,11 @@ module.exports = function (grunt) {
         options: {
           files: [
             '<%= config.app %>/*.html',
-            '<%= config.app %>/views/*.html',
+            '<%= config.app %>/views/pages/*.html',
             '.tmp/styles/{,*/}*.css',
             '<%= config.app %>/images/{,*/}*',
-            '.tmp/scripts/{,*/}*.js'
+            '.tmp/scripts/{,*/}*.js',
+            '.tmp/scripts/config/*.js'
           ],
           port: 9000,
           server: {
