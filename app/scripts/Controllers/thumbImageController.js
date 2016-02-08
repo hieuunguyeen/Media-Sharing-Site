@@ -1,15 +1,14 @@
 angular.module('myApp')
-    .controller('thumbImgController', function ($scope, ajaxFactory, $attrs, $rootScope) {
+    .controller('thumbImgController', function ($scope, $attrs, $rootScope, ajaxFactory, mediaFactory) {
 
-        $scope.getImageModal = function (imgId) {
-            console.log(imgId);
-            ajaxFactory.getFileById(imgId).
+        $scope.sendDataToModal = function (mediaId) {
+            ajaxFactory.getFileById(mediaId).
                 then(function (success) {
-                    $rootScope.imgData = success.data;
-                    $rootScope.$broadcast('xxx');
+                    mediaFactory.setVariables('mediaData', success.data);
+                    $rootScope.$broadcast('sendMedia');
+                    console.log(success.data);
                 }, function (error) {
-                    console.log(error.data);
+                    mediaFactory.handleError(error);
                 });
-        };
-
+        }
     });

@@ -45,6 +45,10 @@
         .modal-box__image {
             margin: 0;
             position: relative;
+            display: flex;
+            flex-flow: column wrap;
+            width: 60vw;
+            justify-content: space-between;
         }
     }
 }
@@ -60,14 +64,16 @@
 }
 
 .modal-box__image img {
-    max-width: 60vw;
+    max-width: 100%;
     height: auto;
     max-height: 75vh;
     display: block;
-    margin: 0 auto;
+    margin: auto;
+    object-fit: contain;
 }
 
 .image__functions {
+    margin-bottom: 32px;
     padding: 16px;
     display: flex;
     align-items: center;
@@ -263,6 +269,7 @@
 
         .modal-box__image {
             flex-basis: 100%;
+            width: auto;
         }
 
         .modal-box__image img {
@@ -287,6 +294,10 @@
 }
 
 @media screen and (max-width: #{$width-tablet}) {
+    .modal-box .modal-box__content .modal-box__image {
+        display: block;
+    }
+
     .modal-box__metadata {
         display: none;
     }

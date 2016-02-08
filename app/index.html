@@ -24,19 +24,19 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="myApp" ng-class="{'body--overlay': loginOverlay || lightboxOverlay}">
+<body ng-app="myApp">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="overlay" ng-class="{'overlay--cover': loginOverlay || lightboxOverlay}"></div>
+    <div class="overlay"></div>
 
     <light-box></light-box>
 
     <login-form></login-form>
 
     <nav class="hidden__phone">
-        <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox" ng-click="lightboxOverlay = true">
+        <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox">
         <div id="nav-panel">
             <i class="glyphicon glyphicon-fire" active id="hot-nav-btn"></i>
             <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
@@ -147,8 +147,9 @@
     <script src="scripts/Controllers/userController.js"></script>
 
 
-    <!-- Controllers -->
+    <!-- Services -->
     <script src="scripts/services/ajaxFactory.js"></script>
+    <script src="scripts/services/mediaFactory.js"></script>
 
     <!-- endbuild -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

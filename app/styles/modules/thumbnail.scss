@@ -26,8 +26,12 @@
 
         img {
             height: 100%;
-            width: 100%:
+            max-width: 33vw;
             object-fit: cover;
+
+            @include phone {
+                max-width: none;
+            }
         }
 
         &:hover figcaption {
