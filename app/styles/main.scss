@@ -7,11 +7,13 @@
 @import "modules/scrollbar";
 @import "modules/loginSignup";
 @import "modules/thumbnail";
+@import "modules/thumbnail-vertical";
 
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
 // endbower
 
 /* Space out content a bit */
@@ -48,18 +50,23 @@ nav {
 
         @extend .position__center;
 
-        i {
-            font-size: calc(#{$nav-width} / 2.8);
-            width: 100%;
-            height: 25%;
-            cursor: pointer;
-            transition: background-color .1s ease-in-out;
+        a {
+            text-decoration: none;
+            color: $color-light;
 
-            @extend .flex__center;
-        }
+            i {
+                font-size: calc(#{$nav-width} / 2.8);
+                width: 100%;
+                height: 25%;
+                cursor: pointer;
+                transition: background-color .1s ease-in-out;
 
-        i:hover {
-            transition: background-color .1s ease-in-out;
+                @extend .flex__center;
+            }
+
+            i:hover {
+                transition: background-color .1s ease-in-out;
+            }
         }
 
         #hot-nav-btn:hover, #hot-nav-btn:active {

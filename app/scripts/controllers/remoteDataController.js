@@ -6,51 +6,59 @@
 // function runAll : Get all items
 
 angular.module('myApp')
-    .controller('remoteDataController', function ($scope, $http, $sce, $interval, ajaxFactory) {
+    .controller('remoteDataController', function($scope, $http, $sce, $interval, ajaxFactory) {
 
         var link = 'http://util.mw.metropolia.fi/uploads/';
 
         console.log('remoteDataController is working?');
 
         //Load all content
-        $scope.runAll = function () {
+        $scope.runAll = function() {
 
             $scope.hotPageItemLimit = 20;
-
-            ajaxFactory.getFiles('image')
-                .then(function (success) {
-                    $scope.allImages = success.data;
-                    console.log(success.data);
-                }, function (error) {
-                    console.log(error.data);
-                });
-
-            ajaxFactory.getFiles('audio')
-                .then(function (success) {
-                    $scope.allAudios = success.data;
-                    console.log(success.data);
-                }, function (error) {
-                    console.log(error.data);
-                });
-
-            ajaxFactory.getFiles('video')
-                .then(function (success) {
-                    $scope.allVideos = success.data;
-                    console.log(success.data);
-                }, function (error) {
-                    console.log(error.data);
-                });
-
+            $scope.getImages();
+            $scope.getAudios();
+            $scope.getVideos();
             $interval($scope.runAll, 1000 * 60 * 15);
         };
+
+        $scope.getImages = function() {
+            ajaxFactory.getFiles('image')
+                .then(function(success) {
+                    $scope.allImages = success.data;
+                    console.log(success.data);
+                }, function(error) {
+                    console.log(error.data);
+                });
+        }
+
+        $scope.getAudios = function() {
+            ajaxFactory.getFiles('audio')
+                .then(function(success) {
+                    $scope.allAudios = success.data;
+                    console.log(success.data);
+                }, function(error) {
+                    console.log(error.data);
+                });
+        }
+
+        $scope.getVideos = function() {
+            ajaxFactory.getFiles('video')
+                .then(function(success) {
+                    $scope.allVideos = success.data;
+                    console.log(success.data);
+                }, function(error) {
+                    console.log(error.data);
+                });
+        }
 
         //transform to trusted link for videos and audio
         //Usa like this:
         //<source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + video.path)}}">
-        $scope.trustURL = function (url) {
+        $scope.trustURL = function(url) {
             return $sce.trustAsResourceUrl(url);
         };
-        
+
         // ## Upload ##
         // $scope
         //
@@ -60,12 +68,12 @@ angular.module('myApp')
         // function postImage : send media to server
 
 
-        $scope.setMediaFile = function (element) {
+        $scope.setMediaFile = function(element) {
             $scope.mimeType = element.files[0].type;
             $scope.type = element.files[0].type.split('/')[0];
         };
 
-        $scope.postImage = function () {
+        $scope.postImage = function() {
             $scope.fd = new FormData(angular.element('#uploadForm')[0]); //change this to the upload form ID
             $scope.fd.append('user', 5); //change this user to the logged in user
             $scope.fd.append('title', 'title'); //read title from the form, or remove and add form input
@@ -83,7 +91,7 @@ angular.module('myApp')
             */
 
             ajaxFactory.uploadFile($scope.fd);
-			
+
             /* #Debugging#
             request.then(function (response) {
                 console.log(response);
