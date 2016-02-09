@@ -25,11 +25,14 @@
         height: 100%;
         overflow: hidden;
         background: transparent;
+        text-align: center;
+        width: auto;
 
         img {
             height: 100%;
             max-width: 33vw;
             object-fit: cover;
+            padding: 0;
 
             @include phone {
                 max-width: none;

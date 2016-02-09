@@ -2,8 +2,10 @@
   "name": "media-sharing-site",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5",
-    "modernizr": "~2.8.3"
+    "angular": "^1.4.0",
+    "bootstrap": "3.3.4",
+    "angular-route": "^1.4.0",
+    "angular-sanitize": "^1.4.0"
   },
   "overrides": {
     "bootstrap-sass": {
