@@ -33,7 +33,6 @@ angular.module('myApp')
 
         $scope.close = function () {
             $('body').removeClass('body--overlay');
-            $('.overlay').removeClass('overlay--cover');
             $('.modal--upload').removeClass('modal-box--cover');
         };
     });

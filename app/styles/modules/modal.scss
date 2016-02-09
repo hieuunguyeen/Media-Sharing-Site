@@ -1,6 +1,3 @@
-@import "loginSignup";
-@import "uploadForm";
-
 .overlay {
     visibility: hidden;
     top: 0;
@@ -14,7 +11,7 @@
     overflow: hidden;
 }
 
-.overlay.overlay--cover {
+.body--overlay .overlay {
     display: block;
     visibility: visible;
 }

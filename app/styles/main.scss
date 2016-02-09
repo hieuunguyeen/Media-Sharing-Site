@@ -4,6 +4,8 @@
 @import "vars";
 
 @import "modules/modal";
+@import "modules/loginSignup";
+@import "modules/uploadForm";
 @import "modules/scrollbar";
 @import "modules/thumbnail";
 
@@ -93,7 +95,7 @@ nav {
 
 header {
     position: fixed;
-    z-index: 100;
+    z-index: 20;
     top: 0;
     right: 0;
     width: calc(100vw - #{$nav-width} - 40px);
