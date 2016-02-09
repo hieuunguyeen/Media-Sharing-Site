@@ -10,10 +10,9 @@
     padding:  0 32px;
     margin: 0 auto;
     margin-top: 32px;
-
 }
 
-.content--half:first-child::after {
+.login-section:first-child::after {
     position: absolute;
     content: '';
     height: 70%;
@@ -93,7 +92,7 @@
         position: relative;
     }
 
-    .content--half:first-child::after {
+    .login-section:first-child::after {
         position: absolute;
         content: '';
         height: 2px;

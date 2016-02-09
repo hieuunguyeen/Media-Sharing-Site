@@ -38,9 +38,11 @@
 
     <login-form></login-form>
 
+    <upload-form></upload-form>
+
     <!-- Nav for big screen -->
     <nav class="hidden__phone">
-        <img src="images/logo.png" alt="logo" id="logo" modal-data="lightbox">
+        <img src="images/logo.png" alt="logo" id="logo">
         <div id="nav-panel">
             <a href="#/hot">
                 <i class="glyphicon glyphicon-fire" active id="hot-nav-btn"></i>
@@ -124,6 +126,7 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/ngstorage/ngStorage.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.) scripts/plugins.js -->
@@ -143,9 +146,10 @@
     <!-- Config -->
     <script src="scripts/config/config.js"></script>
 
-    <!-- Directives -->s
+    <!-- Directives -->
     <script src="scripts/directives/singleImage.js"></script>
     <script src="scripts/directives/loginForm.js"></script>
+    <script src="scripts/directives/uploadForm.js"></script>
     <script src="scripts/Directives/thumbnailImage.js"></script>
     <script src="scripts/Directives/thumbnailVideo.js"></script>
     <script src="scripts/Directives/thumbnailAudio.js"></script>
@@ -157,6 +161,7 @@
     <!-- Controllers -->
     <script src="scripts/Controllers/remoteDataController.js"></script>
     <script src="scripts/Controllers/lightboxController.js"></script>
+    <script src="scripts/Controllers/uploadFormController.js"></script>
     <script src="scripts/Controllers/thumbImageController.js"></script>
     <script src="scripts/Controllers/userController.js"></script>
     <script src="scripts/controllers/videogularController.js"></script>
