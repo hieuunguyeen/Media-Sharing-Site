@@ -93,7 +93,7 @@ nav {
 
 header {
     position: fixed;
-    z-index: 20;
+    z-index: 100;
     top: 0;
     right: 0;
     width: calc(100vw - #{$nav-width} - 40px);
@@ -143,10 +143,11 @@ header {
             color: $color-light;
             background-color: $color-red;
         }
-    }
 
-    #tabs-phone {
-        background-color: inherit;
+        #profile-btn {
+            color: $color-light;
+            background-color: $color-red;
+        }
     }
 
     #search-panel-phone {
@@ -177,63 +178,67 @@ header {
                 font-size: $font-size-large;
             }
         }
-    }
 
-    #upload-btn-phone {
-        background-color: $color-light;
-        color: $color-dark;
-    }
-
-    #signin-btn-phone {
-        background-color: $color-red;
-        color: $color-light;
-        float: right;
-    }
-
-    #profile-btn-phone {
-        background-color: $color-red;
-        color: $color-light;
-        float: right;
-    }
-
-    #hot-tab-phone, #picture-tab-phone, #video-tab-phone, #audio-tab-phone, #setting-tab-phone {
-        font-size: $font-size-large;
-        height: $button-height;
-        text-align: center;
-        position: relative;
-        border: {
-            bottom: 1px solid $color-accent;
-            top: 1px solid $color-accent;
-        };
-
-        a {
-            text-decoration: none;
+        #upload-btn-phone {
+            background-color: $color-light;
             color: $color-dark;
+        }
 
-            i {
-                @extend .position__center;
-            }
+        #signin-btn-phone {
+            background-color: $color-red;
+            color: $color-light;
+            float: right;
+        }
+
+        #profile-btn-phone {
+            background-color: $color-red;
+            color: $color-light;
+            float: right;
         }
     }
 
-    #hot-tab-phone:hover {
-        background-color: $color-red;
-    }
+    #tabs-phone {
+        background-color: inherit;
 
-    #picture-tab-phone:hover {
-        background-color: $color-blue;
-    }
+        #hot-tab-phone, #picture-tab-phone, #video-tab-phone, #audio-tab-phone, #setting-tab-phone {
+            font-size: $font-size-large;
+            height: $button-height;
+            text-align: center;
+            position: relative;
+            border: {
+                bottom: 1px solid $color-accent;
+                top: 1px solid $color-accent;
+            };
 
-    #video-tab-phone:hover {
-        background-color: $color-green;
-    }
+            a {
+                text-decoration: none;
+                color: $color-dark;
 
-    #audio-tab-phone:hover {
-        background-color: $color-yellow;
-    }
+                i {
+                    @extend .position__center;
+                }
+            }
+        }
 
-    #setting-tab-phone:hover {
-        background-color: $color-accent;
+        #hot-tab-phone:hover {
+            background-color: $color-red;
+        }
+
+        #picture-tab-phone:hover {
+            background-color: $color-blue;
+        }
+
+        #video-tab-phone:hover {
+            background-color: $color-green;
+        }
+
+        #audio-tab-phone:hover {
+            background-color: $color-yellow;
+        }
+
+        #setting-tab-phone:hover {
+            background-color: $color-accent;
+        }
     }
 }
 
