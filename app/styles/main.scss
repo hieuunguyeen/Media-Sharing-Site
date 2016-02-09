@@ -7,7 +7,6 @@
 @import "modules/scrollbar";
 @import "modules/loginSignup";
 @import "modules/thumbnail";
-@import "modules/thumbnail-vertical";
 
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
@@ -187,6 +186,12 @@ header {
     }
 
     #signin-btn-phone {
+        background-color: $color-red;
+        color: $color-light;
+        float: right;
+    }
+
+    #profile-btn-phone {
         background-color: $color-red;
         color: $color-light;
         float: right;

@@ -10,20 +10,13 @@ angular.module('myApp')
 
         var link = 'http://util.mw.metropolia.fi/uploads/';
 
-        console.log('remoteDataController is working?');
-
-        $scope.itemLimit = 20;
-
-        // Change Item Limit onscroll
-        $(window).scroll(function(event) {
-            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-                $scope.itemLimit += 5;
-            }
-        });
+        $scope.increaseLimit = function() {
+            $scope.itemLimit += 1;
+        }
 
         //Load all content
         $scope.runAll = function() {
-            $scope.hotPageItemLimit = 20;
+            $scope.hotPageItemLimit = 10;
             $scope.getImages();
             $scope.getAudios();
             $scope.getVideos();

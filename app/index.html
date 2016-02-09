@@ -54,9 +54,6 @@
             <a href="#/explore-audio">
                 <i class="glyphicon glyphicon-music" id="audio-nav-btn"></i>
             </a>
-            <a href="#/settings">
-                <i class="glyphicon glyphicon-cog" id="setting-btn"></i>
-            </a>
         </div>
     </nav>
 
@@ -73,50 +70,48 @@
                 <button id="upload-btn" ng-show="loggedIn"><span class="fa fa-upload" style="font-size:24px;"></span>
                     <p class="hidden__tablet" style="display:inline">UPLOAD</p>
                 </button>
-                <button id="signin-btn" ng-hide="loggedIn"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
+                <button id="signin-btn" ng-hide="loggedIn"><span class="fa fa-sign-in" style="font-size:24px;"></span>
                     <p class="hidden__tablet" style="display:inline">SIGN IN</p>
                 </button>
-                <button id="signin-btn" ng-show="loggedIn"><span class="fa fa-sign-in hidden__desktop" style="font-size:24px;"></span>
-                    <p class="hidden__tablet" style="display:inline">USER</p>
+                <button id="profile-btn" ng-show="loggedIn"><span class="fa fa-user" style="font-size:24px;"></span>
+                    <p class="hidden__tablet" style="display:inline">PROFILE</p>
                 </button>
             </div>
         </div>
     </header>
 
-    <header class="hidden__tablet hidden__desktop" id="phone-header">
+    <header class="hidden__tablet hidden__desktop" id="phone-header" ng-controller="headerController">
         <div class="pure-g pure-u-1">
-            <div class="pure-u-sm-3-5" id="search-panel-phone">
+            <div class="pure-u-sm-1-2" id="search-panel-phone">
                 <form action="">
                     <input type="text" id="search-text-phone" placeholder="Search">
                 </form>
-            </div><div class="pure-g pure-u-sm-2-5" id="control-panel-phone">
-                <button id="upload-btn-phone" class="hidden">
+            </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
+                <button id="upload-btn-phone" ng-show="loggedIn">
                     <span class="fa fa-upload"></span>
-                </button><button id="signin-btn-phone" modal-data="login">
+                </button><button id="signin-btn-phone" modal-data="login" ng-hide="loggedIn">
                     <span class="fa fa-sign-in"></span>
+                </button><button id="profile-btn-phone" ng-show="loggedIn">
+                    <span class="fa fa-user"></span>
                 </button>
             </div>
         </div>
         <div class="pure-g pure-u-1" id="tabs-phone">
-            <div class="pure-u-sm-1-5" id="hot-tab-phone">
+            <div class="pure-u-sm-1-4" id="hot-tab-phone">
                 <a href="#/hot">
                     <i class="glyphicon glyphicon-fire"></i>
                 </a>
-            </div><div class="pure-u-sm-1-5" id="picture-tab-phone">
+            </div><div class="pure-u-sm-1-4" id="picture-tab-phone">
                 <a href="#/explore-image">
                     <i class="glyphicon glyphicon-picture"></i>
                 </a>
-            </div><div class="pure-u-sm-1-5" id="video-tab-phone">
+            </div><div class="pure-u-sm-1-4" id="video-tab-phone">
                 <a href="#/explore-video">
                     <i class="glyphicon glyphicon-film"></i>
                 </a>
-            </div><div class="pure-u-sm-1-5" id="audio-tab-phone">
+            </div><div class="pure-u-sm-1-4" id="audio-tab-phone">
                 <a href="#/explore-audio">
                      <i class="glyphicon glyphicon-music"></i>
-                </a>
-            </div><div class="pure-u-sm-1-5" id="setting-tab-phone">
-                <a href="#/setting">
-                    <i class="glyphicon glyphicon-cog"></i>
                 </a>
             </div>
         </div>
@@ -157,6 +152,7 @@
     <script src="scripts/directives/thumbnailAudioVertical.js"></script>
     <script src="scripts/directives/thumbnailVideoVertical.js"></script>
     <script src="scripts/directives/thumbnailImageVertical.js"></script>
+    <script src="scripts/directives/scrollToBottomPage.js"></script>
 
     <!-- Controllers -->
     <script src="scripts/Controllers/remoteDataController.js"></script>

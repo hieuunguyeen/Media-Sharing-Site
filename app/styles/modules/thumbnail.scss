@@ -3,14 +3,31 @@
 .thumbnail__video,
 .thumbnail__audio,
 .thumbnail__picture {
-    margin: 0 5px;
-    height: 98%;
     position: relative;
     bottom: 0;
     display: inline-block;
-    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.12), 0 0px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.2s ease-in-out;
     overflow: hidden;
+    height: 98%;
+    margin: 0 5px;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.24);
+
+    &:hover {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+}
+
+.thumbnail__video-vertical,
+.thumbnail__audio-vertical,
+.thumbnail__picture-vertical {
+    position: relative;
+    bottom: 0;
+    display: inline-block;
+    overflow: hidden;
+    width: 98%;
+    margin: 0 5px;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.24);
 
     &:hover {
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -22,17 +39,17 @@
 
     figure {
         position: relative;
-        height: 100%;
         overflow: hidden;
-        background: transparent;
-        text-align: center;
         width: auto;
+        height: 100%;
+        text-align: center;
+        background: transparent;
 
         img {
-            height: 100%;
             max-width: 33vw;
-            object-fit: cover;
+            height: 100%;
             padding: 0;
+            object-fit: cover;
 
             @include phone {
                 max-width: none;
@@ -40,34 +57,34 @@
         }
 
         &:hover figcaption {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
             color: $color-light;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
         }
 
         figcaption {
             position: absolute;
+            z-index: 20;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 20;
             margin: 0;
+            transition: all .3s ease;
             color: transparent;
-            transition: all 0.3s ease;
         }
 
         .single-image__buttons {
-            position: absolute;
-            bottom: 0;
-            right: 8px;
             font-size: 24px;
+            position: absolute;
+            right: 8px;
+            bottom: 0;
         }
 
         .single-image__buttons {
-            position: absolute;
-            bottom: 0;
-            right: 8px;
             font-size: 24px;
+            position: absolute;
+            right: 8px;
+            bottom: 0;
         }
 
         i,
@@ -78,15 +95,73 @@
 }
 
 .thumbnail__video {
+    max-width: 45%;
     height: 100%;
-    min-width: 50%;
+
+    @include phone {
+        max-width: 90%;
+    }
+
 
     .videogular-container {
-        height: 100%;
-        margin: auto;
         overflow: hidden;
         width: 100%;
+        height: 100%;
+        margin: auto;
     }
 }
 
-.thumbnail__audio {}
+.thumbnail__picture-vertical {
+    position: relative;
+
+    figure {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        background: transparent;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        &:hover figcaption {
+            color: $color-light;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        figcaption {
+            position: absolute;
+            z-index: 20;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            transition: all .3s ease;
+            color: transparent;
+        }
+
+        .single-image__buttons {
+            font-size: 24px;
+            position: absolute;
+            right: 8px;
+            bottom: 0;
+        }
+
+        i,
+        p {
+            display: inline-block;
+        }
+    }
+}
+
+.thumbnail__video-vertical {
+    figure {
+        width: 100%;
+
+        video {
+            width: 100%;
+        }
+    }
+}
