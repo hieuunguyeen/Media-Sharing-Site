@@ -15,7 +15,7 @@ angular.module('myApp')
                     console.log(success.data);
                 });
         };
-        
+
         //Signup
         $scope.postRegister = function() {
         	var fd = {
@@ -30,4 +30,11 @@ angular.module('myApp')
     			alert('Wrong retype password');
     		}
         }
+
+        // interaction functions
+        $('.close-button').click(function () {
+            $('body').removeClass('body--overlay');
+            $('.overlay').removeClass('overlay--cover');
+            $('.modal--login').removeClass('modal-box--cover');
+        });
     });

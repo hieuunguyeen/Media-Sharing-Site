@@ -23,7 +23,7 @@ angular.module('myApp')
             $('body').addClass('body--overlay');
             $('.overlay').addClass('overlay--cover');
 
-            var imgWidth, imgHeight, imgCamera, imgSize, imgBitDepth;
+            var imgWidth, imgHeight, imgTaken, imgSize, imgBitDepth, imgAll;
 
             $('.image__content').attr('src', 'http://util.mw.metropolia.fi/uploads/' + media.path);
             $('.image__description p').text(media.description);
@@ -39,10 +39,11 @@ angular.module('myApp')
             EXIF.getData(image, function () {
                     imgWidth = image.width || 'N/A',
                     imgHeight = image.height || 'N/A',
-                    imgCamera = EXIF.getTag(image, "Model") || 'N/A';
-                console.log(imgWidth + ' . ' + imgHeight + ' . ' + imgCamera);
+                    imgTaken = EXIF.getTag(image, "DateTime") || 'N/A';
+                    imgAll = EXIF.getAllTags(image) || 'N/A';
+                console.log(imgAll);
                 $('.resolution').text(imgWidth + ' x ' + imgHeight);
-                $('.camera').text(imgCamera);
+                $('.taken-date').text(imgTaken);
                 // if (media.mimeType.substr(6).toUpperCase() === "JPEG") {
                 //     imgBitDepth = 24;
                 // } else if (media.mimeType.substr(6).toUpperCase() === "PNG") {

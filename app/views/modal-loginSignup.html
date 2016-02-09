@@ -1,4 +1,4 @@
-<section class="modal-box modal--login" modal-data="login" ng-class="{'modal-box--cover': loginOverlay}">
+<section class="modal-box modal--login" modal-data="login" >
     <div class="modal-box__content" ng-controller="userController">
         <div class="content--half">
             <h3 class="content__title">Log In</h3>
@@ -50,5 +50,5 @@
         </div>
         <h5 class="modal__notice">By signing up, you agree to our Terms and that you have read our Privacy Policy and Content Policy.</h5>
     </div>
-    <button class="close-button" ng-click="loginOverlay = false"><span>×</span></button>
+    <button class="close-button" ng-click="close()"><span>×</span></button>
 </section>
