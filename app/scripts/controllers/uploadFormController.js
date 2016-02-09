@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('uploadController', function ($scope, $rootScope, mediaFactory, ajaxFactory) {
+    .controller('uploadController', function ($scope, $rootScope, mediaFactory, ajaxFactory, $localStorage) {
 
         $scope.setMediaFile = function(element) {
             $scope.mimeType = element.files[0].type;
@@ -7,12 +7,11 @@ angular.module('myApp')
         };
 
         $scope.postImage = function() {
-            console.log('posting image');
+            console.log($localStorage.userId);
             $scope.fd = new FormData(document.getElementById('uploadForm')); //change this to the upload form ID
-            $scope.fd.append('user', 5); //change this user to the logged in user
+            $scope.fd.append('user', $localStorage.userId); //change this user to the logged in user
             $scope.fd.append('type', $scope.type); //read type (image/audio/video) from the form, or remove and add form input
             $scope.fd.append('mime-type', $scope.mimeType); //For example video/mp4 or audio/mp3
-            console.log('form built');
 
             /* #EXAMPLE#
             <form if="uploadForm">
