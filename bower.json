@@ -5,7 +5,8 @@
     "angular": "^1.4.0",
     "bootstrap": "3.3.4",
     "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0"
+    "angular-sanitize": "^1.4.0",
+    "ngstorage": "~0.3.10"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -19,7 +20,6 @@
   "devDependencies": {
     "chai": "~3.4.2",
     "mocha": "~2.3.4",
-    "angular": "~1.4.9",
     "angular-sanitize": "^1.5.0",
     "videogular": "^1.4.1",
     "videogular-controls": "^1.4.1",
