@@ -1,6 +1,8 @@
 @import "../vars";
 
-.thumbnail__video, .thumbnail__audio, .thumbnail__picture {
+.thumbnail__video,
+.thumbnail__audio,
+.thumbnail__picture {
     margin: 0 5px;
     height: 98%;
     position: relative;
@@ -26,18 +28,12 @@
 
         img {
             height: 100%;
-            width: 100%;
             max-width: 33vw;
             object-fit: cover;
 
             @include phone {
                 max-width: none;
             }
-        }
-
-        &:hover figcaption {
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
-            color: $color-light;
         }
 
         &:hover figcaption {
@@ -56,33 +52,37 @@
             color: transparent;
             transition: all 0.3s ease;
         }
+
         .single-image__buttons {
             position: absolute;
             bottom: 0;
             right: 8px;
             font-size: 24px;
         }
+
         .single-image__buttons {
             position: absolute;
             bottom: 0;
             right: 8px;
             font-size: 24px;
-
         }
 
-        i, p {
+        i,
+        p {
             display: inline-block;
         }
     }
 }
 
 .thumbnail__video {
-    figure {
-        height: 100%;
+    height: 100%;
+    min-width: 50%;
 
-        video {
-            height: 100%;
-        }
+    .videogular-container {
+        height: 100%;
+        margin: auto;
+        overflow: hidden;
+        width: 100%;
     }
 }
 

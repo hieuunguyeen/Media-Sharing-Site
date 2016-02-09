@@ -12,9 +12,17 @@ angular.module('myApp')
 
         console.log('remoteDataController is working?');
 
+        $scope.itemLimit = 20;
+
+        // Change Item Limit onscroll
+        $(window).scroll(function(event) {
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                $scope.itemLimit += 5;
+            }
+        });
+
         //Load all content
         $scope.runAll = function() {
-
             $scope.hotPageItemLimit = 20;
             $scope.getImages();
             $scope.getAudios();
