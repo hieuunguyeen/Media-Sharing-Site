@@ -4,13 +4,8 @@
   "dependencies": {
     "angular": "^1.4.0",
     "bootstrap": "3.3.4",
-    "angular-animate": "^1.4.0",
-    "angular-cookies": "^1.4.0",
-    "angular-resource": "^1.4.0",
     "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0",
-    "angular-touch": "^1.4.0",
-    "angular-ui-sortable": "~0.13.4"
+    "angular-sanitize": "^1.4.0"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -23,6 +18,16 @@
   },
   "devDependencies": {
     "chai": "~3.4.2",
-    "mocha": "~2.3.4"
+    "mocha": "~2.3.4",
+    "angular": "~1.4.9",
+    "angular-sanitize": "^1.5.0",
+    "videogular": "^1.4.1",
+    "videogular-controls": "^1.4.1",
+    "videogular-overlay-play": "^1.4.1",
+    "videogular-buffering": "^1.4.1",
+    "videogular-poster": "^1.4.1",
+    "videogular-ima-ads": "^1.4.1",
+    "videogular-angulartics": "^1.4.1",
+    "videogular-themes-default": "^1.4.1"
   }
 }

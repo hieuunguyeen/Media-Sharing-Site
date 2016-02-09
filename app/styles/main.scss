@@ -202,8 +202,13 @@ header {
             top: 1px solid $color-accent;
         };
 
-        i {
-            @extend .position__center;
+        a {
+            text-decoration: none;
+            color: $color-dark;
+
+            i {
+                @extend .position__center;
+            }
         }
     }
 
@@ -350,7 +355,6 @@ button {
 
     .content {
         height: 300px;
-        max-height: 300px;
         margin: 40px 0;
         position: relative;
         overflow-x: scroll;
@@ -369,7 +373,9 @@ button {
     }
 
     #hot-video-stripe {
+        height: 50vh;
         color: $color-green;
+        overflow-y: hidden;
     }
 
     #hot-audio-stripe {

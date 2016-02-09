@@ -1,23 +1,23 @@
 <section ng-init="runAll()" id="hot-page">
-    <div class="container" id="hot-picture-stripe">
+    <div class="container">
         <h1>Hot pictures</h1>
-        <div class="content">
+        <div class="content" id="hot-picture-stripe">
             <div class="thumbnail__picture" ng-repeat="image in allImages | limitTo:hotPageItemLimit">
                 <thumbnail-image></thumbnail-image>
             </div>
         </div>
     </div>
-    <div class="container" id="hot-video-stripe">
+    <div class="container">
         <h1>Hot videos</h1>
-        <div class="content">
+        <div class="content" id="hot-video-stripe">
             <div class="thumbnail__video" ng-repeat="video in allVideos | limitTo:hotPageItemLimit">
                 <thumbnail-video></thumbnail-video>
             </div>
         </div>
     </div>
-    <div class="container" id="hot-audio-stripe">
+    <div class="container">
         <h1>Hot audio</h1>
-        <div class="content">
+        <div class="content" id="hot-audio-stripe">
             <div class="thumbnail__audio" ng-repeat="audio in allAudios | limitTo:hotPageItemLimit">
                 <audio preload="metadata" controls>
                     <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + audio.path)}}">
