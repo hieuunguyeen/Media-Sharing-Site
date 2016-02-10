@@ -49,7 +49,6 @@ angular.module('myApp')
         lightbox.close = function () {
             lightbox.lightboxOn = false;
             $('body').removeClass('body--overlay');
-            console.log(lightbox.lightboxOn);
         };
 
     });

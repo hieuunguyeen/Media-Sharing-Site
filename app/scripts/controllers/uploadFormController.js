@@ -30,10 +30,11 @@ angular.module('myApp')
                 console.log(err.data);
             });
 
-            $timeout(function () {
-                console.log('reloading');
+            /* $timeout(function () {
                 $window.location.reload();
-            }, 1500);
+            }, 3000); */
+
+            $('.loading-corner').addClass('loading-corner--load');
         };
 
         $scope.close = function () {
