@@ -5,3 +5,46 @@
 .upload-section {
 	min-width: 320px;
 }
+
+.input--upload {
+	width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.input--upload + label {
+	width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 8px 16px;
+
+    /* custom style */
+    color: $color-dark;
+    background-color: $color-light;
+    transition: all 0.3s ease;
+}
+
+.input--upload:focus + label,
+.input--upload.has-focus + label,
+.input--upload + label:hover {
+    background-color: darken($color-red, 5%);
+    color: $color-light;
+}
+
+.input--upload + label i {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    color: currentColor;
+    margin: 4px 0 4px 0;
+    float: right;
+    transition: all 0.3s ease;
+}

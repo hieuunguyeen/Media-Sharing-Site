@@ -86,9 +86,9 @@
             bottom: 0;
         }
 
-        i,
-        p {
+        .like-amount, .comment-amount {
             display: inline-block;
+            color: currentColor;
         }
     }
 }
@@ -146,11 +146,6 @@
             position: absolute;
             right: 8px;
             bottom: 0;
-        }
-
-        i,
-        p {
-            display: inline-block;
         }
     }
 }

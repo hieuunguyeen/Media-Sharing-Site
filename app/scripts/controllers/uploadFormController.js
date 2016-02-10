@@ -35,4 +35,19 @@ angular.module('myApp')
             $('body').removeClass('body--overlay');
             $('.modal--upload').removeClass('modal-box--cover');
         };
+
+        $('.input--upload').click(function () {
+            var input = $(this);
+            input.on('change', function (e) {
+                var fileName = '';
+                fileName = e.target.value.split( '\\' ).pop();
+                console.log(fileName);
+                if(fileName) {
+                    $('.file-name').text(fileName);
+                } else {
+                    $('.file-name').text('Choose a file');
+                }
+                
+            });
+        });
     });
