@@ -65,23 +65,23 @@ nav {
             }
         }
 
-        #hot-nav-btn:hover, #hot-nav-btn:active {
+        #hot-nav-btn:hover, #hot-nav-btn.active {
             background-color: $color-red;
         }
 
-        #picture-nav-btn:hover, #picture-nav-btn:active {
+        #picture-nav-btn:hover, #picture-nav-btn.active {
             background-color: $color-blue;
         }
 
-        #video-nav-btn:hover, #video-nav-btn:active {
+        #video-nav-btn:hover, #video-nav-btn.active {
             background-color: $color-green;
         }
 
-        #audio-nav-btn:hover, #audio-nav-btn:active {
+        #audio-nav-btn:hover, #audio-nav-btn.active {
             background-color: $color-yellow;
         }
 
-        #setting-btn:hover, #setting-btn:active {
+        #setting-btn:hover, #setting-btn.active {
             background-color: lighten($color-dark, 10%);
         }
     }
@@ -93,7 +93,7 @@ nav {
 
 header {
     position: fixed;
-    z-index: 100;
+    z-index: 21;
     top: 0;
     right: 0;
     width: calc(100vw - #{$nav-width} - 40px);
@@ -220,24 +220,44 @@ header {
             }
         }
 
-        #hot-tab-phone:hover {
-            background-color: $color-red;
+        #hot-tab-phone {
+            &:hover {
+                background-color: $color-red;
+            }
+
+            &.active {
+                background-color: $color-red;
+            }
         }
 
         #picture-tab-phone:hover {
-            background-color: $color-blue;
+            &:hover {
+                background-color: $color-blue;
+            }
+
+            &.active {
+                background-color: $color-blue;
+            }
         }
 
         #video-tab-phone:hover {
-            background-color: $color-green;
+            &:hover {
+                background-color: $color-green;
+            }
+
+            &.active {
+                background-color: $color-green;
+            }
         }
 
         #audio-tab-phone:hover {
-            background-color: $color-yellow;
-        }
+            &:hover {
+                background-color: $color-yellow;
+            }
 
-        #setting-tab-phone:hover {
-            background-color: $color-accent;
+            &.active {
+                background-color: $color-yellow;
+            }
         }
     }
 }
@@ -376,6 +396,8 @@ button {
     }
 
     #hot-picture-stripe {
+        height: 320px;
+
         p {
             color: $color-blue;
         }
