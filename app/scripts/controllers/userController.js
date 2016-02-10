@@ -37,7 +37,6 @@ angular.module('myApp')
         // interaction functions
         $('.close-button').click(function () {
             $('body').removeClass('body--overlay');
-            $('.overlay').removeClass('overlay--cover');
             $('.modal--login').removeClass('modal-box--cover');
         });
     });
