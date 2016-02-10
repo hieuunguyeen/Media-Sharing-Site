@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('uploadController', function ($scope, $rootScope, mediaFactory, ajaxFactory, $localStorage) {
+    .controller('uploadController', function ($scope, $rootScope, $window, $timeout, $localStorage, mediaFactory, ajaxFactory) {
 
         $scope.setMediaFile = function(element) {
             $scope.mimeType = element.files[0].type;
@@ -29,6 +29,11 @@ angular.module('myApp')
             }, function (err) {
                 console.log(err.data);
             });
+
+            $timeout(function () {
+                console.log('reloading');
+                $window.location.reload();
+            }, 1500);
         };
 
         $scope.close = function () {

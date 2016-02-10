@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('thumbImgController', function ($scope, $attrs, $rootScope, ajaxFactory, mediaFactory) {
+    .controller('thumbImgController', function ($scope, $rootScope, ajaxFactory, mediaFactory) {
 
         $scope.sendDataToModal = function (mediaId) {
             ajaxFactory.getFileById(mediaId).

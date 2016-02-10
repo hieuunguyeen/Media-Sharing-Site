@@ -4,6 +4,10 @@
 
 .upload-section {
 	min-width: 320px;
+
+    button[ng-click="postImage()"] {
+        width: 100%;
+    }
 }
 
 .input--upload {
