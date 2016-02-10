@@ -1,19 +1,23 @@
 angular.module('myApp')
     .controller('userController', function ($scope, ajaxFactory, $localStorage) {
         //Login
+        $scope.wrongLogin = false;
         $scope.login = function () {
             var userData = {
                 'username': $scope.loginUsername,
                 'password': $scope.loginPassword
             };
 
-            console.log(userData);
             ajaxFactory.userLogin(userData)
                 .then(function (success) {
-                    console.log(success.data);
-                    $scope.$storage = $localStorage.$default({
-                        userId: success.data.userId // fetch with $localStorage.userId
-                    });
+                    if (success.data.error == undefined) {
+                        $scope.$storage = $localStorage.$default({
+                            userId: success.data.userId // fetch with $localStorage.userId
+                        });
+                    } else {
+                        console.log("Wrong login");
+                        $scope.wrongLogin = true;
+                    }
                 }, function (err) {
                     console.log(err.data);
                 });
@@ -33,10 +37,10 @@ angular.module('myApp')
                 alert('Wrong retype password');
             }
         }
-
+        
         // interaction functions
-        $('.close-button').click(function () {
+        $scope.close = function () {
             $('body').removeClass('body--overlay');
             $('.modal--login').removeClass('modal-box--cover');
-        });
+        };
     });
