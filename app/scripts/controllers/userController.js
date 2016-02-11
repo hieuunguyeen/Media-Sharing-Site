@@ -1,5 +1,7 @@
 angular.module('myApp')
     .controller('userController', function ($scope, ajaxFactory, $localStorage) {
+        var userctrl = this;
+
         //Login
         $scope.wrongLogin = false;
         $scope.login = function () {
@@ -47,9 +49,9 @@ angular.module('myApp')
                 alert('Wrong retype password');
             }
         }
-        
+
         // interaction functions
-        $scope.close = function () {
+        $scope.closeLogin = function () {
             $('body').removeClass('body--overlay');
             $('.modal--login').removeClass('modal-box--cover');
         };

@@ -30,11 +30,11 @@ angular.module('myApp')
                 console.log(err.data);
             });
 
-            /* $timeout(function () {
+            $timeout(function () {
                 $window.location.reload();
-            }, 3000); */
+            }, 2200);
 
-            $('.loading-corner').addClass('loading-corner--load');
+            $('.loading-indication').addClass('loading-indication--load');
         };
 
         $scope.close = function () {
@@ -53,7 +53,6 @@ angular.module('myApp')
                 } else {
                     $('.file-name').text('Choose a file');
                 }
-                
             });
         });
     });
