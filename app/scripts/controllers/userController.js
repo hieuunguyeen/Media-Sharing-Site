@@ -22,6 +22,16 @@ angular.module('myApp')
                     console.log(err.data);
                 });
         };
+        //Login check
+        $scope.loggedIn = false;
+        if ($localStorage.userId !== undefined) {
+            $scope.loggedIn = true;
+        }
+        //Logout
+        $scope.logout = function () {
+            console.log("asd");
+            delete $localStorage.userId;
+        };
 
         //Signup
         $scope.postRegister = function () {
