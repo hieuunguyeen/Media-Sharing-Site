@@ -20,8 +20,10 @@ angular.module('myApp')
 
         $scope.redirectComment = function () {
             console.log('redirecting');
-            $window.location.href = '#/singleItem';
-            $window.location.reload();
+            $location.url('/singleItem');
+            $route.reload();
+            $('body').removeClass('body--overlay');
+            lightbox.lightboxOn = false;
         };
 
         $scope.$on('sendMedia', function () {
