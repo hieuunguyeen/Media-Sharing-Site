@@ -9,9 +9,11 @@
         $('.modal--upload').addClass('modal-box--cover');
     });
 
-// Change Active state of nav
+    // Change Active state of nav
     $('#nav-panel').children('a').click(function() {
         $(this).children('i').toggleClass('active');
         $(this).siblings('a').children('i').removeClass('active');
     });
+
+    
 })();

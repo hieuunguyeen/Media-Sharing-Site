@@ -15,6 +15,8 @@ angular.module('myApp')
         }
 
         //Load all content
+        
+        
         $scope.runAll = function() {
             $scope.hotPageItemLimit = 10;
             $scope.getImages();
@@ -64,4 +66,5 @@ angular.module('myApp')
         // var type : media real type
         // function setMediaFile: get data from the uploaded media
         // function postImage : send media to server
+        
     });

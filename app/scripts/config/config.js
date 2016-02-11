@@ -16,6 +16,10 @@ angular.module('myApp').config( function($routeProvider) {
         	templateUrl: 'views/pages/audio-page.html',
         	controller: 'remoteDataController'
         })
+        .when('/profile', {
+            templateUrl: 'views/pages/profile-page.html',
+            controller: 'userController'
+        })
         .otherwise({
             redirectTo: '/hot'
         });
