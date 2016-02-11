@@ -42,7 +42,7 @@
 
     <!-- Nav for big screen -->
     <nav class="hidden__phone">
-        <img src="images/logo.png" alt="logo" id="logo"">
+        <img src="images/logo.png" alt="logo" id="logo">
         <div id="nav-panel">
             <a href="#/hot">
                 <i class="glyphicon glyphicon-fire" id="hot-nav-btn"></i>
@@ -69,15 +69,20 @@
             </div>
         </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
             <div id="control-panel" class="flex__center">
-                <button id="upload-btn" ng-show="loggedIn"><span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
+                <button id="upload-btn" ng-show="loggedIn">
+                    <span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
                     <p class="hidden__tablet">UPLOAD</p>
                 </button>
-                <button id="signin-btn" ng-hide="loggedIn"><span class="fa fa-sign-in" style="font-size:24px;"></span>
+                <button id="signin-btn" ng-hide="loggedIn">
+                    <span class="fa fa-sign-in" style="font-size:24px;"></span>
                     <p class="hidden__tablet">SIGN IN</p>
                 </button>
-                <button id="profile-btn" ng-show="loggedIn"><span class="fa fa-user hidden__desktop" style="font-size:24px;"></span>
-                    <a href="#/profile" class="hidden__tablet">PROFILE</a>
-                </button>
+                <a href="#/profile">
+                    <button id="profile-btn" ng-show="loggedIn">
+                        <span class="fa fa-user hidden__desktop" style="font-size:24px;"></span>
+                        <p class="hidden__tablet">PROFILE</p>
+                    </button>
+                </a>
             </div>
         </div>
     </header>
