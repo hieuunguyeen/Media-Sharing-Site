@@ -1,0 +1,35 @@
+.single-item__image {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    justify-content: space-between;
+}
+
+.item__content {
+    flex-basis: 70%;
+}
+
+.item__info {
+    flex-basis: 27.5%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+
+    .info {
+        color: $color-dark;
+    }
+}
+
+.info__general-data, .info__metadata {
+    padding: 0 8px;
+    border: 1px solid $color-dark;
+    border-radius: 3px;
+
+    span {
+        float: right;
+    }
+}
+
+.info__description {
+
+}
