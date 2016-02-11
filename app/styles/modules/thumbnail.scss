@@ -61,12 +61,12 @@
             }
         }
 
-        &:hover figcaption {
+        &:hover aside {
             color: $color-light;
             background: rgba(11, 11, 11, 0.75);
         }
 
-        figcaption {
+        aside {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -75,25 +75,21 @@
             margin: 0;
             transition: all .3s ease;
             color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: $font-size-large;
+            padding-left: 16px;
         }
 
-        .single-image__buttons {
-            font-size: 24px;
-            position: absolute;
-            right: 8px;
-            bottom: 0;
-        }
-
-        .single-image__buttons {
-            font-size: 24px;
-            position: absolute;
-            right: 8px;
-            bottom: 0;
+        .like, .comments {
+            margin-right: 8px;
         }
 
         .like-amount, .comment-amount {
             display: inline-block;
             color: currentColor;
+            margin-left: 4px;
         }
     }
 }
@@ -129,12 +125,12 @@
             object-fit: cover;
         }
 
-        &:hover figcaption {
+        &:hover aside {
             color: $color-light;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 100%);
         }
 
-        figcaption {
+        aside {
             position: absolute;
             z-index: 20;
             top: 0;
@@ -144,18 +140,6 @@
             margin: 0;
             transition: all .3s ease;
             color: transparent;
-        }
-
-        .single-image__buttons {
-            font-size: 24px;
-            position: absolute;
-            right: 8px;
-            bottom: 0;
-        }
-
-        i,
-        p {
-            display: inline-block;
         }
     }
 }

@@ -26,7 +26,7 @@
 .loading-indication--load {
 	z-index: 99;
 	opacity: 0;
-	transition: transform 2s ease-in, opacity 2s 1s;
+	transition: transform 2s ease-in, opacity 2s 2s;
 	transform: translate3d(0, 0, 0);
 }
 

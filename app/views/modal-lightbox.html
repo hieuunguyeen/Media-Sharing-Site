@@ -32,13 +32,13 @@
       <!-- copy links -->
       <div class="metadata__links">
         <label for="direct-link">Direct Link</label>
-        <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="something direct here lightbox">
+        <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
         <br>
         <label for="image-link">Image Link</label>
         <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
         <br>
         <label for="direct-link">HTML Link</label>
-        <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="something html here">
+        <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
         <br>
       </div>
       <!-- share options -->
@@ -83,7 +83,7 @@
             <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
             <br>
             <label for="direct-link">HTML Link</label>
-            <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="something html here">
+            <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
             <br>
         </div>
         <div class="metadata__tab--phone tab--share" ng-class="{active : tabSelected(3)}">
