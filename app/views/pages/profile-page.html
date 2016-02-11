@@ -1,4 +1,4 @@
-<section id="profile-page" class="container pure-g">
+<section id="profile-page" class="container pure-g" ng-controller="userController">
 	<div class="pure-u-1 pure-md-1-2 pure-u-lg-1-2">
 		<article>
 			<p>Name: {{$scope.username}}</p>
@@ -12,7 +12,7 @@
 		<button></button>
 		<button></button>
 		<button></button>
-		<button>Sign out</button>
+		<button ng-click="logout()">Sign out</button>
 	</div><div class="pure-md-1-2 pure-u-lg-1-2 hidden__phone">
 		b
 	</div>
