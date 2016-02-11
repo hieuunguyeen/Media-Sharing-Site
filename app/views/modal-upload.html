@@ -5,8 +5,8 @@
             <div class="content__form">
                 <form class="modal-form" id="uploadForm">
                     <span>
-                        <input class="modal-form__input" type="file" name="file" onchange="angular.element(this).scope().setMediaFile(this)">
-                        <label for="file"></label>
+                        <input class="modal-form__input input--upload" type="file" name="file" onchange="angular.element(this).scope().setMediaFile(this)" id="file-upload">
+                        <label for="file-upload"><i class="glyphicon glyphicon-upload"></i><span class="file-name">Choose a file&hellip;</span></label>
                     </span>
                     <span>
                         <input class="modal-form__input" type="text" placeholder="Title" name="title">
@@ -16,7 +16,7 @@
                         <input class="modal-form__input" type="text" placeholder="Description" name="description">
                         <label for="description"></label>
                     </span>
-                    <button ng-click="postImage()">Submit</button>
+                    <button ng-click="postImage()" data-animation="loading-corner">Submit</button>
                 </form>
             </div>
         </div>

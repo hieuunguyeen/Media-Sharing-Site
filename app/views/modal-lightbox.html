@@ -1,20 +1,20 @@
 <section class="modal-box modal--lightbox" id="item-popup" modal-data="lightbox" ng-class="{'modal-box--cover': lightbox.lightboxOn}" ng-controller="lightboxController as lightbox">
   <div class="modal-box__content">
     <figure class="modal-box__image">
-        <img class="image__content" src="http://placehold.it/768x768" alt="">
+        <img class="image__content" ng-src="{{ imagePath }}" alt="">
         <figcaption class="image__functions">
           <i class="glyphicon glyphicon-thumbs-up"></i>
           <i class="glyphicon glyphicon-comment"></i>
           <i class="glyphicon glyphicon-subtitles"></i>
         </figcaption>
         <figcaption class="image__info">
-            <h4>Name: <span class="image-info__name">Random Image Lightbox</span></h4>
-            <h4>Uploaded: <span class="image-info__upload-date">16/11/2015</span></h4>
-            <h4>Views: <span class="image-info__views">N/A</span></h4>
-            <h4>Author: <span class="image-info__author">SomebodySomebody</span></h4>
+            <h4>Name: <span class="image-info__name">{{ imageTitle }}</span></h4>
+            <h4>Uploaded: <span class="image-info__upload-date">{{ imageUploadDate }}</span></h4>
+            <h4>Views: <span class="image-info__views">{{ imageViews }}</span></h4>
+            <h4>Author: <span class="image-info__author">{{ imageAuthor }}</span></h4>
         </figcaption>
         <figcaption class="image__description">
-            <strong>Description:</strong><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos accusantium, eius quibusdam sequi, at provident nemo itaque ipsa deserunt pariatur vero quam officiis est illo! Laudantium voluptatem omnis, cumque totam minima odit quae excepturi porro!</p>
+            <strong>Description:</strong><p>{{ imageDescription }}</p>
         </figcaption>
       </figure>
     <aside class="modal-box__metadata">
@@ -22,11 +22,11 @@
       <!-- metadata -->
       <div class="metadata__data">
         <p>
-          <h5>Taken: <span class="taken-date">12/12/12</span></h5>
-          <h5>Resolution: <span class="resolution">1366x768</span></h5>
-          <h5>Pixels per Inch: <span class="dpi">72</span></h5>
-          <h5>Size: <span class="size">3.33 KB</span></h5>
-          <h5>Image Type: <span class="image-type">GIF Image</span></h5>
+          <h5>Taken: <span class="taken-date">{{ imageTakenDate }}</span></h5>
+          <h5>Resolution: <span class="resolution">{{ imageWidth + ' x ' + imageHeight }}</span></h5>
+          <h5>Pixels per Inch: <span class="dpi">{{ imageDPI }}</span></h5>
+          <h5>Size: <span class="size">{{ imageSize }}</span></h5>
+          <h5>Image Type: <span class="image-type">{{ imageType }}</span></h5>
         </p>
       </div>
       <!-- copy links -->
@@ -51,33 +51,33 @@
     </aside>
     <aside class="modal-box__metadata--phone">
         <div class="metadata-nav">
-            <a ng-class="{active : lightbox.tabSelected(1)}" ng-click="lightbox.selectTab(1)" href="#">
+            <a ng-class="{active : tabSelected(1)}" ng-click="selectTab(1)" href="#">
                 <i class="glyphicon glyphicon-info-sign"></i>
                 <span>Metadata</span>
             </a>
-            <a ng-class="{active : lightbox.tabSelected(2)}" ng-click="lightbox.selectTab(2)" href="#">
+            <a ng-class="{active : tabSelected(2)}" ng-click="selectTab(2)" href="#">
                 <i class="glyphicon glyphicon-link"></i>
                 <span>Links</span>
             </a>
-            <a ng-class="{active : lightbox.tabSelected(3)}" ng-click="lightbox.selectTab(3)" href="#">
+            <a ng-class="{active : tabSelected(3)}" ng-click="selectTab(3)" href="#">
                 <i class="glyphicon glyphicon-share"></i>
                 <span>Share</span>
             </a>
         </div>
-        <div class="metadata__tab--phone tab--data" ng-class="{active : lightbox.tabSelected(1)}">
+        <div class="metadata__tab--phone tab--data" ng-class="{active : tabSelected(1)}">
             <p>
-              <h5>Taken: <span class="taken-date">12/12/12</span></h5>
-              <h5>Resolution: <span class="resolution">1366x768</span></h5>
-              <h5>Pixels per Inch: <span class="dpi">72</span></h5>
-              <h5>Size: <span class="size">3.33 KB</span></h5>
-              <h5>Image Type: <span class="image-type">GIF Image</span></h5>
+              <h5>Taken: <span class="taken-date">{{ imageTakenDate }}</span></h5>
+              <h5>Resolution: <span class="resolution">{{ imageWidth + ' x ' + imageHeight }}</span></h5>
+              <h5>Pixels per Inch: <span class="dpi">{{ imageDPI }}</span></h5>
+              <h5>Size: <span class="size">{{ imageSize }}</span></h5>
+              <h5>Image Type: <span class="image-type">{{ imageType }}</span></h5>
             </p>
         </div>
-        <div class="metadata__tab--phone tab--links" ng-class="{active : lightbox.tabSelected(2)}">
+        <div class="metadata__tab--phone tab--links" ng-class="{active : tabSelected(2)}">
             <label for="direct-link">Direct Link</label>
             <br>
             <span class="copy">Copy</span>
-            <input readonly class="link direct-link" name="direct-link" type="text" value="something direct here login">
+            <input readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
             <br>
             <label for="image-link">Image Link</label>
             <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
@@ -86,7 +86,7 @@
             <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="something html here">
             <br>
         </div>
-        <div class="metadata__tab--phone tab--share" ng-class="{active : lightbox.tabSelected(3)}">
+        <div class="metadata__tab--phone tab--share" ng-class="{active : tabSelected(3)}">
             <ul class="metadata__share">
               <li class="facebook"><a href="#">Facebook</a></li>
               <li class="twitter"><a href="#">Twitter</a></li>

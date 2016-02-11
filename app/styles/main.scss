@@ -8,6 +8,7 @@
 @import "modules/uploadForm";
 @import "modules/scrollbar";
 @import "modules/thumbnail";
+@import "modules/loadingIndicate";
 
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
@@ -399,10 +400,7 @@ button {
 
     #hot-picture-stripe {
         height: 320px;
-
-        p {
-            color: $color-blue;
-        }
+        color: $color-blue;
     }
 
     #hot-video-stripe {

@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('uploadController', function ($scope, $rootScope, mediaFactory, ajaxFactory, $localStorage) {
+    .controller('uploadController', function ($scope, $rootScope, $window, $timeout, $localStorage, mediaFactory, ajaxFactory) {
 
         $scope.setMediaFile = function(element) {
             $scope.mimeType = element.files[0].type;
@@ -29,10 +29,31 @@ angular.module('myApp')
             }, function (err) {
                 console.log(err.data);
             });
+
+            /* $timeout(function () {
+                $window.location.reload();
+            }, 3000); */
+
+            $('.loading-corner').addClass('loading-corner--load');
         };
 
         $scope.close = function () {
             $('body').removeClass('body--overlay');
             $('.modal--upload').removeClass('modal-box--cover');
         };
+
+        $('.input--upload').click(function () {
+            var input = $(this);
+            input.on('change', function (e) {
+                var fileName = '';
+                fileName = e.target.value.split( '\\' ).pop();
+                console.log(fileName);
+                if(fileName) {
+                    $('.file-name').text(fileName);
+                } else {
+                    $('.file-name').text('Choose a file');
+                }
+                
+            });
+        });
     });

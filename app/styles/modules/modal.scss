@@ -73,7 +73,7 @@
 }
 
 .image__functions {
-    margin-bottom: 8%;
+    margin-bottom: 32px;
     padding: 16px;
     display: flex;
     align-items: center;
@@ -255,6 +255,12 @@
 .modal-box.modal-box--cover .close-button {
     opacity: 1;
     visibility: visible;
+}
+
+@media screen and (max-width: 1280px) {
+    .image__functions {
+        margin-bottom: 40px;
+    }
 }
 
 @media screen and (max-width: #{$width-desktop}) {
