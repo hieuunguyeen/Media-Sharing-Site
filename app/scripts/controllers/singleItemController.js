@@ -4,5 +4,5 @@ angular.module('myApp')
         $scope.itemloadDate = '11/12/13';
         $scope.itemViews = '1223';
         $scope.itemAuthor = 'Author XYZ';
-        $scope.itemDescription = 'wertyuiopasdfghjkzxcvbulhfsreuilfdhjdjkvh,dvjkredkvjdkgjfkdnvjekfdnvjefkdhvnfkhnnm';
+        $scope.itemDescription = 'wertyuiopasdfghjkzxciogjtrgjrtkgjtrgkrtgjrtlgdhvnfkhnnm';
     });
