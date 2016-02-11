@@ -1,5 +1,5 @@
-<section class="modal-box modal--login" modal-data="login" >
-    <div class="modal-box__content" ng-controller="userController">
+<section class="modal-box modal--login" modal-data="login" ng-controller="userController">
+    <div class="modal-box__content">
         <div class="content--half login-section">
             <h3 class="content__title">Log In</h3>
             <div class="content__form">
@@ -12,6 +12,7 @@
                         <input class="modal-form__input" type="password" placeholder="Password" name="passwordLogin" ng-model="loginPassword">
                         <label for="password"></label>
                     </span>
+                    <p class="modal-form__text" ng-show="wrongLogin">Wrong username or password</p>
                     <span>
                         <input type="checkbox" label="Remember Me" name="rememberMe">
                         <label for="rememberMe">Remember Me</label>

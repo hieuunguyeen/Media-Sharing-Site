@@ -27,7 +27,6 @@ angular.module('myApp')
             ajaxFactory.getFiles('image')
                 .then(function(success) {
                     $scope.allImages = success.data;
-                    console.log(success.data);
                 }, function(error) {
                     console.log(error.data);
                 });
@@ -37,7 +36,6 @@ angular.module('myApp')
             ajaxFactory.getFiles('audio')
                 .then(function(success) {
                     $scope.allAudios = success.data;
-                    console.log(success.data);
                 }, function(error) {
                     console.log(error.data);
                 });
@@ -47,7 +45,6 @@ angular.module('myApp')
             ajaxFactory.getFiles('video')
                 .then(function(success) {
                     $scope.allVideos = success.data;
-                    console.log(success.data);
                 }, function(error) {
                     console.log(error.data);
                 });
