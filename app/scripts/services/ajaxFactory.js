@@ -38,6 +38,14 @@ angular.module('myApp')
                 }
             });
         }
+        
+        ajaxFunctions.userAlreadyExists = function(user) {
+            return $http.post(urlBase + 'user/exists', $httpParamSerializer(user), {
+                headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        }
 
         return ajaxFunctions;
     });

@@ -26,7 +26,7 @@
             <div class="content__form">
                 <form ng-submit="postRegister()" class="modal-form" id="register-form">
                     <span>
-                        <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="signupUsername">
+                        <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="signupUsername" ng-change="userExists()">
                         <label for="username"></label>
                     </span>
                     <span>

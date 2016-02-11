@@ -29,7 +29,6 @@ angular.module('myApp')
         }
         //Logout
         $scope.logout = function () {
-            console.log("asd");
             delete $localStorage.userId;
         };
 
@@ -47,6 +46,16 @@ angular.module('myApp')
                 alert('Wrong retype password');
             }
         }
+        //Check if username excists
+        $scope.userExists = function () {
+            ajaxFactory.userAlreadyExists($scope.signupUsername)
+                .then(function (success) {
+                    console.log($scope.signupUsername)
+                    console.log("success");
+                }, function (err) {
+                    console.log(err);
+                })
+        };
         
         // interaction functions
         $scope.close = function () {
