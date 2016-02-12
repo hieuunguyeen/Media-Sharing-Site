@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('lightboxController', function ($scope, $rootScope, mediaFactory) {
+    .controller('lightboxController', function ($scope, $rootScope, $window, $location, $route, mediaFactory) {
 
         var lightbox = this;
 
@@ -18,19 +18,30 @@ angular.module('myApp')
             $('.image__description').toggleClass('show');
         });
 
+        $scope.redirectComment = function () {
+            console.log('redirecting');
+            $location.url('/singleItem');
+            $route.reload();
+            $('body').removeClass('body--overlay');
+            lightbox.lightboxOn = false;
+        };
+
         $scope.$on('sendMedia', function () {
             var media = mediaFactory.mediaData;
             console.log(media);
 
             $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
             var image = new Image();
+            console.log(image);
             image.onload = function () {
                 $scope.imageWidth = image.width;
                 $scope.imageHeight = image.height;
                 console.log($scope.imageWidth);
                 console.log($scope.imageHeight);
+
             };
             image.src = $scope.imagePath;
+            console.log(image);
 
             $scope.imageDescription = media.description;
             $scope.imageTitle = media.title;

@@ -4,7 +4,7 @@
         <img class="image__content" ng-src="{{ imagePath }}" alt="">
         <figcaption class="image__functions">
           <i class="glyphicon glyphicon-thumbs-up"></i>
-          <i class="glyphicon glyphicon-comment"></i>
+          <i class="glyphicon glyphicon-comment" ng-click="redirectComment()"></i>
           <i class="glyphicon glyphicon-subtitles"></i>
         </figcaption>
         <figcaption class="image__info">
@@ -21,13 +21,11 @@
         <br>
       <!-- metadata -->
       <div class="metadata__data">
-        <p>
           <h5>Taken: <span class="taken-date">{{ imageTakenDate }}</span></h5>
-          <h5>Resolution: <span class="resolution">{{ imageWidth + ' x ' + imageHeight }}</span></h5>
+          <h5>Resolution: <span class="resolution">{{ imageWidth + ' x ' + imageHeight + temp }}</span></h5>
           <h5>Pixels per Inch: <span class="dpi">{{ imageDPI }}</span></h5>
           <h5>Size: <span class="size">{{ imageSize }}</span></h5>
           <h5>Image Type: <span class="image-type">{{ imageType }}</span></h5>
-        </p>
       </div>
       <!-- copy links -->
       <div class="metadata__links">
