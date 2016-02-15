@@ -8,6 +8,7 @@
 @import "modules/scrollbar";
 @import "modules/thumbnail";
 @import "modules/loadingIndicate";
+@import "modules/singleItem";
 
 $icon-font-path: "../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
 
@@ -150,6 +151,10 @@ header {
             color: inherit;
         }
 
+        a {
+            width: $button-width;
+        }
+
         #upload-btn {
             background-color: transparent;
         }
@@ -162,6 +167,8 @@ header {
         #profile-btn {
             color: $color-light;
             background-color: $color-red;
+            margin: 0;
+            width: 100%;
         }
     }
 
@@ -454,9 +461,38 @@ button.scroll-btn {
 .container#image-page {}
 
 .container#profile-page {
+    font-size: 0;
+
     article {
+        font-size: $font-size-regular;
         width: 100%;
         padding: 30px;
         border: 1px solid #ccc;
+        margin-bottom: 30px;
+    }
+
+    button {
+        width: 33%;
+        font-size: $font-size-regular;
+        margin: 0;
+        color: $color-light;
+    }
+
+    button#my-images-btn {
+        background-color: $color-blue;
+    }
+
+    button#my-videos-btn {
+        background-color: $color-green;
+    }
+
+    button#my-audios-btn {
+        background-color: $color-yellow;
+    }
+
+    button#signout-btn {
+        margin-top: 48px;
+        width: 100%;
+        background-color: $color-red;
     }
 }

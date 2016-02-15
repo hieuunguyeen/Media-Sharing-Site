@@ -1,9 +1,10 @@
 angular.module('myApp')
-    .controller('lightboxController', function ($scope, $rootScope, mediaFactory) {
+    .controller('lightboxController', function ($scope, $rootScope, $window, $location, $route, mediaFactory) {
 
         var lightbox = this;
 
         $scope.metadataTab = 1;
+        $scope.imageWidth, $scope.imageHeight, $scope.imageSize, $scope.imageTakenDate, $scope.imageSize, $scope.imageDPI;
 
         $scope.selectTab = function (tab) {
             $scope.metadataTab = tab;
@@ -17,13 +18,31 @@ angular.module('myApp')
             $('.image__description').toggleClass('show');
         });
 
+        $scope.redirectComment = function () {
+            console.log('redirecting');
+            $location.url('/singleItem');
+            $route.reload();
+            $('body').removeClass('body--overlay');
+            lightbox.lightboxOn = false;
+        };
+
         $scope.$on('sendMedia', function () {
             var media = mediaFactory.mediaData;
             console.log(media);
-            lightbox.lightboxOn = true;
-            $('body').addClass('body--overlay');
 
             $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+            var image = new Image();
+            console.log(image);
+            image.onload = function () {
+                $scope.imageWidth = image.width;
+                $scope.imageHeight = image.height;
+                console.log($scope.imageWidth);
+                console.log($scope.imageHeight);
+
+            };
+            image.src = $scope.imagePath;
+            console.log(image);
+
             $scope.imageDescription = media.description;
             $scope.imageTitle = media.title;
             $scope.imageUploadDate = media.uploadTime;
@@ -33,16 +52,8 @@ angular.module('myApp')
             $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
             $scope.imageViews = 'N/A';
 
-            var image = new Image();
-            image.src = $('.image__content').attr('src');
-            console.log(image);
-
-            $scope.imageWidth = image.width || 'N/A';
-            $scope.imageHeight = image.height || 'N/A';
-            $scope.imageSize = 'N/A';
-            $scope.imageTakenDate = 'N/A';
-            $scope.imageSize = 'N/A';
-            $scope.imageDPI = 'N/A';
+            lightbox.lightboxOn = true;
+            $('body').addClass('body--overlay');
         });
 
 
