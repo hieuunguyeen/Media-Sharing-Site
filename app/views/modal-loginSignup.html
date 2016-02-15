@@ -26,6 +26,9 @@
             <div class="content__form">
                 <form ng-submit="postRegister()" class="modal-form" id="register-form">
                     <span>
+                        <div class="modal-form__infobox" ng-show="usernameExists">
+                            <p class="modal-form__text">Username already in use</p>
+                        </div>
                         <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="signupUsername" ng-change="userExists()">
                         <label for="username"></label>
                     </span>
@@ -34,7 +37,10 @@
                         <label for=""></label>
                     </span>
                     <span>
-                        <input class="modal-form__input" required type="password" placeholder="Verify Password" name="rePasword" ng-model="rePassword">
+                        <div class="modal-form__infobox" ng-show="retypePasswordWrong">
+                            <p class="modal-form__text">Passwords do not match</p>
+                        </div>
+                        <input class="modal-form__input" required type="password" placeholder="Verify Password" name="rePasword" ng-model="rePassword" ng-change="retypeWrong()">
                         <label for="rePassword"></label>
                     </span>
                     <span>
