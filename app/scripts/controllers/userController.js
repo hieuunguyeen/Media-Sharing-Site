@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('userController', function ($scope, ajaxFactory, $localStorage) {
+    .controller('userController', function ($scope, ajaxFactory, $localStorage, $window) {
         var userctrl = this;
 
         $scope.username = 'N/a';
@@ -27,6 +27,7 @@ angular.module('myApp')
                         });
                         $scope.username = $scope.loginUsername;
                         $scope.userId = $scope.loginUsername;
+                        $window.location.reload();
                     } else {
                         console.log("Wrong login");
                         $scope.wrongLogin = true;
@@ -47,6 +48,7 @@ angular.module('myApp')
         $scope.logout = function () {
             delete $localStorage.userId;
             delete $localStorage.username;
+            $window.location.reload();
         };
 
         //Signup
@@ -59,6 +61,7 @@ angular.module('myApp')
 
             if ($scope.retypePasswordWrong == false && $scope.usernameExists == false) {
                 ajaxFactory.postRegisterForm(fd);
+                $window.location.reload();
             } else {
                 alert('Check your fields');
             }
