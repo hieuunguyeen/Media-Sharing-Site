@@ -15,6 +15,10 @@ angular.module('myApp')
         ajaxFunctions.getFiles = function(args) {
             return $http.get(urlBase + 'files/type/' + args);
         };
+
+        ajaxFunctions.getFilesByUserId = function(args) {
+            return $http.get(urlBase + 'files/user/' + args);
+        };
         
         ajaxFunctions.postRegisterForm = function(form) {
             return $http({

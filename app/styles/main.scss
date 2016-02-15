@@ -103,7 +103,7 @@ nav {
 
 header {
     position: fixed;
-    z-index: 20;
+    z-index: 21;
     top: 0;
     right: 0;
     width: calc(100vw - #{$nav-width} - 40px);
@@ -494,5 +494,21 @@ button.scroll-btn {
         margin-top: 48px;
         width: 100%;
         background-color: $color-red;
+    }
+
+    #user-gallery {
+        height: 100vh;
+        overflow-y: scroll;
+        padding: 0 30px;
+    }
+
+    .item-thumbnail {
+        height: 40%;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
     }
 }

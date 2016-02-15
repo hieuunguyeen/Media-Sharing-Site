@@ -38,10 +38,11 @@ angular.module('myApp')
                 $scope.imageHeight = image.height;
                 console.log($scope.imageWidth);
                 console.log($scope.imageHeight);
+                lightbox.lightboxOn = true;
+                $scope.$apply();
 
             };
             image.src = $scope.imagePath;
-            console.log(image);
 
             $scope.imageDescription = media.description;
             $scope.imageTitle = media.title;
@@ -52,7 +53,7 @@ angular.module('myApp')
             $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
             $scope.imageViews = 'N/A';
 
-            lightbox.lightboxOn = true;
+            // lightbox.lightboxOn = true;
             $('body').addClass('body--overlay');
         });
 

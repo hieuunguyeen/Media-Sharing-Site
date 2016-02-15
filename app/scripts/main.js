@@ -10,7 +10,7 @@
     });
 
     // Change Active state of nav
-    $('#nav-panel i').click(function() {
+    $('#nav-panel > i').click(function() {
         $(this).siblings('i').removeClass('active');
         $(this).addClass('active');
     });

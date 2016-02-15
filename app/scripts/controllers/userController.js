@@ -12,14 +12,14 @@ angular.module('myApp')
 
         //Login
         $scope.wrongLogin = false;
-        $scope.login = function () {
+        $scope.login = function() {
             var userData = {
                 'username': $scope.loginUsername,
                 'password': $scope.loginPassword
             };
 
             ajaxFactory.userLogin(userData)
-                .then(function (success) {
+                .then(function(success) {
                     if (success.data.error == undefined) {
                         $scope.$storage = $localStorage.$default({
                             userId: success.data.userId, // fetch with $localStorage.userId
@@ -28,11 +28,14 @@ angular.module('myApp')
                         $scope.username = $scope.loginUsername;
                         $scope.userId = $scope.loginUsername;
                         $window.location.reload();
+                        // $location.path();
+                        // $location.path('/hot');
+                        // $scope.closeLogin();
                     } else {
                         console.log("Wrong login");
                         $scope.wrongLogin = true;
                     }
-                }, function (err) {
+                }, function(err) {
                     console.log(err.data);
                 });
         };
@@ -43,16 +46,18 @@ angular.module('myApp')
             $scope.username = $localStorage.username;
             $scope.userId = $localStorage.userId;
         }
-        
+
         //Logout
-        $scope.logout = function () {
+        $scope.logout = function() {
             delete $localStorage.userId;
             delete $localStorage.username;
             $window.location.reload();
+            // $location.path();
+            // $location.path('/hot');
         };
 
         //Signup
-        $scope.postRegister = function () {
+        $scope.postRegister = function() {
             var fd = {
                 'username': $scope.signupUsername,
                 'password': $scope.signupPassword,
@@ -68,33 +73,33 @@ angular.module('myApp')
         }
 
         //Check if username excists
-        $scope.userExists = function () {
+        $scope.userExists = function() {
             var fd = {
                 'username': $scope.signupUsername
             };
             ajaxFactory.userAlreadyExists(fd)
-                .then(function (success) {
+                .then(function(success) {
                     if (success.data.userFound == true) {
                         $scope.usernameExists = true;
                     } else {
                         $scope.usernameExists = false;
                     }
-                }, function (err) {
+                }, function(err) {
                     console.log(err);
                 })
         };
-        
+
         //Check retype-password
-        $scope.retypeWrong = function () {
+        $scope.retypeWrong = function() {
             if ($scope.rePassword != $scope.signupPassword) {
                 $scope.retypePasswordWrong = true;
             } else {
                 $scope.retypePasswordWrong = false;
             }
         }
-        
+
         // interaction functions
-        $scope.closeLogin = function () {
+        $scope.closeLogin = function() {
             $('body').removeClass('body--overlay');
             $('.modal--login').removeClass('modal-box--cover');
         };

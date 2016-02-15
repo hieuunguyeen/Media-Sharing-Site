@@ -52,6 +52,16 @@ angular.module('myApp')
                 });
         }
 
+        $scope.getUserItems = function(userId) {
+            ajaxFactory.getFilesByUserId(userId)
+                .then(function(success) {
+                    $scope.userItems = success.data;
+                    console.log($scope.userItems);
+                }, function(error) {
+                    console.log(error.data);
+                });
+        }
+
         //transform to trusted link for videos and audio
         //Usa like this:
         //<source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + video.path)}}">
