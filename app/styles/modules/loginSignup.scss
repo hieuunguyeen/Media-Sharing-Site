@@ -33,6 +33,13 @@
     text-align: center;
     margin-bottom: 32px;
 }
+.modal-form > span {
+    position: relative;
+}
+.modal-form__infobox {
+    position: absolute;
+    top: -18px;
+}
 .modal-form__text {
     color: $color-warning;
 }
