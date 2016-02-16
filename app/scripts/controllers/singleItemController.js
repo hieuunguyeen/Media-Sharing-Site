@@ -1,8 +1,7 @@
 angular.module('myApp')
-    .controller('singleItemController', function ($location, $scope, $routeParams, $rootScope, mediaFactory, ajaxFactory) {
-        // var media = mediaFactory.mediaData; // same data from modal
+    .controller('singleItemController', function ($scope, $routeParams, $localStorage, mediaFactory, ajaxFactory) {
+
         $scope.itemId = parseInt($routeParams.itemId.substring(1));
-        console.log($scope.itemId);
 
         ajaxFactory.getFileById($scope.itemId).
             then(function (success) {
@@ -11,12 +10,15 @@ angular.module('myApp')
                 var media = mediaFactory.mediaData;
 
                 $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+
+                $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+                $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
                 $scope.itemTitle = media.title;
                 $scope.itemloadDate = media.uploadTime;
                 $scope.itemViews = '1223';
                 $scope.itemAuthor = media.userId;
                 $scope.itemDescription = media.description;
-                $scope.itemType = media.mimeType.substring(6);
+                $scope.itemType = media.mimeType.substring(6).toUpperCase();
 
                 var image = new Image();
                 console.log(image);
@@ -32,4 +34,20 @@ angular.module('myApp')
             }, function (error) {
                 mediaFactory.handleError(error);
         });
+
+        $scope.postComment = function () {
+            var commentData = {
+                'user': $localStorage.userId,
+                'comment': $scope.comment
+            };
+
+            console.log(commentData);
+
+            ajaxFactory.postComment(commentData, $scope.itemId)
+                .then(function (success) {
+                    console.log(success.data);
+                }, function (error) {
+                    console.log(error.data);
+                });
+        };
     });
