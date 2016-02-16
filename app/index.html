@@ -11,19 +11,16 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/bower_components/videogular-themes-default/videogular.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <!-- endbuild -->
+    <script src="/bower_components/modernizr/src/modernizr.js"></script>    <!-- endbuild -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
 <body ng-app="myApp">
@@ -130,27 +127,48 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="/bower_components/ngstorage/ngStorage.js"></script>
+    <script src="/bower_components/videogular/videogular.js"></script>
+    <script src="/bower_components/videogular-controls/vg-controls.js"></script>
+    <script src="/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
+    <script src="/bower_components/videogular-buffering/vg-buffering.js"></script>
+    <script src="/bower_components/videogular-poster/vg-poster.js"></script>
+    <script src="/bower_components/videogular-ima-ads/vg-ima-ads.js"></script>
+    <script src="/bower_components/waypoints/waypoints.js"></script>
+    <script src="/bower_components/SHA-1/sha1.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-adobe.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-chartbeat.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-cnzz.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-flurry.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-ga-cordova.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-ga.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-gtm.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-kissmetrics.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-mixpanel.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-piwik.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-scroll.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-segmentio.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-splunk.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-woopra.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-marketo.js"></script>
+    <script src="/bower_components/angulartics/src/angulartics-intercom.js"></script>
+    <script src="/bower_components/videogular-angulartics/vg-analytics.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.) scripts/plugins.js -->
 
-    <!-- Videogular -->
-    <script src="/bower_components/videogular/videogular.js"></script>
-    <script src="/bower_components/videogular-controls/vg-controls.js"></script>
-    <script src="/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
-    <script src="/bower_components/videogular-poster/vg-poster.js"></script>
-    <script src="/bower_components/videogular-buffering/vg-buffering.js"></script>
     <!-- endbuild -->
     <!-- build:js(.tmp) scripts/main.js -->
     <script src="scripts/main.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/header.js"></script>
 
-    <!-- Config -->
     <script src="scripts/config/config.js"></script>
 
-    <!-- Directives -->
     <script src="scripts/directives/singleImage.js"></script>
     <script src="scripts/directives/loginForm.js"></script>
     <script src="scripts/directives/uploadForm.js"></script>
@@ -162,7 +180,6 @@
     <script src="scripts/directives/thumbnailImageVertical.js"></script>
     <script src="scripts/directives/scrollToBottomPage.js"></script>
 
-    <!-- Controllers -->
     <script src="scripts/Controllers/remoteDataController.js"></script>
     <script src="scripts/Controllers/lightboxController.js"></script>
     <script src="scripts/Controllers/uploadFormController.js"></script>
@@ -172,7 +189,6 @@
     <script src="scripts/controllers/headerController.js"></script>
     <script src="scripts/controllers/singleItemController.js"></script>
 
-    <!-- Services -->
     <script src="scripts/services/ajaxFactory.js"></script>
     <script src="scripts/services/mediaFactory.js"></script>
 
