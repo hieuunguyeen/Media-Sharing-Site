@@ -15,7 +15,9 @@ module.exports = function (grunt) {
 
   // Automatically load required grunt tasks
   require('jit-grunt')(grunt, {
-    useminPrepare: 'grunt-usemin'
+    useminPrepare: 'grunt-usemin',
+    ngtemplates: 'grunt-angular-templates',
+    cdnify: 'grunt-google-cdn'
   });
 
   // Configurable paths
@@ -307,6 +309,33 @@ module.exports = function (grunt) {
       }
     },
 
+    // ng-annotate tries to make the code safe for minification automatically
+    // by using the Angular long form for dependency injection.
+    ngAnnotate: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/concat/scripts',
+          src: '*.js',
+          dest: '.tmp/concat/scripts'
+        }]
+      }
+    },
+
+    // Copy views template files to dist
+    ngtemplates: {
+      dist: {
+        options: {
+          module: 'myApp',
+          htmlmin: '<%= htmlmin.dist.options %>',
+          usemin: 'scripts/main.js'
+        },
+        cwd: '<%= config.app %>',
+        src: 'views/{,*/}*.html',
+        dest: '.tmp/templateCache.js'
+      }
+    },
+
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
@@ -361,7 +390,7 @@ module.exports = function (grunt) {
     // reference in your app
     modernizr: {
       dist: {
-        devFile: 'bower_components/modernizr/modernizr.js',
+        devFile: 'bower_components/modernizr/src/modernizr.js',
         outputFile: '<%= config.dist %>/scripts/vendor/modernizr.js',
         files: {
           src: [
@@ -435,7 +464,9 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'postcss',
+    'ngtemplates',
     'concat',
+    'ngAnnotate',
     'cssmin',
     'uglify',
     'copy:dist',
