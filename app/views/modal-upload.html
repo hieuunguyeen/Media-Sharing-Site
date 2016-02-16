@@ -1,0 +1,25 @@
+<section class="modal-box modal--upload" modal-data="upload" ng-controller="uploadController">
+    <div class="modal-box__content">
+        <div class="content--whole upload-section">
+            <h3 class="content__title">Upload</h3>
+            <div class="content__form">
+                <form class="modal-form" id="uploadForm">
+                    <span>
+                        <input class="modal-form__input input--upload" type="file" name="file" onchange="angular.element(this).scope().setMediaFile(this)" id="file-upload">
+                        <label for="file-upload"><i class="glyphicon glyphicon-upload"></i><span class="file-name">Choose a file&hellip;</span></label>
+                    </span>
+                    <span>
+                        <input class="modal-form__input" type="text" placeholder="Title" name="title">
+                        <label for="title"></label>
+                    </span>
+                    <span>
+                        <input class="modal-form__input" type="text" placeholder="Description" name="description">
+                        <label for="description"></label>
+                    </span>
+                    <button ng-click="postImage()" data-animation="loading-corner">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button class="close-button" ng-click="close()"><span>×</span></button>
+</section>

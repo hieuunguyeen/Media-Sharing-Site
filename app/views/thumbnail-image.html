@@ -1,0 +1,12 @@
+
+<figure ng-controller="thumbImgController" ng-click="sendDataToModal(image.fileId)">
+    <img iid="{{image.fileId}}" class="" alt="{{image.title}}" ng-src="http://util.mw.metropolia.fi/uploads/{{image.thumbNails.medium}}">
+    <aside>
+    	<span class="like">
+    	    <i class="glyphicon glyphicon-thumbs-up"></i><span class="like-amount">20</span>
+    	</span>
+    	<span class="comments">
+    	    <i class="glyphicon glyphicon-comment"></i><span class="comment-amount">20</span>
+    	</span>	
+    </aside>
+</figure>

@@ -1,0 +1,61 @@
+<section class="modal-box modal--login" modal-data="login" ng-controller="userController">
+    <div class="modal-box__content">
+        <div class="content--half login-section">
+            <h3 class="content__title">Log In</h3>
+            <div class="content__form">
+                <form ng-submit="login()" class="modal-form">
+                    <span>
+                        <input class="modal-form__input" type="text" placeholder="Username" name="usernameLogin" ng-model="loginUsername">
+                        <label for="username"></label>
+                    </span>
+                    <span>
+                        <input class="modal-form__input" type="password" placeholder="Password" name="passwordLogin" ng-model="loginPassword">
+                        <label for="password"></label>
+                    </span>
+                    <p class="modal-form__text" ng-show="wrongLogin">Wrong username or password</p>
+                    <span>
+                        <input type="checkbox" label="Remember Me" name="rememberMe">
+                        <label for="rememberMe">Remember Me</label>
+                    </span>
+                    <button type="submit">Log in</button>
+                </form>
+            </div>
+        </div>
+        <div class="content--half signup-section">
+            <h3 class="content__title">Sign Up</h3>
+            <div class="content__form">
+                <form ng-submit="postRegister()" class="modal-form" id="register-form">
+                    <span>
+                        <div class="modal-form__infobox" ng-show="usernameExists">
+                            <p class="modal-form__text">Username already in use</p>
+                        </div>
+                        <input class="modal-form__input" required type="text" placeholder="Choose Username" name="username" ng-model="signupUsername" ng-change="userExists()">
+                        <label for="username"></label>
+                    </span>
+                    <span>
+                        <input class="modal-form__input" required type="password" placeholder="Choose Password" name="password" ng-model="signupPassword">
+                        <label for=""></label>
+                    </span>
+                    <span>
+                        <div class="modal-form__infobox" ng-show="retypePasswordWrong">
+                            <p class="modal-form__text">Passwords do not match</p>
+                        </div>
+                        <input class="modal-form__input" required type="password" placeholder="Verify Password" name="rePasword" ng-model="rePassword" ng-change="retypeWrong()">
+                        <label for="rePassword"></label>
+                    </span>
+                    <span>
+                        <input class="modal-form__input" required type="email" placeholder="Email" name="email" ng-model="email">
+                        <label for="email"></label>
+                    </span>
+                    <!-- <span>
+                        <input type="checkbox" label="Remember Me" name="rememberMe">
+                        <label for="rememberMe">Remember Me</label>
+                    </span> -->
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+        <h6 class="modal__notice">By signing up, you agree to our Terms and that you have read our Privacy Policy and Content Policy.</h6>
+    </div>
+    <button class="close-button" ng-click="closeLogin()"><span>×</span></button>
+</section>

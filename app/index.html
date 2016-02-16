@@ -1,0 +1,199 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Media Sharing site</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body ng-app="myApp">
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="overlay"></div>
+    <div class="loading-indication"></div>
+
+    <light-box></light-box>
+
+    <login-form></login-form>
+
+    <upload-form></upload-form>
+
+    <!-- Nav for big screen -->
+    <nav class="hidden__phone">
+        <img src="images/logo.png" alt="logo" id="logo">
+        <div id="nav-panel">
+            <a href="#/hot">
+                <i class="glyphicon glyphicon-fire" id="hot-nav-btn"></i>
+            </a>
+            <a href="#/explore-image">
+                <i class="glyphicon glyphicon-picture" id="picture-nav-btn"></i>
+            </a>
+            <a href="#/explore-video">
+                <i class="glyphicon glyphicon-film" id="video-nav-btn"></i>
+            </a>
+            <a href="#/explore-audio">
+                <i class="glyphicon glyphicon-music" id="audio-nav-btn"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- All screen headers -->
+    <header class="pure-g hidden__phone" id="desktop-header" ng-controller="userController">
+        <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4">
+            <div id="search-panel" class="flex__center">
+                <form action="">
+                    <input type="text" id="search-text" placeholder="Search">
+                </form>
+            </div>
+        </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
+            <div id="control-panel" class="flex__center">
+                <button id="upload-btn" ng-show="loggedIn">
+                    <span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
+                    <p class="hidden__tablet">UPLOAD</p>
+                </button>
+                <button id="signin-btn" ng-hide="loggedIn">
+                    <span class="fa fa-sign-in" style="font-size:24px;"></span>
+                    <p class="hidden__tablet">SIGN IN</p>
+                </button>
+                <a href="#/profile">
+                    <button id="profile-btn" ng-show="loggedIn">
+                        <span class="fa fa-user hidden__desktop" style="font-size:24px;"></span>
+                        <p class="hidden__tablet">PROFILE</p>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <header class="hidden__tablet hidden__desktop" id="phone-header" ng-controller="userController">
+        <div class="pure-g pure-u-1">
+            <div class="pure-u-sm-1-2" id="search-panel-phone">
+                <form action="">
+                    <input type="text" id="search-text-phone" placeholder="Search">
+                </form>
+            </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
+                <button id="upload-btn-phone" ng-show="loggedIn">
+                    <span class="fa fa-upload"></span>
+                </button><button id="signin-btn-phone" modal-data="login" ng-hide="loggedIn">
+                    <span class="fa fa-sign-in"></span>
+                </button><button id="profile-btn-phone" ng-show="loggedIn">
+                    <span class="fa fa-user"></span>
+                </button>
+            </div>
+        </div>
+        <div class="pure-g pure-u-1" id="tabs-phone">
+            <div class="pure-u-sm-1-4" id="hot-tab-phone">
+                <a href="#/hot">
+                    <i class="glyphicon glyphicon-fire"></i>
+                </a>
+            </div><div class="pure-u-sm-1-4" id="picture-tab-phone">
+                <a href="#/explore-image">
+                    <i class="glyphicon glyphicon-picture"></i>
+                </a>
+            </div><div class="pure-u-sm-1-4" id="video-tab-phone">
+                <a href="#/explore-video">
+                    <i class="glyphicon glyphicon-film"></i>
+                </a>
+            </div><div class="pure-u-sm-1-4" id="audio-tab-phone">
+                <a href="#/explore-audio">
+                     <i class="glyphicon glyphicon-music"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <div ng-view></div>
+    </main>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/ngstorage/ngStorage.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js(.) scripts/plugins.js -->
+
+    <!-- Videogular -->
+    <script src="/bower_components/videogular/videogular.js"></script>
+    <script src="/bower_components/videogular-controls/vg-controls.js"></script>
+    <script src="/bower_components/videogular-overlay-play/vg-overlay-play.js"></script>
+    <script src="/bower_components/videogular-poster/vg-poster.js"></script>
+    <script src="/bower_components/videogular-buffering/vg-buffering.js"></script>
+    <!-- endbuild -->
+    <!-- build:js(.tmp) scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/header.js"></script>
+
+    <!-- Config -->
+    <script src="scripts/config/config.js"></script>
+
+    <!-- Directives -->
+    <script src="scripts/directives/singleImage.js"></script>
+    <script src="scripts/directives/loginForm.js"></script>
+    <script src="scripts/directives/uploadForm.js"></script>
+    <script src="scripts/Directives/thumbnailImage.js"></script>
+    <script src="scripts/Directives/thumbnailVideo.js"></script>
+    <script src="scripts/Directives/thumbnailAudio.js"></script>
+    <script src="scripts/directives/thumbnailAudioVertical.js"></script>
+    <script src="scripts/directives/thumbnailVideoVertical.js"></script>
+    <script src="scripts/directives/thumbnailImageVertical.js"></script>
+    <script src="scripts/directives/scrollToBottomPage.js"></script>
+
+    <!-- Controllers -->
+    <script src="scripts/Controllers/remoteDataController.js"></script>
+    <script src="scripts/Controllers/lightboxController.js"></script>
+    <script src="scripts/Controllers/uploadFormController.js"></script>
+    <script src="scripts/Controllers/thumbImageController.js"></script>
+    <script src="scripts/Controllers/userController.js"></script>
+    <script src="scripts/controllers/videogularController.js"></script>
+    <script src="scripts/controllers/headerController.js"></script>
+    <script src="scripts/controllers/singleItemController.js"></script>
+
+    <!-- Services -->
+    <script src="scripts/services/ajaxFactory.js"></script>
+    <script src="scripts/services/mediaFactory.js"></script>
+
+    <!-- endbuild -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
