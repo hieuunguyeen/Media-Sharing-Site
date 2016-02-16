@@ -4,7 +4,7 @@
         <img class="image__content" ng-src="{{ imagePath }}" alt="">
         <figcaption class="image__functions">
           <i class="glyphicon glyphicon-thumbs-up"></i>
-          <i class="glyphicon glyphicon-comment" ng-click="redirectComment()"></i>
+          <a href="#/singleItem/:{{ itemId }}" ng-click="redirectComment()"><i class="glyphicon glyphicon-comment"></i></a>
           <i class="glyphicon glyphicon-subtitles"></i>
         </figcaption>
         <figcaption class="image__info">

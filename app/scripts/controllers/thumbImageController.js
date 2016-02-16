@@ -5,7 +5,8 @@ angular.module('myApp')
             ajaxFactory.getFileById(mediaId).
                 then(function (success) {
                     mediaFactory.setVariables('mediaData', success.data);
-                    $rootScope.$broadcast('sendMedia');
+                    mediaFactory.addToProperty('mediaData', 'itemId', mediaId);
+                    $rootScope.$broadcast('sendToModal');
                 }, function (error) {
                     mediaFactory.handleError(error);
                 });
