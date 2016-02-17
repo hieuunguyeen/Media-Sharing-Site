@@ -1,5 +1,5 @@
-(function() {
-    $('button[id^=signin-btn]').click(function() {
+(function () {
+    $('button[id^=signin-btn]').click(function () {
         $('body').addClass('body--overlay');
         $('.modal--login').addClass('modal-box--cover');
     });

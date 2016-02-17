@@ -3,10 +3,19 @@
   "private": true,
   "dependencies": {
     "angular": "^1.4.0",
+    "angular-route": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
     "bootstrap": "3.3.4",
-    "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0",
-    "ngstorage": "~0.3.10"
+    "bootstrap-sass": "^3.3.6",
+    "ngstorage": "~0.3.10",
+    "videogular": "^1.4.1",
+    "videogular-controls": "^1.4.1",
+    "videogular-overlay-play": "^1.4.1",
+    "videogular-buffering": "^1.4.1",
+    "videogular-poster": "^1.4.1",
+    "videogular-ima-ads": "^1.4.1",
+    "videogular-angulartics": "^1.4.1",
+    "videogular-themes-default": "^1.4.1"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -15,20 +24,16 @@
         "assets/fonts/bootstrap/*",
         "assets/javascripts/bootstrap.js"
       ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.min.css"
+      ]
     }
   },
   "devDependencies": {
     "chai": "~3.4.2",
     "mocha": "~2.3.4",
-    "angular-sanitize": "^1.5.0",
-    "videogular": "^1.4.1",
-    "videogular-controls": "^1.4.1",
-    "videogular-overlay-play": "^1.4.1",
-    "videogular-buffering": "^1.4.1",
-    "videogular-poster": "^1.4.1",
-    "videogular-ima-ads": "^1.4.1",
-    "videogular-angulartics": "^1.4.1",
-    "videogular-themes-default": "^1.4.1",
-    "angular-route": "^1.5.0"
+    "modernizr": "^3.3.1"
   }
 }
