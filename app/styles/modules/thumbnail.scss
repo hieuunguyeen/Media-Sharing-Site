@@ -171,3 +171,22 @@
         }
     }
 }
+.thumbnail__audio-vertical {
+    max-height: 90px;
+        figure {
+            width: 100%;
+                span {
+                    display: inline;
+                }
+        }
+}
+.thumbnail-audio-play {
+    position: relative;
+    float: left;
+    height: 70px;
+    width: 100px;
+    margin: 10px;
+        i {
+            color: $color-red;
+        }
+}

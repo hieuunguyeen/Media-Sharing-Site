@@ -285,6 +285,41 @@ header {
         }
     }
 }
+#waveform-container {
+    position: fixed;
+    background-color: #221f26;
+    height: 45px;
+    width: 405px;
+    bottom: 0px;
+    left: 80px;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+#waveform-container.waveform-show {
+    width: 0px;
+}
+#waveform {
+    position: absolute;;
+    bottom: 0px;
+    right: 5px;
+    background-color: #fff;
+    height: 40px;
+    width: 400px;
+    transition: all 0.5s;
+}
+#waveform-play {
+    position: fixed;
+    bottom: 0px;
+    left: 20px;
+    height: 40px;
+    width: 40px;
+    background-color: $color-red;
+    text-align: center;
+        i {
+            color: #fff;
+            line-height: 1.5em;
+        }
+}
 
 main {
     position: absolute;

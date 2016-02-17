@@ -18,9 +18,11 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/src/modernizr.js"></script>    <!-- endbuild -->
+    <script src="/bower_components/modernizr/src/modernizr.js"></script>
+    <!-- endbuild -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
 </head>
 
 <body ng-app="myApp">
@@ -64,7 +66,8 @@
                     <input type="text" id="search-text" placeholder="Search">
                 </form>
             </div>
-        </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
+        </div>
+        <div class="pure-u-md-1-3 pure-u-lg-1-4">
             <div id="control-panel" class="flex__center">
                 <button id="upload-btn" ng-show="loggedIn">
                     <span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
@@ -90,12 +93,15 @@
                 <form action="">
                     <input type="text" id="search-text-phone" placeholder="Search">
                 </form>
-            </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
+            </div>
+            <div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
                 <button id="upload-btn-phone" ng-show="loggedIn">
                     <span class="fa fa-upload"></span>
-                </button><button id="signin-btn-phone" modal-data="login" ng-hide="loggedIn">
+                </button>
+                <button id="signin-btn-phone" modal-data="login" ng-hide="loggedIn">
                     <span class="fa fa-sign-in"></span>
-                </button><button id="profile-btn-phone" ng-show="loggedIn">
+                </button>
+                <button id="profile-btn-phone" ng-show="loggedIn">
                     <span class="fa fa-user"></span>
                 </button>
             </div>
@@ -105,17 +111,20 @@
                 <a href="#/hot">
                     <i class="glyphicon glyphicon-fire"></i>
                 </a>
-            </div><div class="pure-u-sm-1-4" id="picture-tab-phone">
+            </div>
+            <div class="pure-u-sm-1-4" id="picture-tab-phone">
                 <a href="#/explore-image">
                     <i class="glyphicon glyphicon-picture"></i>
                 </a>
-            </div><div class="pure-u-sm-1-4" id="video-tab-phone">
+            </div>
+            <div class="pure-u-sm-1-4" id="video-tab-phone">
                 <a href="#/explore-video">
                     <i class="glyphicon glyphicon-film"></i>
                 </a>
-            </div><div class="pure-u-sm-1-4" id="audio-tab-phone">
+            </div>
+            <div class="pure-u-sm-1-4" id="audio-tab-phone">
                 <a href="#/explore-audio">
-                     <i class="glyphicon glyphicon-music"></i>
+                    <i class="glyphicon glyphicon-music"></i>
                 </a>
             </div>
         </div>
@@ -124,6 +133,18 @@
     <main>
         <div ng-view></div>
     </main>
+
+    <!-- Container for wavesurfer -->
+    <div ng-controller="wavesurferController">
+        <div id="waveform-play" ng-click="playPause()">
+            <i class="fa fa-play fa-2x" ng-hide="playing"></i>
+            <i class="fa fa-pause fa-2x" ng-show="playing"></i>
+        </div>
+        <div id="waveform-container" ng-class="{'waveform-show': hide}">
+            <div id="waveform" ng-class="{'waveform-show': hide}"></div>
+        </div>
+    </div>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -163,6 +184,7 @@
 
     <!-- endbuild -->
     <!-- build:js(.tmp) scripts/main.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/1.0.52/wavesurfer.min.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/header.js"></script>
@@ -175,9 +197,6 @@
     <script src="scripts/Directives/thumbnailImage.js"></script>
     <script src="scripts/Directives/thumbnailVideo.js"></script>
     <script src="scripts/Directives/thumbnailAudio.js"></script>
-    <script src="scripts/directives/thumbnailAudioVertical.js"></script>
-    <script src="scripts/directives/thumbnailVideoVertical.js"></script>
-    <script src="scripts/directives/thumbnailImageVertical.js"></script>
     <script src="scripts/directives/scrollToBottomPage.js"></script>
 
     <script src="scripts/Controllers/remoteDataController.js"></script>
@@ -188,14 +207,17 @@
     <script src="scripts/controllers/videogularController.js"></script>
     <script src="scripts/controllers/headerController.js"></script>
     <script src="scripts/controllers/singleItemController.js"></script>
+    <script src="scripts/controllers/audioController.js"></script>
+    <script src="scripts/controllers/wavesurferController.js"></script>
 
     <script src="scripts/services/ajaxFactory.js"></script>
     <script src="scripts/services/mediaFactory.js"></script>
+    <script src="scripts/services/audioFactory.js"></script>
 
     <!-- endbuild -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-    (function(b, o, i, l, e, r) {
+        (function(b, o, i, l, e, r) {
         b.GoogleAnalyticsObject = l;
         b[l] || (b[l] =
             function() {
