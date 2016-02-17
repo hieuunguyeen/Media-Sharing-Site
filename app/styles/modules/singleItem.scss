@@ -9,14 +9,16 @@
 .item__content {
     flex-basis: 70%;
     height: 100%;
+    max-width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    overflow: hidden;
 
     img {
         margin-bottom: 16px;
-        width: 100%;
         object-fit: scale-down;
+        max-width: 100%;
     }
 }
 
