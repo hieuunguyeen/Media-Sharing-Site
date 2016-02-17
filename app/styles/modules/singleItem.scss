@@ -104,6 +104,14 @@
 
 .comment-section {
     margin-top: 16px;
+
+    button {
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $color-red;
+        }
+    }
 }
 
 .single-item__form {
