@@ -26,35 +26,36 @@ angular.module('myApp')
             lightbox.lightboxOn = false;
         };
 
-        $scope.$on('sendToModal', function () {
-            var media = mediaFactory.mediaData;
-            $scope.itemId = media.itemId;
-            console.log(media);
-
-            $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
-            var image = new Image();
-            console.log(image);
-            image.onload = function () {
-                $scope.imageWidth = image.width;
-                $scope.imageHeight = image.height;
-                console.log($scope.imageWidth);
-                console.log($scope.imageHeight);
-                $scope.$apply();
-            };
-            image.src = $scope.imagePath;
-
-            $scope.imageDescription = media.description;
-            $scope.imageTitle = media.title;
-            $scope.imageUploadDate = media.uploadTime;
-            $scope.imageAuthor = media.userId;
-            $scope.imageType = media.mimeType.substring(6).toUpperCase();
-            $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
-            $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
-            $scope.imageViews = 'N/A';
-
-            lightbox.lightboxOn = true;
-            $('body').addClass('body--overlay');
-        });
+        // $scope.$on('sendToModal', function () {
+        //     var media = mediaFactory.mediaData;
+        //     $scope.itemId = media.itemId;
+        //     console.log(media);
+        //
+        //     $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+        //     var image = new Image();
+        //     console.log(image);
+        //     image.onload = function () {
+        //         $scope.imageWidth = image.width;
+        //         $scope.imageHeight = image.height;
+        //         console.log($scope.imageWidth);
+        //         console.log($scope.imageHeight);
+        //         $scope.$apply();
+        //     };
+        //     image.src = $scope.imagePath;
+        //
+        //     $scope.imageDescription = media.description;
+        //     $scope.imageTitle = media.title;
+        //     $scope.imageUploadDate = media.uploadTime;
+        //     $scope.imageAuthor = media.userId;
+        //     $scope.imageType = media.mimeType.substring(6).toUpperCase();
+        //     $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+        //     $scope.imageItemLink = 'http://localhost:9000/#/:' + $scope.itemId;
+        //     $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
+        //     $scope.imageViews = 'N/A';
+        //
+        //     lightbox.lightboxOn = true;
+        //     $('body').addClass('body--overlay');
+        // });
 
 
         lightbox.close = function () {

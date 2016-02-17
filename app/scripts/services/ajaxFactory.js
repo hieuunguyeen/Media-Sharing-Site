@@ -52,15 +52,28 @@ angular.module('myApp')
         };
 
         ajaxFunctions.postComment = function(form, fileId) {
-            return $http({
-                method: 'POST',
-                url: urlBase + 'comment/file/' + fileId,
+            return $http.post(urlBase + 'comment/file/' + fileId, $httpParamSerializer(form), {
                 headers: {
-                    'Content-Type' : 'application/x-www-form-urlencoded'
-                },
-                data: $httpParamSerializer(form)
+                   'Content-Type': 'application/x-www-form-urlencoded'
+                }
             });
         };
+
+        ajaxFunctions.getItemComments = function (fileId) {
+            return $http.get(urlBase + 'comments/file/' + fileId);
+        };
+
+        ajaxFunctions.likeItem = function (fileId, userId) {
+            return $http.get(urlBase + 'like/' + fileId + '/' + userId);
+        }
+
+        ajaxFunctions.unlikeItem = function (fileId, userId) {
+            return $http.get(urlBase + 'unlike/' + fileId + '/' + userId);
+        }
+
+        ajaxFunctions.listLikedByUser = function (userId) {
+            return $http.get(urlBase + 'likes/user/' + userId);
+        }
 
         return ajaxFunctions;
     });

@@ -14,11 +14,16 @@
     justify-content: space-between;
 
     img {
-        width: 100%;
-        flex-basis: 100%;
         margin-bottom: 16px;
-        height: 100% /* buggy when resized on firefox */
+        width: 100%;
+        object-fit: scale-down;
     }
+}
+
+.content__image {
+    flex-basis: 100%;
+    min-width: 0;
+    text-align: center;
 }
 
 .info__description {
@@ -37,6 +42,14 @@
         margin-right: 32px;
         font-size: $font-size-large;
         cursor: pointer;
+    }
+
+    span {
+        transition: color 0.3s ease;
+    }
+
+    span.liked {
+        color: $color-red;
     }
 }
 
@@ -133,8 +146,8 @@
 }
 
 .child-comment__author {
-    color: $color-dark;
     cursor: pointer;
+    color: $color-red;
 }
 
 @media screen and (max-width: #{$width-desktop}) {

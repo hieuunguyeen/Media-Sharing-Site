@@ -2,12 +2,14 @@
     <div class="container">
         <figure class="single-item__image">
             <div class="item__content">
-                <img src="{{ imagePath }}" alt="some alt">
+                <div class="content__image">
+                    <img src="{{ imagePath }}" alt="some alt">
+                </div>
                 <div class="info info__description secondary">
                     <strong>Description:</strong><p>{{ itemDescription }}</p>
                 </div>
                 <div class="user-interaction">
-                    <span class="like">
+                    <span class="like" ng-click="likeItem()" ng-class="{'liked': liked}">
                 	    <i class="glyphicon glyphicon-thumbs-up"></i>
                 	</span>
                 	<span class="comments">
@@ -37,7 +39,7 @@
                     <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
                     <br>
                     <label for="image-link">Image Link</label>
-                    <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="/singleItem">
+                    <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="{{ imageItemLink }}">
                     <br>
                     <label for="direct-link">HTML Link</label>
                     <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
@@ -52,21 +54,9 @@
                 </form>
             </div>
             <div class="comment-section__archive">
-                <div class="child-comment">
-                    <h5 class="child-comment__author">Some Author</h5>
-                    <p class="child-comment__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, dolor.</p>
-                </div>
-                <div class="child-comment">
-                    <h5 class="child-comment__author">Some Author</h5>
-                    <p class="child-comment__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, dolor.</p>
-                </div>
-                <div class="child-comment">
-                    <h5 class="child-comment__author">Some Author</h5>
-                    <p class="child-comment__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, dolor.</p>
-                </div>
-                <div class="child-comment">
-                    <h5 class="child-comment__author">Some Author</h5>
-                    <p class="child-comment__content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, dolor.</p>
+                <div class="child-comment" ng-repeat="comment in itemComments">
+                    <h5 class="child-comment__author">{{ comment.username }}</h5>
+                    <p class="child-comment__content">{{ comment.comment }}</p>
                 </div>
             </div>
         </div>
