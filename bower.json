@@ -5,6 +5,8 @@
     "angular": "^1.4.0",
     "angular-route": "^1.5.0",
     "angular-sanitize": "^1.5.0",
+    "bootstrap": "3.3.4",
+    "bootstrap-sass": "^3.3.6",
     "ngstorage": "~0.3.10",
     "videogular": "^1.4.1",
     "videogular-controls": "^1.4.1",
@@ -22,6 +24,11 @@
         "assets/stylesheets/_bootstrap.scss",
         "assets/fonts/bootstrap/*",
         "assets/javascripts/bootstrap.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.min.css"
       ]
     }
   },
