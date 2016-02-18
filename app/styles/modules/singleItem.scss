@@ -9,16 +9,23 @@
 .item__content {
     flex-basis: 70%;
     height: 100%;
+    max-width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    overflow: hidden;
 
     img {
-        width: 100%;
-        flex-basis: 100%;
         margin-bottom: 16px;
-        height: 100% /* buggy when resized on firefox */
+        object-fit: scale-down;
+        max-width: 100%;
     }
+}
+
+.content__image {
+    flex-basis: 100%;
+    min-width: 0;
+    text-align: center;
 }
 
 .info__description {
@@ -37,6 +44,14 @@
         margin-right: 32px;
         font-size: $font-size-large;
         cursor: pointer;
+    }
+
+    span {
+        transition: color 0.3s ease;
+    }
+
+    span.liked {
+        color: $color-red;
     }
 }
 
@@ -89,6 +104,14 @@
 
 .comment-section {
     margin-top: 16px;
+
+    button {
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $color-red;
+        }
+    }
 }
 
 .single-item__form {
@@ -133,8 +156,8 @@
 }
 
 .child-comment__author {
-    color: $color-dark;
     cursor: pointer;
+    color: $color-red;
 }
 
 @media screen and (max-width: #{$width-desktop}) {

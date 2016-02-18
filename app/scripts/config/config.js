@@ -20,9 +20,9 @@ angular.module('myApp').config( function($routeProvider) {
             templateUrl: 'views/pages/profile-page.html',
             controller: 'userController'
         })
-        .when('/singleItem', {
+        .when('/singleItem/:itemId', {
             templateUrl: 'views/pages/singleItem-page.html',
-            controller: 'singleItemController'
+            controller: "singleItemController"
         })
         .otherwise({
             redirectTo: '/hot'

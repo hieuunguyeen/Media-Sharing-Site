@@ -135,6 +135,7 @@ header {
             min-hfleight: $button-height;
             padding-left: 16px;
             border: 0;
+            outline: none;
             border-bottom: 1px solid $color-accent;
         }
     }

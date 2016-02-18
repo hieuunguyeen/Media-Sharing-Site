@@ -3,7 +3,7 @@ angular.module('myApp')
         var mediaVariables = {
             mediaUrl: 'http://util.mw.metropolia.fi/uploads/',
             userData: {},
-            mediaData: {},
+            mediaData: {}
         };
 
         mediaVariables.setVariables = function (key, value) {
@@ -12,6 +12,10 @@ angular.module('myApp')
 
         mediaVariables.handleError = function (error) {
             console.log(error.data);
+        };
+
+        mediaVariables.addToProperty = function (props, propName, value) {
+            mediaVariables[props][propName] = value;
         };
 
         return mediaVariables;

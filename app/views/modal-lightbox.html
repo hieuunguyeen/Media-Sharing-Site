@@ -4,7 +4,7 @@
         <img class="image__content" ng-src="{{ imagePath }}" alt="">
         <figcaption class="image__functions">
           <i class="glyphicon glyphicon-thumbs-up"></i>
-          <i class="glyphicon glyphicon-comment" ng-click="redirectComment()"></i>
+          <a href="#/singleItem/:{{ itemId }}" ng-click="redirectComment()"><i class="glyphicon glyphicon-comment"></i></a>
           <i class="glyphicon glyphicon-subtitles"></i>
         </figcaption>
         <figcaption class="image__info">
@@ -33,7 +33,7 @@
         <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
         <br>
         <label for="image-link">Image Link</label>
-        <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="something image here">
+        <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="{{ imageItemLink }}">
         <br>
         <label for="direct-link">HTML Link</label>
         <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">

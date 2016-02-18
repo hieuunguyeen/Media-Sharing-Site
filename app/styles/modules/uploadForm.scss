@@ -8,6 +8,10 @@
     button[ng-click="postImage()"] {
         width: 100%;
     }
+
+    span {
+        margin: 0;
+    }
 }
 
 .input--upload {
