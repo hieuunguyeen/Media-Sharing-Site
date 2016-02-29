@@ -1,5 +1,4 @@
-
-<figure ng-controller="thumbImgController" ng-click="sendDataToModal(item.fileId)">
+<figure ng-controller="thumbMediaController" ng-click="sendDataToModal(item.fileId)">
     <img iid="{{item.fileId}}" class="" alt="{{item.title}}" ng-src="http://util.mw.metropolia.fi/uploads/{{item.thumbNails.medium}}">
     <aside>
     	<span class="like">
@@ -7,6 +6,6 @@
     	</span>
     	<span class="comments">
     	    <i class="glyphicon glyphicon-comment"></i><span class="comment-amount">20</span>
-    	</span>	
+    	</span>
     </aside>
 </figure>

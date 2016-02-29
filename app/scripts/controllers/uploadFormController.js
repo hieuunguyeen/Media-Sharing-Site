@@ -7,27 +7,27 @@ angular.module('myApp')
         };
 
         $scope.postImage = function() {
-            console.log($localStorage.userId);
-            $scope.fd = new FormData(document.getElementById('uploadForm')); //change this to the upload form ID
-            $scope.fd.append('user', $localStorage.userId); //change this user to the logged in user
-            $scope.fd.append('type', $scope.type); //read type (image/audio/video) from the form, or remove and add form input
-            $scope.fd.append('mime-type', $scope.mimeType); //For example video/mp4 or audio/mp3
+            if ($('input[type=file]').get(0).files.length >= 0 && $('input[name=title]').val().length > 0 && $('input[name=description]').val().length > 0) {
+                //console.log($localStorage.userId);
+                $scope.fd = new FormData(document.getElementById('uploadForm')); //change this to the upload form ID
+                $scope.fd.append('user', $localStorage.userId); //change this user to the logged in user
+                $scope.fd.append('type', $scope.type); //read type (image/audio/video) from the form, or remove and add form input
+                $scope.fd.append('mime-type', $scope.mimeType); //For example video/mp4 or audio/mp3
 
-            var request = ajaxFactory.uploadFile($scope.fd);
+                ajaxFactory.uploadFile($scope.fd).then(function (success) {
+                    console.log(success.data.fileId);
+                    $('.loading-indication').addClass('loading-indication--load');
+                    $timeout(function () {
+                        $location.path('/singleItem/:' + success.data.fileId);
+                        $window.location.reload();
+                    }, 2200);
+                }, function (error) {
+                    console.log(error.data);
+                });
+            } else {
+                console.log('one of the fields is missing');
+            }
 
-            request.then(function (response) {
-                $timeout(function () {
-                    $location.path('/singleItem/:' + response[fileId]);
-                    console.log(response.fileId);
-                    $window.location.reload();
-                }, 2200);
-            }, function (err) {
-                console.log(err.data);
-            });
-
-
-
-            $('.loading-indication').addClass('loading-indication--load');
         };
 
         $scope.close = function () {

@@ -151,7 +151,7 @@
     border-radius: 3px;
 
     h5 {
-        padding: 12px 0 0 12px;
+        padding: 12px;
 
         span {
             color: $color-light;
@@ -171,6 +171,12 @@
     cursor: pointer;
     color: $color-red;
     border-bottom: 1px solid transparentize($color-light, 0.75);;
+}
+
+/* phone metadata */
+
+.metadata--phone {
+    display: none;
 }
 
 @media screen and (max-width: #{$width-desktop}) {
@@ -202,6 +208,104 @@
     .single-item__form {
         button {
             margin: 8px 0;
+        }
+    }
+
+    .item__info {
+        display: none;
+    }
+
+    .metadata--phone {
+        display: block;
+        width: 100%;
+        margin-top: 32px;
+
+        /* Tab Navigation for Overlay */
+        .metadata-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: $color-red;
+
+            a {
+                text-decoration: none;
+                flex: 1;
+                color: #fff;
+                background: $color-dark;
+                transition: color 0.3s ease, background 0.2s ease;
+                text-align: center;
+                padding: 4px 0;
+                background: darken($color-dark, 2.5%);
+
+                &:hover {
+                    color: $color-light;
+                    background: darken($color-dark, 5%);
+                }
+            }
+
+            a:last-child {
+                margin-right: 0;
+            }
+
+            a.active {
+                background: darken($color-light, 10%);
+                color: currentColor;
+            }
+
+            i, span {
+                margin: 0;
+                padding: 0;
+                line-height: 1;
+                font-size: 18px;
+            }
+
+            span {
+                display: none;
+            }
+        }
+
+        /* Tabs for Overlay */
+        .metadata__tab--phone {
+            display: none;
+            background: $color-dark;
+            color: $color-light;
+            padding: 16px;
+
+            input {
+                color: $color-dark;
+            }
+        }
+
+        .metadata__tab--phone.active {
+            display: block;
+        }
+
+        .tab--data span {
+            float: right;
+        }
+
+        .tab--share ul {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .tab--links.active {
+            display: flex;
+            flex-flow: row wrap;
+
+            label {
+                flex-basis: 100%;
+                margin: 4px 0;
+            }
+
+            .copy {
+                flex-basis: 15%;
+            }
+
+            input {
+                flex-basis: 85%;
+            }
         }
     }
 }

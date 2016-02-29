@@ -1,5 +1,15 @@
 angular.module('myApp')
-    .controller('singleItemController', function ($scope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory) {
+    .controller('singleItemController', function ($sce, $scope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory) {
+
+        // control the data tab on phone
+        $scope.metadataTab = 1;
+        $scope.selectTab = function (tab) {
+            $scope.metadataTab = tab;
+        };
+
+        $scope.tabSelected = function (checkTab) {
+            return $scope.metadataTab === checkTab;
+        };
 
         $scope.itemId = parseInt($routeParams.itemId.substring(1));
         $scope.itemComments;
@@ -11,8 +21,18 @@ angular.module('myApp')
                 mediaFactory.setVariables('mediaData', success.data);
                 mediaFactory.addToProperty('mediaData', 'itemId', $scope.itemId);
                 var media = mediaFactory.mediaData;
+                console.log(media);
 
+                // this should be mediaPath but I messed up, keep it this way for now
                 $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+
+                if (media.type === "image") {
+                    $('.content__image').html('<img src="' + $scope.imagePath + '" alt="some alt">');
+                } else if (media.type === "video") {
+                    $('.content__image').html('<video src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
+                } else {
+                    $('.content__image').html('<audio src="' +  $scope.trustURL($scope.imagePath) + '" controls></audio>');
+                }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
                 $scope.imageItemLink = 'http://localhost:9000/#/singleItem/:' + $scope.itemId;
@@ -100,4 +120,7 @@ angular.module('myApp')
             }
         };
 
+        $scope.trustURL = function (url) {
+            return $sce.trustAsResourceUrl(url);
+        };
     });
