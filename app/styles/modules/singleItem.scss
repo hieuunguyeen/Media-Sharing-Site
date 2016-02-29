@@ -26,6 +26,10 @@
     flex-basis: 100%;
     min-width: 0;
     text-align: center;
+
+    video {
+        max-width: 100%;
+    }
 }
 
 .info__description {

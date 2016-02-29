@@ -28,8 +28,26 @@ angular.module('myApp')
 
                 if (media.type === "image") {
                     $('.content__image').html('<img src="' + $scope.imagePath + '" alt="some alt">');
+
+                    // getting resolution of image
+                    var image = new Image();
+                    console.log(image);
+                    image.onload = function () {
+                        $scope.imageWidth = image.width;
+                        $scope.imageHeight = image.height;
+                        console.log($scope.imageWidth);
+                        console.log($scope.imageHeight);
+                        $scope.$apply();
+                    };
                 } else if (media.type === "video") {
                     $('.content__image').html('<video src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
+
+                    // getting resolution of vid
+                    $scope.imageWidth = $('video').videoWidth;
+                    $scope.imageHeight = $('video').videoHeight;
+                    console.log($scope.imageWidth);
+                    console.log($scope.imageHeight);
+                    $scope.$apply();
                 } else {
                     $('.content__image').html('<audio src="' +  $scope.trustURL($scope.imagePath) + '" controls></audio>');
                     $('.info__general-data h3').eq(3).hide();
@@ -45,16 +63,6 @@ angular.module('myApp')
                 $scope.itemAuthor = media.userId;
                 $scope.itemDescription = media.description;
                 $scope.itemType = media.mimeType.substring(6).toUpperCase();
-
-                var image = new Image();
-                console.log(image);
-                image.onload = function () {
-                    $scope.imageWidth = image.width;
-                    $scope.imageHeight = image.height;
-                    console.log($scope.imageWidth);
-                    console.log($scope.imageHeight);
-                    $scope.$apply();
-                };
 
                 image.src = $scope.imagePath;
             }, function (error) {
