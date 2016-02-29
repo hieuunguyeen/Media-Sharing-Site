@@ -32,6 +32,8 @@ angular.module('myApp')
                     $('.content__image').html('<video src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
                 } else {
                     $('.content__image').html('<audio src="' +  $scope.trustURL($scope.imagePath) + '" controls></audio>');
+                    $('.info__general-data h3').eq(3).hide();
+                    console.log($('.info__general-data h5').eq(2).text(''));
                 }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
