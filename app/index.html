@@ -72,16 +72,16 @@
             </div>
         </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
             <div id="control-panel" class="flex__center">
-                <button id="upload-btn" ng-show="loggedIn">
+                <button id="upload-btn" ng-show="loggedIn" ng-cloak>
                     <span class="fa fa-upload hidden__desktop" style="font-size:24px;"></span>
                     <p class="hidden__tablet">UPLOAD</p>
                 </button>
-                <button id="signin-btn" ng-hide="loggedIn">
+                <button id="signin-btn" ng-hide="loggedIn" ng-cloak>
                     <span class="fa fa-sign-in" style="font-size:24px;"></span>
                     <p class="hidden__tablet">SIGN IN</p>
                 </button>
                 <a href="#/profile">
-                    <button id="profile-btn" ng-show="loggedIn">
+                    <button id="profile-btn" ng-show="loggedIn" ng-cloak>
                         <span class="fa fa-user hidden__desktop" style="font-size:24px;"></span>
                         <p class="hidden__tablet">PROFILE</p>
                     </button>
@@ -99,11 +99,9 @@
             </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
                 <button id="upload-btn-phone" ng-show="loggedIn">
                     <span class="fa fa-upload"></span>
-                </button>
-                <button id="signin-btn-phone" modal-data="login" ng-hide="loggedIn">
+                </button><button id="signin-btn-phone" modal-data="login" ng-hide="loggedIn">
                     <span class="fa fa-sign-in"></span>
-                </button>
-                <button id="profile-btn-phone" ng-show="loggedIn">
+                </button><button id="profile-btn-phone" ng-show="loggedIn">
                     <span class="fa fa-user"></span>
                 </button>
             </div>
@@ -113,18 +111,15 @@
                 <a href="#/hot">
                     <i class="glyphicon glyphicon-fire"></i>
                 </a>
-            </div>
-            <div class="pure-u-sm-1-4" id="picture-tab-phone">
+            </div><div class="pure-u-sm-1-4" id="picture-tab-phone">
                 <a href="#/explore-image">
                     <i class="glyphicon glyphicon-picture"></i>
                 </a>
-            </div>
-            <div class="pure-u-sm-1-4" id="video-tab-phone">
+            </div><div class="pure-u-sm-1-4" id="video-tab-phone">
                 <a href="#/explore-video">
                     <i class="glyphicon glyphicon-film"></i>
                 </a>
-            </div>
-            <div class="pure-u-sm-1-4" id="audio-tab-phone">
+            </div><div class="pure-u-sm-1-4" id="audio-tab-phone">
                 <a href="#/explore-audio">
                     <i class="glyphicon glyphicon-music"></i>
                 </a>
@@ -185,6 +180,7 @@
     <script src="/bower_components/angulartics/src/angulartics-intercom.js"></script>
     <script src="/bower_components/videogular-angulartics/vg-analytics.js"></script>
     <script src="/bower_components/wavesurfer.js/dist/wavesurfer.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.) scripts/plugins.js -->
