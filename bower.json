@@ -15,7 +15,8 @@
     "videogular-poster": "^1.4.1",
     "videogular-ima-ads": "^1.4.1",
     "videogular-angulartics": "^1.4.1",
-    "videogular-themes-default": "^1.4.1"
+    "videogular-themes-default": "^1.4.1",
+    "wavesurfer.js": "^1.0.52"
   },
   "overrides": {
     "bootstrap-sass": {
