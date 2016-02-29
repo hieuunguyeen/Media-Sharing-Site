@@ -129,35 +129,48 @@
     button {
         margin: 16px 0;
         align-self: flex-end;
-        background: $color-dark;
+        background: $color-red;
         color: $color-light;
+
+        &:hover {
+            background: darken($color-red, 10%);
+        }
     }
 }
 
 .comment-section__archive {
     margin-top: 16px;
     color: $color-light;
-    background: $color-dark;
-    padding: 12px;
     width: 70%;
 }
 
 .child-comment {
-    padding: 8px;
-    border-radius: 3px;
-    border: 1px solid $color-light;
-    background: darken($color-light, 10%);
+    border-bottom: 1px solid $color-light;
+    background: $color-dark;
     margin-bottom: 16px;
+    border-radius: 3px;
+
+    h5 {
+        padding: 12px 0 0 12px;
+
+        span {
+            color: $color-light;
+            cursor: auto;
+        }
+    }
 
     p {
-        color: $color-dark;
+        color: $color-light;
         font-size: $font-size-small;
+        margin-left: 12px;
+        padding: 16px 0;
     }
 }
 
 .child-comment__author {
     cursor: pointer;
     color: $color-red;
+    border-bottom: 1px solid transparentize($color-light, 0.75);;
 }
 
 @media screen and (max-width: #{$width-desktop}) {
