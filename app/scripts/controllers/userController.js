@@ -64,9 +64,17 @@ angular.module('myApp')
                 'email': $scope.email
             };
 
-            if ($scope.retypePasswordWrong == false && $scope.usernameExists == false) {
-                ajaxFactory.postRegisterForm(fd);
-                $window.location.reload();
+            if (!$scope.retypePasswordWrong && !$scope.usernameExists) {
+                ajaxFactory.postRegisterForm(fd).then(function (success) {
+                    $scope.loginUsername =  $scope.signupUsername;
+                    $scope.loginPassword = $scope.signupPassword;
+                    console.log(success.data);
+                    $scope.login();
+                }, function (error) {
+                    console.log(error.data);
+                });
+
+                // $window.location.reload();
             } else {
                 alert('Check your fields');
             }
