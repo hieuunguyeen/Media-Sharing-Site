@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
     <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/src/modernizr.js"></script>    
+    <script src="/bower_components/modernizr/src/modernizr.js"></script>
     <!-- endbuild -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
@@ -28,6 +28,11 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    
+    <div id="toast" ng-controller="ToastController as toast" ng-click="toast.showToast()" ng-class="{'toast-show': toast.show}">
+        <p>Test toast</p>
+        <p>Click me!</p>
+    </div>
 
     <div class="overlay"></div>
     <div class="loading-indication"></div>
@@ -137,8 +142,12 @@
             <i class="fa fa-play fa-2x" ng-hide="playing"></i>
             <i class="fa fa-pause fa-2x" ng-show="playing"></i>
         </div>
-        <div id="waveform-container" ng-class="{'waveform-show': hide}">
-            <div id="waveform" ng-class="{'waveform-show': hide}"></div>
+        <div id="waveform-container" ng-class="{'waveform-show': show}">
+            <div id="waveform" ng-class="{'waveform-show': show}"></div>
+            <div id="waveform-mute" ng-click="muteToggle()">
+                <i class="fa fa-volume-up fa-2x" ng-hide="mute"></i>
+                <i class="fa fa-volume-off fa-2x" ng-show="mute"></i>
+            </div>
         </div>
     </div>
 
@@ -206,6 +215,7 @@
     <script src="scripts/controllers/singleItemController.js"></script>
     <script src="scripts/controllers/audioController.js"></script>
     <script src="scripts/controllers/wavesurferController.js"></script>
+    <script src="scripts/controllers/toastController.js"></script>
 
     <script src="scripts/services/ajaxFactory.js"></script>
     <script src="scripts/services/mediaFactory.js"></script>
@@ -213,7 +223,7 @@
 
     <!-- endbuild -->
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    
+
     <script>
         (function(b, o, i, l, e, r) {
         b.GoogleAnalyticsObject = l;

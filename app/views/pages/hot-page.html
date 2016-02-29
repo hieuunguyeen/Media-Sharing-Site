@@ -18,7 +18,7 @@
     <div class="container">
         <h1>Hot videos</h1>
         <div class="stripe" id="hot-video-stripe">
-            <div class="thumbnail__video" ng-repeat="video in allVideos | limitTo:hotPageItemLimit">
+            <div class="thumbnail__video" ng-repeat="item in allVideos | limitTo:hotPageItemLimit">
                 <thumbnail-video></thumbnail-video>
             </div>
         </div>
