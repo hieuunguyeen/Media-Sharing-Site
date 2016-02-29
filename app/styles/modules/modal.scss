@@ -9,6 +9,7 @@
     transition: all 0.3s ease;
     z-index: 90;
     overflow: hidden;
+    opacity: 0.9;
 }
 
 .body--overlay .overlay {
@@ -56,6 +57,7 @@
 .modal-box.modal-box--cover {
     visibility: visible;
     box-shadow: 0px 0px 6px rgb(0, 0, 0);
+    background-color: #221f26;
 
     .modal-box__content {
         transform: scale(1);

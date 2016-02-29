@@ -5,7 +5,8 @@ angular.module('myApp')
             container: '#waveform',
             height: 40,
             waveColor: 'black',
-            progressColor: '#de3b59'
+            progressColor: '#de3b59',
+            barWidth: 2
         });
         
         wavesurfer.on('ready', function () {
@@ -27,6 +28,18 @@ angular.module('myApp')
         
         audioFunctions.playPause = function () {
             wavesurfer.playPause();
+        };
+        
+        audioFunctions.mute = function () {
+            wavesurfer.toggleMute();
+        };
+        
+        audioFunctions.getDuration = function () {
+            return wavesurfer.getDuration();
+        };
+        
+        audioFunctions.getCurrentTime = function () {
+            return wavesurfer.getCurrentTime();
         };
         
         return audioFunctions;
