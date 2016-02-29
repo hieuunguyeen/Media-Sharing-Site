@@ -3,18 +3,18 @@
         <h1>Hot pictures</h1>
         <hr>
         <div class="stripe" id="hot-picture-stripe">
-            <div class="thumbnail__picture" ng-repeat="image in allImages | limitTo:hotPageItemLimit">
+            <div class="thumbnail__picture" ng-repeat="item in allImages | limitTo:hotPageItemLimit">
                 <thumbnail-image></thumbnail-image>
             </div>
         </div>
-        <div class="flex__center" id="scroll-image-stripe">
+       <!--  <div class="flex__center" id="scroll-image-stripe">
             <button class="scroll-btn">
                 <span class="glyphicon glyphicon-arrow-left"></span>
             </button>
             <button class="scroll-btn">
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </button>
-        </div>
+        </div> -->
     </div>
     <div class="container">
         <h1>Hot videos</h1>
@@ -24,32 +24,30 @@
                 <thumbnail-video></thumbnail-video>
             </div>
         </div>
-        <div class="flex__center" id="scroll-video-stripe">
+        <!-- <div class="flex__center" id="scroll-video-stripe">
             <button class="scroll-btn">
                 <span class="glyphicon glyphicon-arrow-left"></span>
             </button>
             <button class="scroll-btn">
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </button>
-        </div>
+        </div> -->
     </div>
     <div class="container">
         <h1>Hot audio</h1>
         <hr>
         <div class="stripe" id="hot-audio-stripe">
-            <div class="thumbnail__audio" ng-repeat="audio in allAudios | limitTo:hotPageItemLimit">
-                <audio preload="metadata" controls>
-                    <source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + audio.path)}}">
-                </audio>
+            <div class="thumbnail__audio" ng-repeat="item in allAudios | limitTo:hotPageItemLimit">
+                <thumbnail-audio></thumbnail-audio>
             </div>
         </div>
-        <div class="flex__center" id="scroll-audio-stripe">
+        <!-- <div class="flex__center" id="scroll-audio-stripe">
             <button class="scroll-btn">
                 <span class="glyphicon glyphicon-arrow-left"></span>
             </button>
             <button class="scroll-btn">
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </button>
-        </div>
+        </div> -->
     </div>
 </section>

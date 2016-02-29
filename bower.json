@@ -16,7 +16,8 @@
     "videogular-ima-ads": "^1.4.1",
     "videogular-angulartics": "^1.4.1",
     "videogular-themes-default": "^1.4.1",
-    "wavesurfer.js": "^1.0.52"
+    "wavesurfer.js": "^1.0.52",
+    "angular-ui-router": "^0.2.18"
   },
   "overrides": {
     "bootstrap-sass": {

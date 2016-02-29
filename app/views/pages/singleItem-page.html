@@ -48,8 +48,8 @@
         </figure>
         <div class="comment-section">
             <div class="comment-section__create">
-                <form class="single-item__form" ng-submit="postComment()">
-                    <textarea ng-model="comment" name="comment" id="comment-content" cols="30" rows="10" class="comment-content"></textarea>
+                <form class="single-item__form" ng-submit="postComment()" ng-if="loggedIn">
+                    <textarea ng-model="comment" name="comment" id="comment-content" cols="30" rows="10" class="comment-content" ng-if></textarea>
                     <button>Submit</button>
                 </form>
             </div>

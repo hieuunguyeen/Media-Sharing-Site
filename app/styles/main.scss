@@ -145,7 +145,8 @@ header {
         height: calc(#{$header-height} - 5px);
         padding: 0 10px;
 
-        p, a {
+        p,
+        a {
             display: inline;
             text-decoration: none;
             color: inherit;
@@ -218,7 +219,7 @@ header {
             float: right;
         }
     }
-    
+
     #tabs-phone {
         background-color: inherit;
         font-size: 0;
@@ -288,6 +289,7 @@ header {
         }
     }
 }
+
 #waveform-container {
     position: fixed;
     background-color: #221f26;
@@ -299,10 +301,12 @@ header {
     opacity: 0;
     transition: all 0.3s;
 }
+
 #waveform-container.waveform-show {
     width: 450px;
     opacity: 1;
 }
+
 #waveform {
     position: absolute;
     bottom: 0px;
@@ -312,6 +316,7 @@ header {
     width: 400px;
     transition: all 0.5s;
 }
+
 #waveform-play {
     position: fixed;
     bottom: 0px;
@@ -321,11 +326,13 @@ header {
     background-color: $color-red;
     text-align: center;
     cursor: pointer;
-        i {
-            color: #fff;
-            line-height: 1.5em;
-        }
+
+    i {
+        color: #fff;
+        line-height: 1.5em;
+    }
 }
+
 #waveform-mute {
     position: absolute;
     bottom: 0px;
@@ -335,10 +342,11 @@ header {
     background-color: $color-red;
     text-align: center;
     cursor: pointer;
-        i {
-            color: #fff;
-            line-height: 1.5em;
-        }
+
+    i {
+        color: #fff;
+        line-height: 1.5em;
+    }
 }
 
 main {
@@ -369,6 +377,7 @@ button.scroll-btn {
     height: 40px;
     transition: all .3s ease-in-out;
     margin-bottom: 20px;
+    border: 1px solid #ccc;
 
     &:hover {
         background-color: $color-red;
@@ -469,6 +478,10 @@ button.scroll-btn {
     }
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
 .container {
     width: 100%;
     min-height: 100px;
@@ -479,6 +492,7 @@ button.scroll-btn {
         margin: 40px 0;
         position: relative;
         overflow-x: scroll;
+        overflow-y: hidden;
         white-space: nowrap;
 
         @include phone {
@@ -494,6 +508,15 @@ button.scroll-btn {
         p {
             color: $color-blue;
         }
+
+        @include phone {
+            height: 160px;
+        }
+
+
+        @include tablet {
+            height: 220px;
+        }
     }
 
     #hot-video-stripe {
@@ -503,6 +526,7 @@ button.scroll-btn {
     }
 
     #hot-audio-stripe {
+        height: 100px;
         color: $color-yellow;
     }
 
@@ -528,7 +552,6 @@ button.scroll-btn {
         width: 100%;
         padding: 30px;
         border: 1px solid #ccc;
-        margin-bottom: 30px;
     }
 
     button {
@@ -551,15 +574,22 @@ button.scroll-btn {
     }
 
     button#signout-btn {
-        margin-top: 48px;
+        margin-top: 20px;
         width: 100%;
         background-color: $color-red;
     }
 
     #user-gallery {
-        height: 100vh;
+        max-height: calc(100vh - #{$header-height} - 50px);
         overflow-y: scroll;
         padding: 0 30px;
+
+        @include phone {
+            overflow: visible;
+            margin-top: 30px;
+            width: 100%;
+            padding: 0;
+        }
     }
 
     .item-thumbnail {
@@ -569,9 +599,11 @@ button.scroll-btn {
             height: 100%;
             object-fit: cover;
             overflow: hidden;
+            width: 100%;
         }
     }
 }
+
 #toast {
     position: fixed;
     width: 120px;
@@ -589,6 +621,7 @@ button.scroll-btn {
     z-index: 22;
     transition: all 0.5s;
 }
+
 #toast.toast-show {
     top: 10px;
 }

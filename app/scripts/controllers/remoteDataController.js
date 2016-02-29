@@ -10,6 +10,8 @@ angular.module('myApp')
 
         var link = 'http://util.mw.metropolia.fi/uploads/';
 
+        $scope.itemLimit = 10;
+
         $scope.increaseLimit = function() {
             $scope.itemLimit += 1;
         }
