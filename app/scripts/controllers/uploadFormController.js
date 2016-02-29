@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('uploadController', function ($scope, $rootScope, $window, $timeout, $localStorage, mediaFactory, ajaxFactory) {
+    .controller('uploadController', function ($scope, $rootScope, $window, $timeout, $localStorage, $location, mediaFactory, ajaxFactory) {
 
         $scope.setMediaFile = function(element) {
             $scope.mimeType = element.files[0].type;
@@ -13,26 +13,19 @@ angular.module('myApp')
             $scope.fd.append('type', $scope.type); //read type (image/audio/video) from the form, or remove and add form input
             $scope.fd.append('mime-type', $scope.mimeType); //For example video/mp4 or audio/mp3
 
-            /* #EXAMPLE#
-            <form if="uploadForm">
-                <input name="file" type="file" onchange="angular.element(this).scope().setMediaFile(this)">
-                <input name="title" type="text">
-                <input name="description" type="text">
-                <button ng-click="postImage();">Upload</button>
-            </form>
-            */
-
             var request = ajaxFactory.uploadFile($scope.fd);
 
             request.then(function (response) {
-                console.log(response.data);
+                $timeout(function () {
+                    $location.path('/singleItem/:' + response[fileId]);
+                    console.log(response.fileId);
+                    $window.location.reload();
+                }, 2200);
             }, function (err) {
                 console.log(err.data);
             });
 
-            $timeout(function () {
-                $window.location.reload();
-            }, 2200);
+
 
             $('.loading-indication').addClass('loading-indication--load');
         };
