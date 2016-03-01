@@ -65,7 +65,7 @@ angular.module('myApp')
 
         ajaxFunctions.likeItem = function (fileId, userId) {
             return $http.get(urlBase + 'like/' + fileId + '/' + userId);
-        }
+        };
 
         ajaxFunctions.unlikeItem = function (fileId, userId) {
             return $http.get(urlBase + 'unlike/' + fileId + '/' + userId);
@@ -73,7 +73,23 @@ angular.module('myApp')
 
         ajaxFunctions.listLikedByUser = function (userId) {
             return $http.get(urlBase + 'likes/user/' + userId);
-        }
+        };
+
+        ajaxFunctions.searchByTitle = function(form) {
+            return $http.post(urlBase + 'files/search/title', $httpParamSerializer(form), {
+                headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        };
+
+        ajaxFunctions.searchByDescription = function(form) {
+            return $http.post(urlBase + 'files/search/description', $httpParamSerializer(form), {
+                headers: {
+                   'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            });
+        };
 
         return ajaxFunctions;
     });

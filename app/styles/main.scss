@@ -124,6 +124,7 @@ header {
         font-size: 20px;
         width: 100%;
         height: calc(#{$header-height} - 5px);
+        margin-left: 24px;
 
         form {
             width: 95%;
@@ -133,7 +134,7 @@ header {
             font-size: $font-size-regular;
             width: 100%;
             min-hfleight: $button-height;
-            padding-left: 16px;
+            padding: 12px;
             border: 0;
             outline: none;
             border-bottom: 1px solid $color-accent;
