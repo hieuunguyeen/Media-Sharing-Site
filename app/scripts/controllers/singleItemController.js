@@ -39,15 +39,13 @@ angular.module('myApp')
                         console.log($scope.imageHeight);
                         $scope.$apply();
                     };
-                } else if (media.type === "video") {
-                    $('.content__image').html('<video src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
 
-                    // getting resolution of vid
-                    $scope.imageWidth = $('video').videoWidth;
-                    $scope.imageHeight = $('video').videoHeight;
-                    console.log($scope.imageWidth);
-                    console.log($scope.imageHeight);
-                    $scope.$apply();
+                    image.src = $scope.imagePath;
+                } else if (media.type === "video") {
+                    $('.content__image').html('<video id="video" src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
+
+                    $('.info__general-data h3').eq(3).hide();
+                    console.log($('.info__general-data h5').eq(2).text(''));
                 } else {
                     $('.content__image').html('<audio src="' +  $scope.trustURL($scope.imagePath) + '" controls></audio>');
                     $('.info__general-data h3').eq(3).hide();
@@ -64,7 +62,7 @@ angular.module('myApp')
                 $scope.itemDescription = media.description;
                 $scope.itemType = media.mimeType.substring(6).toUpperCase();
 
-                image.src = $scope.imagePath;
+
             }, function (error) {
                 mediaFactory.handleError(error);
         });
