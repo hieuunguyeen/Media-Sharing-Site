@@ -1,20 +1,22 @@
-<div ng-controller="videogularController" class="videogular-container">
-    <videogular vg-theme="config.theme">
-        <vg-media vg-src="config.sources" vg-tracks="config.tracks">
+<div ng-controller="videogularController" class="videogular-container" ng-init = "setVideo(item.path, item.mimeType, item.thumbNails.medium)">
+    <videogular vg-theme="config.theme" vg-player-ready="onPlayerReady($API)" >
+        <vg-media vg-src="config.sources">
         </vg-media>
         <vg-controls vg-preload="auto">
             <vg-play-pause-button></vg-play-pause-button>
+            <vg-time-display class="hidden__phone hidden__tablet">{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
             <vg-scrub-bar>
                 <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
             </vg-scrub-bar>
-            <vg-volume>
+            <vg-time-display class="hidden__phone hidden__tablet">{{ totalTime | date:'mm:ss':'+0000' }}</vg-time-display>
+            <vg-volume class="hidden__phone hidden__tablet">
                 <vg-mute-button></vg-mute-button>
                 <vg-volume-bar></vg-volume-bar>
             </vg-volume>
             <vg-fullscreen-button></vg-fullscreen-button>
         </vg-controls>
         <vg-overlay-play></vg-overlay-play>
-        <vg-poster vg-url="config.plugins.poster"></vg-poster>
+        <!-- <vg-poster vg-url="config.plugins.poster"></vg-poster> -->
 
     </videogular> 
 </div>
