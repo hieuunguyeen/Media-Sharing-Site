@@ -1,7 +1,7 @@
-<figure><!-- Parent: thumbnail__audio-vertical -->
+<figure ng-controller="thumbMediaController"><!-- Parent: thumbnail__audio-vertical -->
     <div class="thumbnail-audio-play" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + item.path)">
         <i class="fa fa-play-circle fa-5x"></i>
     </div>
     <span>{{item.title}}</span>
-    <p>More info</p>
+    <p ng-click="sendDataToModal(item.fileId)">More info</p>
 </figure>

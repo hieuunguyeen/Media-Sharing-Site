@@ -173,6 +173,11 @@
         span {
             display: inline;
         }
+
+        p {
+            cursor: pointer;
+            color: $color-dark;
+        }
     }
 }
 

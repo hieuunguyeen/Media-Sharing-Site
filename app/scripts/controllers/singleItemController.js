@@ -1,5 +1,15 @@
 angular.module('myApp')
-    .controller('singleItemController', function ($scope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory) {
+    .controller('singleItemController', function ($sce, $scope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory) {
+
+        // control the data tab on phone
+        $scope.metadataTab = 1;
+        $scope.selectTab = function (tab) {
+            $scope.metadataTab = tab;
+        };
+
+        $scope.tabSelected = function (checkTab) {
+            return $scope.metadataTab === checkTab;
+        };
 
         $scope.itemId = parseInt($routeParams.itemId.substring(1));
         $scope.itemComments;
@@ -11,8 +21,36 @@ angular.module('myApp')
                 mediaFactory.setVariables('mediaData', success.data);
                 mediaFactory.addToProperty('mediaData', 'itemId', $scope.itemId);
                 var media = mediaFactory.mediaData;
+                console.log(media);
 
+                // this should be mediaPath but I messed up, keep it this way for now
                 $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+
+                if (media.type === "image") {
+                    $('.content__image').html('<img src="' + $scope.imagePath + '" alt="some alt">');
+
+                    // getting resolution of image
+                    var image = new Image();
+                    console.log(image);
+                    image.onload = function () {
+                        $scope.imageWidth = image.width;
+                        $scope.imageHeight = image.height;
+                        console.log($scope.imageWidth);
+                        console.log($scope.imageHeight);
+                        $scope.$apply();
+                    };
+
+                    image.src = $scope.imagePath;
+                } else if (media.type === "video") {
+                    $('.content__image').html('<video id="video" src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
+
+                    $('.info__general-data h3').eq(3).hide();
+                    console.log($('.info__general-data h5').eq(2).text(''));
+                } else {
+                    $('.content__image').html('<audio src="' +  $scope.trustURL($scope.imagePath) + '" controls></audio>');
+                    $('.info__general-data h3').eq(3).hide();
+                    console.log($('.info__general-data h5').eq(2).text(''));
+                }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
                 $scope.imageItemLink = 'http://localhost:9000/#/singleItem/:' + $scope.itemId;
@@ -24,17 +62,7 @@ angular.module('myApp')
                 $scope.itemDescription = media.description;
                 $scope.itemType = media.mimeType.substring(6).toUpperCase();
 
-                var image = new Image();
-                console.log(image);
-                image.onload = function () {
-                    $scope.imageWidth = image.width;
-                    $scope.imageHeight = image.height;
-                    console.log($scope.imageWidth);
-                    console.log($scope.imageHeight);
-                    $scope.$apply();
-                };
 
-                image.src = $scope.imagePath;
             }, function (error) {
                 mediaFactory.handleError(error);
         });
@@ -100,4 +128,7 @@ angular.module('myApp')
             }
         };
 
+        $scope.trustURL = function (url) {
+            return $sce.trustAsResourceUrl(url);
+        };
     });

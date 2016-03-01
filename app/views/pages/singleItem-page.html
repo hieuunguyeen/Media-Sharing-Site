@@ -3,10 +3,7 @@
         <figure class="single-item__image">
             <div class="item__content">
                 <div class="content__image">
-                    <img src="{{ imagePath }}" alt="some alt">
-                </div>
-                <div class="info info__description secondary">
-                    <strong>Description:</strong><p>{{ itemDescription }}</p>
+
                 </div>
                 <div class="user-interaction">
                     <span class="like" ng-click="likeItem()" ng-class="{'liked': liked}">
@@ -24,15 +21,8 @@
                 <div class="info info__general-data">
                     <h5>Name: <span class="single-item__name">{{ itemTitle }}</span></h5>
                     <h5>Uploaded: <span class="single-item__upload-date">{{ itemloadDate }}</span></h5>
-                    <h5>Views: <span class="single-item__views">{{ itemViews }}</span></h5>
-                    <h5>Author: <span class="single-item__author">{{ itemAuthor }}</span></h5>
-                </div>
-                <div class="info info__metadata">
-                    <h5>Taken: <span class="single-item__taken-date">{{  }}</span></h5>
                     <h5>Resolution: <span class="single-item__resolution">{{ imageWidth + ' x ' + imageHeight }}</span></h5>
-                    <h5>Size: <span class="single-item__size">{{ itemSize }}</span></h5>
-                    <h5>Pixels per Inch: <span class="single-item__dpi">{{ itemViews }}</span></h5>
-                    <h5>Image Type: <span class="single-item__type">{{ itemType }}</span></h5>
+                    <h5>Author: <span class="single-item__author">{{ itemAuthor }}</span></h5>
                 </div>
                 <div class="info info__links">
                     <label for="direct-link">Direct Link</label>
@@ -45,10 +35,51 @@
                     <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
                 </div>
             </figcaption>
+            <aside class="metadata--phone">
+                <div class="metadata-nav">
+                    <a ng-class="{active : tabSelected(1)}" ng-click="selectTab(1)">
+                        <i class="glyphicon glyphicon-info-sign"></i>
+                        <span>Metadata</span>
+                    </a>
+                    <a ng-class="{active : tabSelected(2)}" ng-click="selectTab(2)">
+                        <i class="glyphicon glyphicon-link"></i>
+                        <span>Links</span>
+                    </a>
+                    <a ng-class="{active : tabSelected(3)}" ng-click="selectTab(3)">
+                        <i class="glyphicon glyphicon-share"></i>
+                        <span>Share</span>
+                    </a>
+                </div>
+                <div class="metadata__tab--phone tab--data" ng-class="{active : tabSelected(1)}">
+                    <h5>Name: <span class="single-item__name">{{ itemTitle }}</span></h5>
+                    <h5>Uploaded: <span class="single-item__upload-date">{{ itemloadDate }}</span></h5>
+                    <h5>Resolution: <span class="single-item__resolution">{{ imageWidth + ' x ' + imageHeight }}</span></h5>
+                    <h5>Author: <span class="single-item__author">{{ itemAuthor }}</span></h5>
+                    <h5>Description: <span class="single-item__author">{{ itemDescription }}</span></h5>
+                </div>
+                <div class="metadata__tab--phone tab--links" ng-class="{active : tabSelected(2)}">
+                    <label for="direct-link">Direct Link</label>
+                    <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
+                    <br>
+                    <label for="image-link">Image Link</label>
+                    <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="{{ imageItemLink }}">
+                    <br>
+                    <label for="direct-link">HTML Link</label>
+                    <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
+                </div>
+                <div class="metadata__tab--phone tab--share" ng-class="{active : tabSelected(3)}">
+                    <ul class="metadata__share">
+                      <li class="facebook"><a href="#">Facebook</a></li>
+                      <li class="twitter"><a href="#">Twitter</a></li>
+                      <li class="pinterest"><a href="#">Pinterest</a></li>
+                      <li class="googleplus"><a href="#">Google+</a></li>
+                    </ul>
+                </div>
+            </aside>
         </figure>
         <div class="comment-section">
             <div class="comment-section__create">
-                <form class="single-item__form" ng-submit="postComment()" ng-if="loggedIn">
+                <form class="single-item__form" ng-submit="postComment()">
                     <textarea ng-model="comment" name="comment" id="comment-content" cols="30" rows="10" class="comment-content"></textarea>
                     <button>Submit</button>
                 </form>
