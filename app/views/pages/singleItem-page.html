@@ -83,7 +83,7 @@
             </div>
             <div class="comment-section__archive">
                 <div class="child-comment" ng-repeat="comment in itemComments">
-                    <h5 class="child-comment__author">{{ comment.username }}</h5>
+                    <h5 class="child-comment__author">{{ comment.username }} <span> commented on </span>{{ comment.time | javaDate }}</h5>
                     <p class="child-comment__content">{{ comment.comment }}</p>
                 </div>
             </div>
