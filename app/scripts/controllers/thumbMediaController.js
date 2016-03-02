@@ -20,7 +20,7 @@ angular.module('myApp')
         };
 
         $scope.config = {
-            autoHide: false,
+            autoHide: true,
             autoHideTime: 3000,
             autoPlay: false,
             sources: null,
