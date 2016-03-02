@@ -16,6 +16,10 @@ angular.module('myApp')
             return $http.get(urlBase + 'files/type/' + args);
         };
 
+        ajaxFunctions.getUsers = function(args) {
+            return $http.get(urlBase + 'users');
+        };
+
         ajaxFunctions.getFilesByUserId = function(args) {
             return $http.get(urlBase + 'files/user/' + args);
         };

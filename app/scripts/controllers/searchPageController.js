@@ -11,9 +11,5 @@ angular.module('myApp')
             } else {
                 $scope.searchImages.push($scope.searchResults[key]);
             }
-            console.log($scope.searchResults[key]);
         }
-
-        console.log($scope.searchImages);
-        console.log($scope.searchAudios);
     });

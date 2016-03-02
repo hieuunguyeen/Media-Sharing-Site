@@ -44,4 +44,30 @@ angular.module('myApp')
         		console.log('empty search field!');
         	}
         };
+
+        $scope.searchUser = function () {
+            var searchUsername = $scope.searchContent;
+            ajaxFactory.getUsers()
+                .then(function (success) {
+                    for (var key in success.data) {
+                        if (success.data[key].username === searchUsername) {
+                            console.log(searchUsername + ' found!');
+                            var searchUserId = success.data[key].userId;
+                            ajaxFactory.getFilesByUserId(searchUserId)
+                                .then(function (success) {
+                                    console.log(success.data);
+                                    mediaFactory.setVariables('searchData', success.data);
+                                    $location.path('/search-page');
+                                    $route.reload();
+                                }, function (error) {
+                                    mediaFactory.handleError(error);
+                                });
+                        }
+                    }
+
+                }, function (error) {
+                    mediaFactory.handleError(error);
+            });
+
+        }
     });
