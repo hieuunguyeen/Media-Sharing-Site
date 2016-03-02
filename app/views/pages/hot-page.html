@@ -21,7 +21,9 @@
         <hr>
         <div class="stripe" id="hot-video-stripe">
             <div class="thumbnail__video" ng-repeat="item in allVideos | limitTo:hotPageItemLimit">
-                <thumbnail-video></thumbnail-video>
+                <div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(item.path, item.mimeType)">
+                    <thumbnail-video></thumbnail-video>
+                </div>
             </div>
         </div>
         <!-- <div class="flex__center" id="scroll-video-stripe">

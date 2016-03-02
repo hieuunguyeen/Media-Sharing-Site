@@ -22,7 +22,7 @@ angular.module('myApp')
             }
         };
 
-        $scope.setVideo = function(src, type, thumbnail) {
+        $scope.setVideo = function(src, type) {
             $scope.config.sources = [
                 { src: $sce.trustAsResourceUrl("http://util.mw.metropolia.fi/uploads/" + src), type: type }
             ];
