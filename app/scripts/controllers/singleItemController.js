@@ -27,6 +27,7 @@ angular.module('myApp')
                 $scope.mediaPath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
                 $scope.path = media.path;
                 $scope.mimeType = media.mimeType;
+                $scope.title = media.title;
 
                 if (media.type === "image") {
                     $('.content__image').html('<img src="' + $scope.mediaPath + '" alt="some alt">');
@@ -44,7 +45,7 @@ angular.module('myApp')
 
                     image.src = $scope.mediaPath;
                 } else if (media.type === "video") {
-                    var a = '<div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(path , mimeType)"><thumbnail-video></thumbnail-video></div>';
+                    var a = '<div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(path , mimeType, title)"><thumbnail-video></thumbnail-video></div>';
                     $('.content__image').html($compile(a)($scope));
 
                     $('.info__general-data h3').eq(3).hide();

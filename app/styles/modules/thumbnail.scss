@@ -178,10 +178,36 @@
         display: flex;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.5);
+        z-index: 19;
+        cursor: pointer;
         h3 {
             color: white;
             font-size: $font-size-regular;
         }
+    }
+
+    vg-volume-bar {
+        margin-left: -15px;
+    }
+    // videogular:hover vg-controls {
+    //     transform: translateY(50px);
+    // }
+    .overlayPlayIcon {
+        font-size: 48px;
+    }
+    
+    div.share-btn {
+        display: table-cell;
+        width: 50px;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+    }
+    div.share-btn a,
+    div.share-btn a:hover,
+    div.share-btn a:visited {
+        color: white;
+        text-decoration: none;
     }
 }
 
