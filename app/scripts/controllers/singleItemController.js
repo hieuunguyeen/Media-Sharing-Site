@@ -11,7 +11,7 @@ angular.module('myApp')
             return $scope.metadataTab === checkTab;
         };
 
-        $scope.itemId = parseInt($routeParams.itemId.substring(1));
+        $scope.itemId = parseInt($routeParams.itemId);
         $scope.itemComments;
         $scope.liked = false;
 

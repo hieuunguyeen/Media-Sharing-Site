@@ -6,7 +6,7 @@ angular.module('myApp')
                 then(function (success) {
                     mediaFactory.setVariables('mediaData', success.data);
                     mediaFactory.addToProperty('mediaData', 'itemId', mediaId);
-                    $location.path('/singleItem/:' + mediaId);
+                    $location.path('/singleItem/' + mediaId);
                     $route.reload();
                 }, function (error) {
                     mediaFactory.handleError(error);
