@@ -315,6 +315,15 @@ header {
     height: 40px;
     width: 400px;
     transition: all 0.5s;
+    .loading-indication {
+        height: 40px;
+        transform: translate3d(0,0,0);
+        position: absolute;
+        right: auto;
+        left: 0;
+        width: 0%;
+        transition: width 0.2s;
+    }
 }
 
 #waveform-play {
@@ -606,22 +615,25 @@ button.scroll-btn {
 
 #toast {
     position: fixed;
-    width: 120px;
+    width: 150px;
     height: 50px;
     border: 1px solid $color-dark;
     border-radius: 10px;
     background-color: transparentize($color-dark, 0.2);
     box-shadow: 0px 0px 6px $color-dark;
     color: $color-light;
-    align-content: center;
-    top: -20px;
+    text-align: center;
+    top: 20px;
     right: 0;
     left: 0;
     margin: auto;
-    z-index: 22;
+    z-index: 110;
     transition: all 0.5s;
+        p {
+            line-height: 3.3em;
+        }
 }
 
 #toast.toast-show {
-    top: 10px;
+    top: -10px;
 }
