@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('singleItemController', function ($sce, $scope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory) {
+    .controller('singleItemController', function ($sce, $scope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory, $compile) {
 
         // control the data tab on phone
         $scope.metadataTab = 1;
@@ -24,10 +24,12 @@ angular.module('myApp')
                 console.log(media);
 
                 // this should be mediaPath but I messed up, keep it this way for now
-                $scope.imagePath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+                $scope.mediaPath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
+                $scope.path = media.path;
+                $scope.mimeType = media.mimeType;
 
                 if (media.type === "image") {
-                    $('.content__image').html('<img src="' + $scope.imagePath + '" alt="some alt">');
+                    $('.content__image').html('<img src="' + $scope.mediaPath + '" alt="some alt">');
 
                     // getting resolution of image
                     var image = new Image();
@@ -40,14 +42,15 @@ angular.module('myApp')
                         $scope.$apply();
                     };
 
-                    image.src = $scope.imagePath;
+                    image.src = $scope.mediaPath;
                 } else if (media.type === "video") {
-                    // $('.content__image').html('<video id="video" src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
+                    var a = '<div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(path , mimeType)"><thumbnail-video></thumbnail-video></div>';
+                    $('.content__image').html($compile(a)($scope));
 
                     $('.info__general-data h3').eq(3).hide();
                     console.log($('.info__general-data h5').eq(2).text(''));
                 } else {
-                    $('.content__image').html('<audio src="' +  $scope.trustURL($scope.imagePath) + '" controls></audio>');
+                    $('.content__image').html('<audio src="' +  $scope.trustURL($scope.mediaPath) + '" controls></audio>');
                     $('.info__general-data h3').eq(3).hide();
                     console.log($('.info__general-data h5').eq(2).text(''));
                 }

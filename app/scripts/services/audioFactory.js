@@ -10,7 +10,6 @@ angular.module('myApp')
         });
         
         wavesurfer.on('ready', function () {
-            console.log("Ready to play!");
             $rootScope.$broadcast('songReady');
             wavesurfer.play();
         });
@@ -19,8 +18,25 @@ angular.module('myApp')
             $rootScope.$broadcast('songFinished');
         });
         
+        wavesurfer.on('loading', function (percent) {
+            audioFunctions.setVariables('percent', percent);
+            console.log('Progress: ' + percent);
+            console.log(audioFunctions.percent);
+            $rootScope.$broadcast('buffering');
+        });
+        
+        wavesurfer.on('audioprocess', function () {
+            $rootScope.$broadcast('currentlyPlaying');
+        });
+        
         //Functions
-        var audioFunctions = {};
+        var audioFunctions = {
+            'percent': 0
+        };
+        
+        audioFunctions.setVariables = function (key, value) {
+            audioFunctions[key] = value;
+        };
         
         audioFunctions.loadSong = function (args) {
             wavesurfer.load(args);

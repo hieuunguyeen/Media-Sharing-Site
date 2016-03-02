@@ -16,7 +16,7 @@ angular.module('myApp')
         $scope.API = null;
 
         $scope.onPlayerReady = function(API) {
-            $scope.API = API;
+            $scope.API = API
         };
 
         $scope.config = {
@@ -34,7 +34,7 @@ angular.module('myApp')
             }
         };
 
-        $scope.setVideo = function(src, type, thumbnail) {
+        $scope.setVideo = function(src, type) {
             $scope.config.sources = [
                 { src: $sce.trustAsResourceUrl("http://util.mw.metropolia.fi/uploads/" + src), type: type }
             ];
