@@ -28,7 +28,7 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
+
     <div id="toast" ng-controller="ToastController as toast" ng-click="toast.showToast('Test')" ng-class="{'toast-show': toast.show}">
         <p>{{toast.message}}</p>
     </div>
@@ -65,7 +65,7 @@
     <header class="pure-g hidden__phone" id="desktop-header" ng-controller="userController">
         <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4">
             <div id="search-panel" class="flex__center" ng-controller="headerController">
-                <form>
+                <form ng-submit="search()">
                     <input ng-model="searchContent" type="text" id="search-text" placeholder="Search">
                 </form>
             </div>
@@ -215,6 +215,7 @@
     <script src="scripts/controllers/audioController.js"></script>
     <script src="scripts/controllers/wavesurferController.js"></script>
     <script src="scripts/controllers/toastController.js"></script>
+    <script src="scripts/controllers/searchPageController.js"></script>
 
     <script src="scripts/services/ajaxFactory.js"></script>
     <script src="scripts/services/mediaFactory.js"></script>
