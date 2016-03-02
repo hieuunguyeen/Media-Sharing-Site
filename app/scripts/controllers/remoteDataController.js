@@ -6,7 +6,7 @@
 // function runAll : Get all items
 
 angular.module('myApp')
-    .controller('remoteDataController', function($scope, $http, $sce, $interval, ajaxFactory) {
+    .controller('remoteDataController', function($scope, $http, $sce, $interval, ajaxFactory, mediaFactory) {
 
         var link = 'http://util.mw.metropolia.fi/uploads/';
 
@@ -66,25 +66,5 @@ angular.module('myApp')
 
         $scope.trustURL = function(url) {
             return $sce.trustAsResourceUrl(url);
-        };
-
-        $('#logo').click(function () {
-            var searchForm = {
-                'title': $('#search-text').val()
-            };
-
-            var searchTitleResults, searchDescResults;
-
-            ajaxFactory.searchByTitle(searchForm).then(function (success) {
-                searchTitleResults = success.data;
-                for (var key in success.data) {
-                    if (success.data.hasOwnProperty(key))
-                        console.log(success.data[key]);
-                }
-            }, function (error) {
-                console.log(error.data);
-            });
-
-            console.log(searchTitleResults);
-        });
+        };        
     });

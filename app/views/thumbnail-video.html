@@ -1,4 +1,4 @@
-<div ng-controller="videogularController" class="videogular-container" ng-init = "setVideo(item.path, item.mimeType, item.thumbNails.medium)">
+<div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(item.path, item.mimeType, item.thumbNails.medium)">
     <videogular vg-theme="config.theme" vg-player-ready="onPlayerReady($API)" >
         <vg-media vg-src="config.sources">
         </vg-media>
@@ -17,6 +17,11 @@
         </vg-controls>
         <vg-overlay-play></vg-overlay-play>
         <!-- <vg-poster vg-url="config.plugins.poster"></vg-poster> -->
-
     </videogular> 
+     <aside>
+        <div class="title">
+            <h3 ng-click="sendDataToModal(item.fileId)">{{ item.title }}</h3>
+        </div>
+        <div class="duration"></div>
+    </aside>
 </div>

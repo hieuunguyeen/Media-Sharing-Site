@@ -42,7 +42,7 @@ angular.module('myApp')
 
                     image.src = $scope.imagePath;
                 } else if (media.type === "video") {
-                    $('.content__image').html('<video id="video" src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
+                    // $('.content__image').html('<video id="video" src="' +  $scope.trustURL($scope.imagePath) + '" controls></video>');
 
                     $('.info__general-data h3').eq(3).hide();
                     console.log($('.info__general-data h5').eq(2).text(''));
