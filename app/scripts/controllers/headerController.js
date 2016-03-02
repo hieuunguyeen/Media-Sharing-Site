@@ -29,9 +29,11 @@ angular.module('myApp')
                         // merge 2 arrays into searchTitleResults (weird)
                         Array.prototype.push.apply(searchTitleResults, searchDescResults);
                         mediaFactory.setVariables('searchData', searchTitleResults);
+                        console.log(searchTitleResults);
 
                         // switch to the search results page
                         $location.path('/search-page');
+                        $route.reload();
 		            }, function (error) {
 		                mediaFactory.handleError(error);
 		            });
