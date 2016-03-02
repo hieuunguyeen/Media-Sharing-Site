@@ -59,7 +59,10 @@ angular.module('myApp')
                 $scope.itemTitle = media.title;
                 $scope.itemloadDate = media.uploadTime;
                 $scope.itemViews = '1223';
-                $scope.itemAuthor = media.userId;
+
+                ajaxFactory.getUserById(media.userId).then(function (success) {
+                    $scope.itemAuthor = success.data['username'];
+                });
                 $scope.itemDescription = media.description;
                 $scope.itemType = media.mimeType.substring(6).toUpperCase();
 
