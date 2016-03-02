@@ -84,7 +84,7 @@ angular.module('myApp')
         };
 
         ajaxFunctions.searchByDescription = function(form) {
-            return $http.post(urlBase + 'files/search/description', $httpParamSerializer(form), {
+            return $http.post(urlBase + 'files/search/desc', $httpParamSerializer(form), {
                 headers: {
                    'Content-Type': 'application/x-www-form-urlencoded'
                 }
