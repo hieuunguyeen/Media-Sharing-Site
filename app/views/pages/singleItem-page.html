@@ -9,9 +9,6 @@
                     <span class="like" ng-click="likeItem()" ng-class="{'liked': liked}">
                 	    <i class="glyphicon glyphicon-thumbs-up"></i>
                 	</span>
-                	<span class="comments">
-                	    <i class="glyphicon glyphicon-comment"></i>
-                	</span>
                 </div>
                 <div class="info info__description">
                     <strong>Description:</strong><p>{{ itemDescription }}</p>
@@ -20,7 +17,7 @@
             <figcaption class="item__info">
                 <div class="info info__general-data">
                     <h5>Name: <span class="single-item__name">{{ itemTitle }}</span></h5>
-                    <h5>Uploaded: <span class="single-item__upload-date">{{ itemloadDate }}</span></h5>
+                    <h5>Uploaded: <span class="single-item__upload-date">{{ itemloadDate | javaDate }}</span></h5>
                     <h5>Resolution: <span class="single-item__resolution">{{ imageWidth + ' x ' + imageHeight }}</span></h5>
                     <h5>Author: <span class="single-item__author">{{ itemAuthor }}</span></h5>
                 </div>
@@ -86,7 +83,7 @@
             </div>
             <div class="comment-section__archive">
                 <div class="child-comment" ng-repeat="comment in itemComments">
-                    <h5 class="child-comment__author">{{ comment.username }}</h5>
+                    <h5 class="child-comment__author">{{ comment.username }} <span> commented on </span>{{ comment.time | javaDate }}</h5>
                     <p class="child-comment__content">{{ comment.comment }}</p>
                 </div>
             </div>

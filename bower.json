@@ -17,7 +17,8 @@
     "videogular-angulartics": "^1.4.1",
     "videogular-themes-default": "^1.4.1",
     "wavesurfer.js": "^1.0.52",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "moment": "~2.11.2"
   },
   "overrides": {
     "bootstrap-sass": {

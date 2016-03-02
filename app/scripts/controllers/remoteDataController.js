@@ -64,19 +64,27 @@ angular.module('myApp')
                 });
         }
 
-        //transform to trusted link for videos and audio
-        //Usa like this:
-        //<source ng-src="{{trustURL('http://util.mw.metropolia.fi/uploads/' + video.path)}}">
         $scope.trustURL = function(url) {
             return $sce.trustAsResourceUrl(url);
         };
 
-        // ## Upload ##
-        // $scope
-        //
-        // var mimetype : media mime type
-        // var type : media real type
-        // function setMediaFile: get data from the uploaded media
-        // function postImage : send media to server
+        $('#logo').click(function () {
+            var searchForm = {
+                'title': $('#search-text').val()
+            };
 
+            var searchTitleResults, searchDescResults;
+
+            ajaxFactory.searchByTitle(searchForm).then(function (success) {
+                searchTitleResults = success.data;
+                for (var key in success.data) {
+                    if (success.data.hasOwnProperty(key))
+                        console.log(success.data[key]);
+                }
+            }, function (error) {
+                console.log(error.data);
+            });
+
+            console.log(searchTitleResults);
+        });
     });
