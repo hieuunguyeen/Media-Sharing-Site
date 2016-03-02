@@ -16,11 +16,12 @@ angular.module('myApp')
 
                 ajaxFactory.uploadFile($scope.fd).then(function (success) {
                     console.log(success.data.fileId);
-                    $('.loading-indication').addClass('loading-indication--load');
+                    
                     $timeout(function () {
                         $location.path('/singleItem/:' + success.data.fileId);
                         $window.location.reload();
-                    }, 2200);
+                    }, 2100);
+                    $('.loading-indication').addClass('loading-indication--load');
                 }, function (error) {
                     console.log(error.data);
                 });

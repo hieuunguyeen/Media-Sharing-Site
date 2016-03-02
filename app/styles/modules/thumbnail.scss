@@ -160,6 +160,18 @@
         width: 100%;
         height: 100%;
         margin: auto;
+
+        aside {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            cursor: pointer;
+
+            &:hover {
+
+            }
+        }
     }
 }
 
@@ -187,6 +199,7 @@
 
         span {
             display: inline;
+            color: $color-yellow;
         }
 
         p {
@@ -204,6 +217,12 @@
 
         span {
             display: inline;
+            color: $color-yellow;
+        }
+
+        p {
+            cursor: pointer;
+            color: $color-dark;
         }
     }
 }
