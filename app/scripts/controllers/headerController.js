@@ -1,6 +1,6 @@
 angular.module('myApp')
     .controller('headerController', function ($scope, $localStorage, mediaFactory, ajaxFactory) {
-        
+
 
         $('#logo').click(function () {
         	if ($('#search-text').val().length > 0) {
@@ -19,20 +19,32 @@ angular.module('myApp')
 	                //         console.log(success.data[key]);
 	                //     }
 	                // }
-	                var searchResults = success.data;
+	                var searchTitleResults = success.data;
+                    console.log(searchTitleResults);
 	                ajaxFactory.searchByDescription(searchFormDesc).then(function (success) {
-		                Array.prototype.push.apply(searchResults, success.data);
+                        var searchDescResults = success.data;
+                        console.log(searchDescResults);
 
-		                console.log(searchResults);
+		                // Array.prototype.push.apply(searchResults, success.data);
+                        for (var i = searchTitleResults.length - 1; i >= 0; i -= 1) {
+                            for (var j = searchDescResults.length - 1; j >= 0; j -= 1) {
+                                if (searchTitleResults[i].fileId === searchDescResults[j].fileId) {
+                                    searchDescResults.splice(j, 1);
+                                }
+                            }
+                        }
+                        Array.prototype.push.apply(searchTitleResults, searchDescResults);
+
+		                console.log(searchTitleResults);
 		            }, function (error) {
-		                	mediaFactory.handleError(error);
-		            });	
+		                mediaFactory.handleError(error);
+		            });
 	            }, function (error) {
 	                mediaFactory.handleError(error);
-	            });	            
+	            });
         	} else {
         		console.log('empty search field!');
         	}
-            
+
         });
     });
