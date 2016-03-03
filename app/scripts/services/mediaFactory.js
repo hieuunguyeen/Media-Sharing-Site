@@ -4,7 +4,7 @@ angular.module('myApp')
             mediaUrl: 'http://util.mw.metropolia.fi/uploads/',
             userData: {},
             mediaData: {},
-            searchData: {}
+            searchData: []
         };
 
         mediaVariables.setVariables = function (key, value) {

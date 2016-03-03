@@ -24,6 +24,10 @@ angular.module('myApp').config( function($routeProvider) {
             templateUrl: 'views/pages/singleItem-page.html',
             controller: "singleItemController"
         })
+        .when('/search-page', {
+            templateUrl: 'views/pages/search-page.html',
+            controller: 'searchPageController'
+        })
         .otherwise({
             redirectTo: '/hot'
         });
