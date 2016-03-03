@@ -219,6 +219,20 @@
             color: $color-dark;
         }
     }
+
+    aside {        
+
+        span {
+            z-index: 2;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            padding: 8px 16px;
+            background: $color-red;
+            color: $color-light;
+            text-transform: uppercase;
+        }
+    }
 }
 
 .thumbnail-audio-play {

@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .controller('singleItemController', function ($sce, $scope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory, $compile) {
+    .controller('singleItemController', function ($sce, $scope, $rootScope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory, $compile) {
 
         // control the data tab on phone
         $scope.metadataTab = 1;
