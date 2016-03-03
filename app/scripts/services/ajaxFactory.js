@@ -16,6 +16,14 @@ angular.module('myApp')
             return $http.get(urlBase + 'files/type/' + args);
         };
 
+        ajaxFunctions.getUsers = function(args) {
+            return $http.get(urlBase + 'users');
+        };
+
+        ajaxFunctions.getUserById = function(id) {
+            return $http.get(urlBase + 'user/' + id);
+        }
+
         ajaxFunctions.getFilesByUserId = function(args) {
             return $http.get(urlBase + 'files/user/' + args);
         };
@@ -84,7 +92,7 @@ angular.module('myApp')
         };
 
         ajaxFunctions.searchByDescription = function(form) {
-            return $http.post(urlBase + 'files/search/description', $httpParamSerializer(form), {
+            return $http.post(urlBase + 'files/search/desc', $httpParamSerializer(form), {
                 headers: {
                    'Content-Type': 'application/x-www-form-urlencoded'
                 }

@@ -11,7 +11,7 @@ angular.module('myApp')
             return $scope.metadataTab === checkTab;
         };
 
-        $scope.itemId = parseInt($routeParams.itemId.substring(1));
+        $scope.itemId = parseInt($routeParams.itemId);
         $scope.itemComments;
         $scope.liked = false;
 
@@ -34,7 +34,7 @@ angular.module('myApp')
 
                     // getting resolution of image
                     var image = new Image();
-                    console.log(image);
+
                     image.onload = function () {
                         $scope.imageWidth = image.width;
                         $scope.imageHeight = image.height;
@@ -49,11 +49,9 @@ angular.module('myApp')
                     $('.content__image').html($compile(a)($scope));
 
                     $('.info__general-data h3').eq(3).hide();
-                    console.log($('.info__general-data h5').eq(2).text(''));
                 } else {
                     $('.content__image').html('<audio src="' +  $scope.trustURL($scope.mediaPath) + '" controls></audio>');
                     $('.info__general-data h3').eq(3).hide();
-                    console.log($('.info__general-data h5').eq(2).text(''));
                 }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
@@ -62,7 +60,10 @@ angular.module('myApp')
                 $scope.itemTitle = media.title;
                 $scope.itemloadDate = media.uploadTime;
                 $scope.itemViews = '1223';
-                $scope.itemAuthor = media.userId;
+
+                ajaxFactory.getUserById(media.userId).then(function (success) {
+                    $scope.itemAuthor = success.data['username'];
+                });
                 $scope.itemDescription = media.description;
                 $scope.itemType = media.mimeType.substring(6).toUpperCase();
 
@@ -97,8 +98,6 @@ angular.module('myApp')
                 'user': $localStorage.userId,
                 'comment': $scope.comment
             };
-
-            console.log(commentData);
 
             ajaxFactory.postComment(commentData, $scope.itemId)
                 .then(function (success) {
