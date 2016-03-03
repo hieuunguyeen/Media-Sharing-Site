@@ -293,28 +293,43 @@ header {
 
 #waveform-container {
     position: fixed;
-    background-color: #221f26;
-    height: 45px;
-    width: 0px;
+    background-color: #fff;
+    height: 0px;
+    width: 100%;
     bottom: 0px;
     left: 80px;
+    border-top: 1px solid $color-dark;
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s;
 }
+#waveform-toggle {
+    position: fixed;
+    width: 30px;
+    height: 25px;
+    right: 0px;
+    bottom: 0px;
+    left: 0;
+    margin: auto;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+}
+#waveform-toggle.waveform-toggle-up {
+    bottom: 41px;
+}
 
 #waveform-container.waveform-show {
-    width: 450px;
+    height: 40px;
     opacity: 1;
 }
 
 #waveform {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
+    position: relative;
+    float: left;
     background-color: #fff;
     height: 40px;
-    width: 400px;
+    width: calc(100% - 220px);
     transition: all 0.5s;
     @include phone {
         width: 100%;
@@ -330,35 +345,23 @@ header {
     }
 }
 
-#waveform-play {
-    position: fixed;
-    bottom: 0px;
-    left: 20px;
+.waveform-button {
+    position: relative;
+    float: left;
     height: 40px;
     width: 40px;
-    background-color: $color-red;
     text-align: center;
     cursor: pointer;
-
+    transition: all 0.2s;
     i {
-        color: #fff;
+        color: $color-red;
         line-height: 1.5em;
     }
 }
-
-#waveform-mute {
-    position: absolute;
-    bottom: 0px;
-    right: 5px;
-    height: 40px;
-    width: 40px;
+.waveform-button:hover {
     background-color: $color-red;
-    text-align: center;
-    cursor: pointer;
-
     i {
         color: #fff;
-        line-height: 1.5em;
     }
 }
 

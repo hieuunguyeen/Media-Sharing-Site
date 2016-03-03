@@ -128,19 +128,22 @@
 
     <!-- Container for wavesurfer -->
     <div ng-controller="wavesurferController">
-        <div id="waveform-play" ng-click="playPause()">
-            <i class="fa fa-play fa-2x" ng-hide="playing"></i>
-            <i class="fa fa-pause fa-2x" ng-show="playing"></i>
+        <div id="waveform-toggle" ng-class="{'waveform-toggle-up': show}" ng-click="showToggle()">
+            <i class="fa fa-chevron-up fa-2x"></i>
         </div>
         <div id="waveform-container" ng-class="{'waveform-show': show}">
-            <div id="waveform" ng-class="{'waveform-show': show}">
-                <div class="loading-indication"></div>
+            <div id="waveform-play" class="waveform-button" ng-click="playPause()">
+                <i class="fa fa-play fa-2x" ng-hide="playing"></i>
+                <i class="fa fa-pause fa-2x" ng-show="playing"></i>
             </div>
-            <div id="waveform-mute" ng-click="muteToggle()">
+            <div id="waveform-mute" class="waveform-button" ng-click="muteToggle()">
                 <i class="fa fa-volume-up fa-2x" ng-hide="mute"></i>
                 <i class="fa fa-volume-off fa-2x" ng-show="mute"></i>
             </div>
-            <p>{{buffer}}</p>
+            <div id="waveform" ng-class="{'waveform-show': show}">
+                <div class="loading-indication"></div>
+            </div>
+            <div class="waveform-button"><p>{{currentTime | date: 'm:ss'}} / {{length | date: 'm:ss'}}</p></div>
         </div>
     </div>
 
