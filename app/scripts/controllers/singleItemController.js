@@ -48,10 +48,10 @@ angular.module('myApp')
                     var a = '<div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(path , mimeType, title)"><thumbnail-video></thumbnail-video></div>';
                     $('.content__image').html($compile(a)($scope));
 
-                    $('.info__general-data h3').eq(3).hide();
+                    $('.info__general-data h5').eq(3).hide();
                 } else {
                     $('.content__image').html('<audio src="' +  $scope.trustURL($scope.mediaPath) + '" controls></audio>');
-                    $('.info__general-data h3').eq(3).hide();
+                    $('.info__general-data h5').eq(3).hide();
                 }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
