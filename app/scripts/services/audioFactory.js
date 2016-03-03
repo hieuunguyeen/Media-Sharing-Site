@@ -20,8 +20,6 @@ angular.module('myApp')
         
         wavesurfer.on('loading', function (percent) {
             audioFunctions.setVariables('percent', percent);
-            console.log('Progress: ' + percent);
-            console.log(audioFunctions.percent);
             $rootScope.$broadcast('buffering');
         });
         

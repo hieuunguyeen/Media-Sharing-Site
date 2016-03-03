@@ -2,7 +2,7 @@ angular.module('myApp')
     .controller('wavesurferController', function ($scope, audioFactory) {
         //Controls for audio player
         $scope.playing = false;
-        $scope.show = true;
+        $scope.show = false;
         $scope.mute = false;
         $scope.length = 0;
         $scope.currentTime = 0;
