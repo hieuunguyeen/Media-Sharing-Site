@@ -7,7 +7,7 @@
     display: inline-block;
     overflow: hidden;
     height: 98%;
-    margin: 0 5px;
+    margin: 0 5px 0 0;
     transition: all .2s ease-in-out;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.24);
     @include phone {
@@ -26,7 +26,7 @@
     display: inline-block;
     overflow: hidden;
     width: 98%;
-    margin: 0 5px 5px 0;
+    margin: 0 5px 0 0;
     transition: all .2s ease-in-out;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.24);
     &:hover {
@@ -141,6 +141,9 @@
     .container {
         min-height: 0;
     }
+    vg-media {
+        max-height: 100vh;
+    }
     vg-time-display {
         font-size: 11px;
     }
@@ -148,6 +151,7 @@
         left: 0;
     }
     aside {
+        height: 30px;
         position: absolute;
         top: 0;
         left: 0;
@@ -155,7 +159,7 @@
         padding-left: 20px;
         display: flex;
         align-items: center;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
         z-index: 19;
         cursor: pointer;
         h3 {
@@ -163,7 +167,6 @@
             font-size: $font-size-regular;
         }
     }
-
     vg-volume-bar {
         margin-left: -15px;
     }
@@ -173,7 +176,6 @@
     .overlayPlayIcon {
         font-size: 48px;
     }
-    
     div.share-btn {
         display: table-cell;
         width: 50px;
@@ -190,33 +192,45 @@
 }
 
 .thumbnail__audio {
-    width: 300px;
-    height: 100%;
-    max-height: 90px;
+    width: 400px;
+    height: 250px;
     figure {
         width: 100%;
-        span {
-            display: inline;
-            color: $color-yellow;
+        height: 100%;
+        img {
+            width: 35%;
+            height: 100%;
+            float: left;
+            object-fit: cover;
         }
-        p {
-            cursor: pointer;
-            color: $color-dark;
-        }
-    }
-}
 
-.thumbnail__audio-vertical {
-    max-height: 90px;
-    figure {
-        width: 100%;
-        span {
-            display: inline;
-            color: $color-yellow;
-        }
         p {
+            font-size: 16px;
             cursor: pointer;
-            color: $color-dark;
+            text-transform: uppercase;
+            white-space: initial;
+        }
+
+        i.music-note {
+            position: absolute;
+            top:50%;
+            left: 17.5%;
+            transform: translate(-50%, -50%);
+            color:white;
+            cursor: pointer;
+                transition: color .1s ease-in-out;
+                &:hover {
+                    color: $color-yellow;
+                }
+        }
+        figcaption {
+            width: 65%;
+            float: left;
+            background-color: $color-dark;
+            height: 100%;
+            color: $color-light;
+            margin: 0;
+            position: relative;
         }
     }
 
@@ -235,14 +249,7 @@
     }
 }
 
-.thumbnail-audio-play {
-    position: relative;
-    float: left;
-    height: 70px;
-    width: 100px;
-    margin: 10px;
-    i {
-        color: $color-red;
-        cursor: pointer;
-    }
+.thumbnail__audio-vertical {
+    height: 250px;
+    @extend .thumbnail__audio;
 }

@@ -1,7 +1,12 @@
-<figure ng-controller="thumbMediaController"><!-- Parent: thumbnail__audio-vertical -->
-    <div class="thumbnail-audio-play" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + item.path)">
-        <i class="fa fa-play-circle fa-5x"></i>
-    </div>
-    <span>{{item.title}}</span>
-    <p ng-click="sendDataToModal(item.fileId)">More info</p>
+<figure ng-controller="thumbMediaController">
+    <!-- Parent: thumbnail__audio-vertical -->
+    <img ng-src="https://unsplash.it/320/640/?random={{item.fileId}}" alt="" ng-click="sendDataToModal(item.fileId)">
+    <i class="fa fa-music music-note fa-3x" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + item.path)"></i>
+    <figcaption>
+        <p ng-click="sendDataToModal(item.fileId)" class="position__center">{{item.title}}</p>
+        <span></span>
+        <!-- div class="thumbnail-audio-play" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + item.path)">
+            <i class="fa fa-play fa-2x"></i>
+        </div> -->
+    </figcaption>
 </figure>
