@@ -2,6 +2,7 @@ angular.module('myApp')
     .controller('thumbMediaController', function($scope, $rootScope, $location, $route, $sce, ajaxFactory, mediaFactory) {
 
         $scope.sendDataToModal = function(mediaId) {
+            console.log(mediaId);
             ajaxFactory.getFileById(mediaId).
             then(function(success) {
                 mediaFactory.setVariables('mediaData', success.data);
