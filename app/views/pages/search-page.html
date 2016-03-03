@@ -4,8 +4,8 @@
             <div class="thumbnail__picture-vertical" ng-repeat="item in searchImages" ng-if="$index % 4 == $parent.$index">
                 <thumbnail-image></thumbnail-image>
                 <aside>
-                    <div class="tag">
-                        <span>{{ item.type }}</span>
+                    <div>
+                        <span class="tag" ng-style="{background: color[item.type]}">{{ item.type }}</span>
                     </div>
                 </aside>
             </div>
@@ -13,8 +13,8 @@
             <div class="thumbnail__picture-vertical" ng-repeat="item in searchAudios" ng-if="$index % 4 == $parent.$index">
                 <thumbnail-audio></thumbnail-audio>
                 <aside>
-                    <div class="tag">
-                        <span>{{ item.type }}</span>
+                    <div>
+                        <span class="tag" ng-style="{background: color[item.type]}">{{ item.type }}</span>
                     </div>
                 </aside>
             </div>

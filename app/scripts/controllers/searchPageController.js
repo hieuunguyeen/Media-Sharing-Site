@@ -3,7 +3,6 @@ angular.module('myApp')
 
         $scope.searchResults = mediaFactory.searchData;
         $scope.searchImages = [], $scope.searchAudios = [];
-        console.log($scope.searchResults);
 
         for (var key in $scope.searchResults) {
             if ($scope.searchResults[key].type === "audio") {
@@ -12,4 +11,10 @@ angular.module('myApp')
                 $scope.searchImages.push($scope.searchResults[key]);
             }
         }
+
+        $scope.color = {
+            'video': '#50d752',
+            'image': '#0bcea0',
+            'audio': '#efc445'
+        };
     });
