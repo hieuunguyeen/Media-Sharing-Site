@@ -25,7 +25,6 @@ angular.module('myApp')
             }
         };
 
-
         $scope.searchImages = [], $scope.searchAudios = [];
 
         console.log($scope.searchResults);

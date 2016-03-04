@@ -15,7 +15,15 @@ angular.module('myApp')
             if ($scope.currentType >= $scope.typeMedia.length) {
                 $scope.currentType = 0;
             }
+            console.log($scope.colors[$scope.currentType]);
         }
+
+        $scope.colors = {
+            0 : '#50d752',
+            1 : '#efc445',
+            2 : '#0bcea0',
+            3 : '#de3b59'
+        };
 
         $scope.changeType = function(type) {
             $scope.typeSearch = type;

@@ -66,7 +66,7 @@
                     <div class="search-options">
                         <span class="fa fa-user" ng-click="changeType('user')"></span>
                         <span class="fa fa-file selected" ng-click="changeType('title')"></span>
-                        <span class="search-type selected fa" ng-class="typeMedia[currentType]" ng-click="changeMedia()"></span>
+                        <span class="search-type fa" ng-style="{color: colors[currentType]}" ng-class="typeMedia[currentType]" ng-click="changeMedia()"></span>
                     </div>
                 </form>
             </div>
@@ -98,7 +98,7 @@
                     <div class="search-options">
                         <span class="fa fa-user" ng-click="changeType('user')"></span>
                         <span class="fa fa-file selected" ng-click="changeType('title')"></span>
-                        <span class="search-type selected fa" ng-class="typeMedia[currentType]" ng-click="changeMedia()"></span>
+                        <span class="search-type fa" ng-style="{color: colors[currentType]}" ng-class="typeMedia[currentType]" ng-click="changeMedia()"></span>
                     </div>
                 </form>
             </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
