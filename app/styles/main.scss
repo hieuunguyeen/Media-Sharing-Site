@@ -418,25 +418,39 @@ header {
 }
 #waveform-toggle {
     position: fixed;
-    width: 30px;
+    background-color: $color-dark;
+    width: 100%;
     height: 25px;
-    right: 0px;
-    bottom: 0px;
-    left: 0;
-    margin: auto;
-    cursor: pointer;
-    text-align: center;
+    bottom: -1px;
     transition: all 0.3s;
+    z-index: 100;
 }
 #waveform-toggle.waveform-toggle-up {
     bottom: 41px;
+    height: 0px;
+}
+.waveform-toggle-button-down {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.waveform-toggle-button-up {
+    bottom: 15px;
 }
 
 #waveform-container.waveform-show {
     height: 40px;
     opacity: 1;
 }
-
+.white {
+    color: #fff;
+}
 #waveform {
     position: relative;
     float: left;
