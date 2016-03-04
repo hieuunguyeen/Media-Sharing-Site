@@ -23,9 +23,13 @@ angular.module('myApp')
             $rootScope.$broadcast('buffering');
         });
         
-        wavesurfer.on('audioprocess', function () {
-            $rootScope.$broadcast('currentlyPlaying');
+        wavesurfer.on('seek', function (percent) {
+            $rootScope.$broadcast('seeking');
         });
+        
+        /*wavesurfer.on('audioprocess', function () {
+            $rootScope.$broadcast('currentlyPlaying');
+        });*/
         
         //Functions
         var audioFunctions = {
