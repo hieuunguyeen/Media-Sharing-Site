@@ -2,6 +2,29 @@ angular.module('myApp')
     .controller('searchPageController', function ($scope, $window, $location, $route, mediaFactory, ajaxFactory) {
 
         $scope.searchResults = mediaFactory.searchData;
+        var tempSearchResults = mediaFactory.searchData;
+        $scope.finalResults = [];
+
+        $scope.displayType = $('.search-type').attr('class');
+        console.log($scope.displayType);
+
+        $scope.filterSearch = function (type) {
+            if (!$scope.displayType.includes('files-o')) {
+                $scope.searchResults.forEach(function (file) {
+                    if ($scope.displayType.includes(file.type)) {
+                        $scope.finalResults.push(file);
+                    }
+                });
+                console.log($scope.searchResults);
+            } else {
+                $scope.finalResults = $scope.searchResults;
+            }
+            if ($scope.finalResults.length < 1) {
+                $('.search-container').text('Cannot find any results from the search key');
+                console.log('no search result');
+            }
+        };
+
         $scope.searchImages = [], $scope.searchAudios = [];
 
         console.log($scope.searchResults);
@@ -38,11 +61,6 @@ angular.module('myApp')
                 console.log(error.data);
             });
         });
-
-        if ($scope.searchResults.length < 1) {
-            $('.search-container').text('Cannot find any results from the search key');
-            console.log('no search result');
-        }
 
         $scope.color = {
             'video': '#50d752',
