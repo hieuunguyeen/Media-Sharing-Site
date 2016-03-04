@@ -23,7 +23,7 @@ angular.module('myApp')
                 mediaFactory.setVariables('mediaData', success.data);
                 mediaFactory.addToProperty('mediaData', 'itemId', $scope.itemId);
                 var media = mediaFactory.mediaData;
-                console.log(media);
+                $scope.media = mediaFactory.mediaData;
 
                 // this should be mediaPath but I messed up, keep it this way for now
                 $scope.mediaPath = 'http://util.mw.metropolia.fi/uploads/' + media.path;
@@ -47,13 +47,14 @@ angular.module('myApp')
 
                     image.src = $scope.mediaPath;
                 } else if (media.type === "video") {
-                    var a = '<div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(path , mimeType, title)"><thumbnail-video></thumbnail-video></div>';
+                    var a = '<div class="videogular-container" ng-controller="thumbMediaController"  ng-init = "setVideo(path , mimeType, title)"><thumbnail-video></thumbnail-video></div>';
                     $('.content__image').html($compile(a)($scope));
 
                     $('.single-item__resolution').closest('h5').hide();
-                } else {
-                    $('.content__image').html('<div class="thumbnail__audio-vertical"><audio src="' +  $scope.trustURL($scope.mediaPath) + '" controls></audio></div>');
-                    $('.single-item__resolution').closest('h5').hide();
+                } else if (media.type === "audio") {
+                    var b = '<div class="thumbnail__audio-vertical" ng-controller="thumbMediaController" ng-init ="setAudioPath(path, title)"><thumbnail-audio ></thumbnail-audio></div>'
+                    $('.content__image').html($compile(b)($scope));
+                    $('.info__general-data h3').eq(3).hide();
                 }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
@@ -86,7 +87,6 @@ angular.module('myApp')
             .then(function (success) {
                 var itemsLiked = success.data;
                 for (var item in itemsLiked) {
-                    console.log('fileid liked: ' + itemsLiked[item].fileId);
                     if ($scope.itemId === itemsLiked[item].fileId) {
                         $scope.liked = true;
                     }

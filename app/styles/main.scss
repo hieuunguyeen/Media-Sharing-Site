@@ -13,6 +13,7 @@
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/components-font-awesome/scss/font-awesome.scss";
 // endbower
 
 /* Space out content a bit */
@@ -259,14 +260,14 @@ header {
             border: 0;
             transition: width .2s ease-in-out;
 
-            &:focus {
+            &:focus, &:hover {
                 width: 100vw;
                 z-index: 30;
                 transition: width .2s ease-in-out;
                 position: static;
             }
 
-            &:focus + .search-options {
+            &:focus + .search-options, &:hover + .search-options {
                 right: -100%;
             }
         }
@@ -710,9 +711,10 @@ button.scroll-btn {
 
     article {
         font-size: $font-size-regular;
-        width: 100%;
+        width: 99%;
         padding: 30px;
         border: 1px solid #ccc;
+        margin-bottom: 10px;
     }
 
     button {

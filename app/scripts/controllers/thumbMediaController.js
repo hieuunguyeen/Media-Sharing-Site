@@ -2,7 +2,7 @@ angular.module('myApp')
     .controller('thumbMediaController', function($scope, $rootScope, $location, $route, $sce, ajaxFactory, mediaFactory) {
 
         $scope.sendDataToModal = function(mediaId) {
-            console.log(mediaId);
+            $scope.mediaId = mediaId;
             ajaxFactory.getFileById(mediaId).
             then(function(success) {
                 mediaFactory.setVariables('mediaData', success.data);
@@ -14,6 +14,10 @@ angular.module('myApp')
             });
         }
 
+        var c = '/singleItem/';
+        $scope.isSinglePage = $location.path().substring(0, 12) === c;
+
+        $scope.audioPath = null;
 
         $scope.API = null;
 
@@ -44,5 +48,8 @@ angular.module('myApp')
             // $scope.config.plugins.poster = "http://util.mw.metropolia.fi/uploads/" + thumbnail;
         };
 
-
+        $scope.setAudioPath = function(src, title) {
+            $scope.audioPath = $sce.trustAsResourceUrl(src);
+            $scope.title - title;
+        };
     });
