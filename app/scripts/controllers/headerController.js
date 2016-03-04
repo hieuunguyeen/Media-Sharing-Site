@@ -2,15 +2,23 @@ angular.module('myApp')
     .controller('headerController', function ($scope, $route, $location, $window, $localStorage, mediaFactory, ajaxFactory) {
 
         $scope.typeSearch = 'title';
+        $scope.typeMedia = ['fa-file-image-o', 'fa-file-audio-o', 'fa-file-video-o', 'fa-files-o'];
+        $scope.currentType = 3;
 
-        $('.search-options .fa').click(function () {
-            $(this).siblings().removeClass('selected');
+        $('.search-options .fa').not('.search-type').click(function () {
+            $(this).siblings().not('.search-type').removeClass('selected');
             $(this).addClass('selected');
         });
 
+        $scope.changeMedia = function () {
+            $scope.currentType += 1;
+            if ($scope.currentType >= $scope.typeMedia.length) {
+                $scope.currentType = 0;
+            }
+        }
+
         $scope.changeType = function(type) {
             $scope.typeSearch = type;
-            console.log($scope.typeSearch);
         };
 
         $scope.doSearch = function (type) {
