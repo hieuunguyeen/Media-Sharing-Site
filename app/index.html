@@ -148,8 +148,14 @@
 
     <!-- Container for wavesurfer -->
     <div ng-controller="wavesurferController">
-        <div id="waveform-toggle" ng-class="{'waveform-toggle-up': show}" ng-click="showToggle()">
-            <i class="fa fa-chevron-up fa-2x"></i>
+        <div id="waveform-toggle" ng-class="{'waveform-toggle-up': show}">
+            <div class="waveform-toggle-button-down" ng-class="{'waveform-toggle-button-up': show}" ng-click="showToggle()">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-circle-thin fa-stack-2x white"></i>
+                    <i class="fa fa-music fa-stack-1x white"></i>
+                </span>
+            </div>
         </div>
         <div id="waveform-container" ng-class="{'waveform-show': show}" ng-mouseenter="cancelAutohide()" ng-mouseleave="startAutohide()">
             <div id="waveform-play" class="waveform-button" ng-click="playPause()">
