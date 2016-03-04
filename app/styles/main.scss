@@ -415,6 +415,9 @@ header {
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s;
+    @include phone {
+        left: 0px;
+    }
 }
 #waveform-toggle {
     position: fixed;
@@ -456,10 +459,10 @@ header {
     float: left;
     background-color: #fff;
     height: 40px;
-    width: calc(100% - 220px);
+    width: calc(100% - 200px);
     transition: all 0.5s;
     @include phone {
-        width: 100%;
+        width: calc(100% - 120px);
     }
     .loading-indication {
         height: 40px;
@@ -472,7 +475,8 @@ header {
     }
 }
 
-.waveform-button {
+.waveform-button,
+.waveform-time {
     position: relative;
     float: left;
     height: 40px;

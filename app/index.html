@@ -139,7 +139,7 @@
     <!-- Container for wavesurfer -->
     <div ng-controller="wavesurferController">
         <div id="waveform-toggle" ng-class="{'waveform-toggle-up': show}">
-            <div class="waveform-toggle-button-down" ng-class="{'waveform-toggle-button-up': show}" ng-click="showToggle()">
+            <div class="waveform-toggle-button-down" ng-class="{'waveform-toggle-button-up': show}" ng-click="showToggle()" ng-mouseenter="cancelAutohide()" ng-mouseleave="startAutohide()">
                 <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-circle-thin fa-stack-2x white"></i>
@@ -159,7 +159,7 @@
             <div id="waveform" ng-class="{'waveform-show': show}">
                 <div class="loading-indication"></div>
             </div>
-            <div class="waveform-button"><p>{{currentTime | date: 'm:ss'}} / {{length | date: 'm:ss'}}</p></div>
+            <div class="waveform-time"><p>{{currentTime | date: 'm:ss'}} / {{length | date: 'm:ss'}}</p></div>
         </div>
     </div>
 
