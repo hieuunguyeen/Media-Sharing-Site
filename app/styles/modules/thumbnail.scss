@@ -64,7 +64,7 @@
             width: 100%;
             height: 50px;
             margin: 0;
-            transition: all .3s ease;
+            transition: all 0.2s ease;
             color: transparent;
             display: flex;
             align-items: center;
@@ -194,18 +194,21 @@
 
 .thumbnail__audio {
 
+    width: 400px;
+    height: 100%;
+
     @include phone {
         width: 250px;
     }
 
+
     figure {
         width: 100%;
         height: 100%;
-        display: flex;
-
         img {
-            flex-basis: 35%;
+            width: 35%;
             height: 100%;
+            float: left;
             object-fit: cover;
         }
 
@@ -223,13 +226,14 @@
             transform: translate(-50%, -50%);
             color:white;
             cursor: pointer;
-                transition: color .1s ease-in-out;
+                transition: color 00.2s ease-in-out;
                 &:hover {
                     color: $color-yellow;
                 }
         }
         figcaption {
-            flex-basis: 65%;
+            width: 65%;
+            float: left;
             background-color: $color-dark;
             height: 100%;
             color: $color-light;
@@ -254,7 +258,7 @@
 }
 
 .thumbnail__audio-vertical {
-    height: 150px;
+    height: 175px;
     figure {
         width: 100%;
         height: 100%;
@@ -280,7 +284,7 @@
             color:white;
             cursor: pointer;
             font-size: 45px;
-                transition: color .1s ease-in-out;
+                transition: color 00.2s ease-in-out;
                 &:hover {
                     color: $color-yellow;
                 }
