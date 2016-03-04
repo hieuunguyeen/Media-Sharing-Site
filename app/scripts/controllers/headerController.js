@@ -2,7 +2,7 @@ angular.module('myApp')
     .controller('headerController', function ($scope, $route, $location, $window, $localStorage, mediaFactory, ajaxFactory) {
 
         $scope.search = function () {
-            if ($('#search-text').val().length > 0) {
+            if ($scope.searchContent.length > 0) {
 	        	var searchFormTitle = {
 	                'title': $scope.searchContent
 	            };

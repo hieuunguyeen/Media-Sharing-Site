@@ -185,14 +185,14 @@
 
 .copy {
     padding: 4px;
-    background-color: $color-dark;
+    background-color: $color-red;
     color: $color-light;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: $color-red;
+        background-color: darken($color-red, 10%);
     }
 }
 
@@ -317,11 +317,17 @@
             }
 
             .copy {
-                flex-basis: 15%;
+                flex-basis: 10%;
+                background: $color-red;
+                color: $color-dark;
+
+                &:hover {
+                    background: darken($color-red, 10%);
+                }
             }
 
             input {
-                flex-basis: 85%;
+                flex-basis: 80%;
             }
         }
     }

@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../mixin';
+
 .search-container {
 	display: flex;
 	flex-flow: row wrap;
@@ -11,6 +14,16 @@
 	background: $color-dark;
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 	margin-right: 32px;
+	position: relative;
+
+	@include tablet {
+        flex-basis: 100%;
+    }
+
+    @include phone {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
 }
 
 .result__thumbnail {
@@ -32,29 +45,43 @@
 
 .result__metadata {
 	margin-top: 8px;
-
-	position: relative;
 	display: flex;
 	flex-flow: row wrap;
 
 	h5 {
 		margin: 0;
-		margin-right: 12px;
+		margin-right: 24px;
 		font-size: 12px;
 		text-transform: uppercase;
+
+		@include phone {
+	        margin: 0;
+	    }
 	}
 
 	h5:last-child {
 		margin-left: auto;
 		margin-right: 0;
+
 		span {
 			padding: 6px;
 		}
+
+		@include phone {
+	        position: absolute;
+	        bottom: 6px;
+	        left: 0;
+	    }
 	}
+
+	@include phone {
+        flex-flow: column wrap;
+    }
 }
 
 .result__author {
 	position: relative;
+	color: $color-red;
 
 	&::after {
 		position: absolute;
@@ -67,11 +94,22 @@
 		right: 0;
 		transform: translate(12px, -50%);
 	}
+
+	@include phone {
+        &::after {
+        	display: none;
+        }
+    }
 }
 
 .result__name {
 	margin-top: 12px;
 	font-size: 18px;
+	overflow: ellipsis;
+
+	@include phone {
+        font-size: 14px;
+    }
 	
 	span {
 		position: relative;

@@ -8,8 +8,8 @@
                     </div>
                     <div class="result__content">
                         <div class="result__metadata">
-                            <h5>Uploaded by <span class="result__author">  {{ item.username }}</span></h5>
-                            <h5><span class="result__uploadDate"> &nbsp; {{ item.uploadTime | javaDate }}</span></h5>
+                            <h5><span class="result__author">  {{ item.username }}</span></h5>
+                            <h5><span class="result__uploadDate"> {{ item.uploadTime | javaDate }}</span></h5>
                             <h5><span class="result__tag" ng-style="{background: color[item.type]}">{{ item.type }}</span></h5>
                         </div>
                         <div class="result__name">

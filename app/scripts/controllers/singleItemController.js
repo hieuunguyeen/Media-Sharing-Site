@@ -52,7 +52,7 @@ angular.module('myApp')
 
                     $('.info__general-data h5').eq(3).hide();
                 } else {
-                    $('.content__image').html('<audio src="' +  $scope.trustURL($scope.mediaPath) + '" controls></audio>');
+                    $('.content__image').html('<div><thumbnail-audio></thumbnail-audio></div>');
                     $('.info__general-data h5').eq(3).hide();
                 }
 

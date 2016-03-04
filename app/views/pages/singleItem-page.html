@@ -22,13 +22,13 @@
                 </div>
                 <div class="info info__links">
                     <label for="direct-link">Direct Link</label>
-                    <span class="copy" data-clipboard-target="#direct-link">Copy</span><input id="direct-link" readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
+                    <span class="copy" data-clipboard-target="#direct-link-phone">Copy</span><input id="direct-link-phone" readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
                     <br>
                     <label for="image-link">Image Link</label>
-                    <span class="copy" data-clipboard-target="#image-link">Copy</span><input id="image-link" readonly class="link image-link" name="image-link" type="text" value="{{ imageItemLink }}">
+                    <span class="copy" data-clipboard-target="#image-link-phone">Copy</span><input id="image-link-phone" readonly class="link image-link" name="image-link" type="text" value="{{ imageItemLink }}">
                     <br>
                     <label for="direct-link">HTML Link</label>
-                    <span class="copy" data-clipboard-target="#html-link">Copy</span><input id="html-link" readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
+                    <span class="copy" data-clipboard-target="#html-link-phone">Copy</span><input id="html-link-phone" readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
                 </div>
             </figcaption>
             <aside class="metadata--phone">
@@ -48,20 +48,20 @@
                 </div>
                 <div class="metadata__tab--phone tab--data" ng-class="{active : tabSelected(1)}">
                     <h5>Name: <span class="single-item__name">{{ itemTitle }}</span></h5>
-                    <h5>Uploaded: <span class="single-item__upload-date">{{ itemloadDate }}</span></h5>
+                    <h5>Uploaded: <span class="single-item__upload-date">{{ itemloadDate | javaDate }}</span></h5>
                     <h5>Resolution: <span class="single-item__resolution">{{ imageWidth + ' x ' + imageHeight }}</span></h5>
                     <h5>Author: <span class="single-item__author">{{ itemAuthor }}</span></h5>
                     <h5>Description: <span class="single-item__author">{{ itemDescription }}</span></h5>
                 </div>
                 <div class="metadata__tab--phone tab--links" ng-class="{active : tabSelected(2)}">
                     <label for="direct-link">Direct Link</label>
-                    <span class="copy">Copy</span><input readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
+                    <span class="copy" data-clipboard-target="#direct-link">Copy</span><input id="direct-link" readonly class="link direct-link" name="direct-link" type="text" value="{{ imageDirectLink }}">
                     <br>
                     <label for="image-link">Image Link</label>
-                    <span class="copy">Copy</span><input readonly class="link image-link" name="image-link" type="text" value="{{ imageItemLink }}">
+                    <span class="copy" data-clipboard-target="#image-link">Copy</span><input id="image-link" readonly class="link image-link" name="image-link" type="text" value="{{ imageItemLink }}">
                     <br>
                     <label for="direct-link">HTML Link</label>
-                    <span class="copy">Copy</span><input readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
+                    <span class="copy" data-clipboard-target="#html-link">Copy</span><input id="html-link" readonly class="link html-link" name="html-link" type="text" value="{{ imageHtmlLink }}">
                 </div>
                 <div class="metadata__tab--phone tab--share" ng-class="{active : tabSelected(3)}">
                     <ul class="metadata__share">

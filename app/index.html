@@ -87,9 +87,9 @@
 
     <header class="hidden__tablet hidden__desktop" id="phone-header" ng-controller="userController">
         <div class="pure-g pure-u-1">
-            <div class="pure-u-sm-1-2" id="search-panel-phone">
-                <form action="">
-                    <input type="text" id="search-text-phone" placeholder="Search">
+            <div class="pure-u-sm-1-2" id="search-panel-phone" ng-controller="headerController">
+                <form ng-submit="search()">
+                    <input ng-model="searchContent" type="text" id="search-text-phone" placeholder="Search">
                 </form>
             </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
                 <button id="upload-btn-phone" ng-show="loggedIn">
