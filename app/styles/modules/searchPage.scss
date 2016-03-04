@@ -7,14 +7,16 @@
 	display: flex;
 	flex-basis: 45%;
 	margin: 16px 0;
-	background: $color-dark;
 	color: $color-light;
+	background: $color-dark;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 	margin-right: 32px;
 }
 
 .result__thumbnail {
 	height: 80px;
 	overflow: hidden;
+	background: $color-dark;
 
 	img {
 		object-fit: cover;
@@ -25,25 +27,28 @@
 
 .result__content {
 	width: 100%;
+	margin-left: 16px;
 }
 
 .result__metadata {
 	margin-top: 8px;
+
 	position: relative;
 	display: flex;
 	flex-flow: row wrap;
 
 	h5 {
 		margin: 0;
+		margin-right: 12px;
 		font-size: 12px;
 		text-transform: uppercase;
-		font-weight: bolder;
 	}
 
 	h5:last-child {
 		margin-left: auto;
+		margin-right: 0;
 		span {
-			padding: 4px;
+			padding: 6px;
 		}
 	}
 }
@@ -56,7 +61,7 @@
 		content: '';
 		width: 4px;
 		height: 4px;
-		background-color: $color-dark;
+		background-color: $color-light;
 		top: 50%;
 		display: block;
 		right: 0;
@@ -67,4 +72,20 @@
 .result__name {
 	margin-top: 12px;
 	font-size: 18px;
+	
+	span {
+		position: relative;
+		text-transform: capitalize;
+
+		&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 2px;
+		background-color: $color-light;
+		left: 0;
+
+		}
+	}
 }

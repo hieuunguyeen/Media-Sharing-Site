@@ -1,6 +1,8 @@
 angular.module('myApp')
     .controller('singleItemController', function ($sce, $scope, $rootScope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory, $compile) {
 
+        var clipboard = new Clipboard('.copy');
+
         // control the data tab on phone
         $scope.metadataTab = 1;
         $scope.selectTab = function (tab) {
@@ -55,7 +57,7 @@ angular.module('myApp')
                 }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
-                $scope.imageItemLink = 'http://localhost:9000/#/singleItem/:' + $scope.itemId;
+                $scope.imageItemLink = 'http://localhost:9000/#/singleItem/' + $scope.itemId;
                 $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
                 $scope.itemTitle = media.title;
                 $scope.itemloadDate = media.uploadTime;

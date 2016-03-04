@@ -4,7 +4,7 @@
             <div class="search-container">
                 <div class="search-result" ng-controller="thumbMediaController" ng-repeat="item in searchResults" >
                     <div class="result__thumbnail" ng-click="sendDataToModal(item.fileId)">
-                        <img ng-src="http://util.mw.metropolia.fi/uploads/{{item.thumbNails.small}}" alt="search thumbnail">
+                        <img ng-src="{{item.type == 'audio' && 'https://unsplash.it/160/90/?random=1200' || 'http://util.mw.metropolia.fi/uploads/' + item.thumbNails.small }}" alt="search thumbnail">
                     </div>
                     <div class="result__content">
                         <div class="result__metadata">
