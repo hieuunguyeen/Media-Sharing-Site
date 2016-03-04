@@ -61,17 +61,12 @@
     <header class="pure-g hidden__phone" id="desktop-header" ng-controller="userController">
         <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4">
             <div id="search-panel" class="flex__center" ng-controller="headerController">
-                <form ng-submit="search()">       
-                    <input ng-model="searchContent" type="text" id="search-text" placeholder="Search" autocomplete="off">
-                    <section id="dropdown-options">
-                        <ul>
-                            <li><a href="">by Title / Desc</a></li>
-                            <li><a href="">by User</a></li>
-                            <li><a href="">Images</a></li>
-                            <li><a href="">Videos</a></li>
-                            <li><a href="">Audios</a></li>
-                        </ul>
-                    </section>
+                <form ng-submit="doSearch(typeSearch)">       
+                    <input ng-model="searchContent" type="text" id="search-text" placeholder="Search">
+                    <div class="search-options">
+                        <span class="fa fa-user" ng-click="changeType('user')"></span>
+                        <span class="fa fa-file selected" ng-click="changeType('title')"></span>
+                    </div>
                 </form>
             </div>
         </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
@@ -96,18 +91,13 @@
 
     <header class="hidden__tablet hidden__desktop" id="phone-header" ng-controller="userController">
         <div class="pure-g pure-u-1">
-            <div class="pure-u-sm-1-2" id="search-panel-phone">
-                <form action="">
-                    <input type="text" id="search-text-phone" placeholder="Search" autocomplete="off">
-                    <section id="dropdown-options-phone">
-                        <ul>
-                            <li><a href="">by Title / Desc</a></li>
-                            <li><a href="">by User</a></li>
-                            <li><a href="">Images</a></li>
-                            <li><a href="">Videos</a></li>
-                            <li><a href="">Audios</a></li>
-                        </ul>
-                    </section>
+            <div class="pure-u-sm-1-2" id="search-panel-phone" ng-controller="headerController">
+                <form ng-submit="doSearch(typeSearch)">
+                    <input ng-model="searchContent" type="text" id="search-text-phone" placeholder="Search">
+                    <div class="search-options">
+                        <span class="fa fa-user" ng-click="changeType('user')"></span>
+                        <span class="fa fa-file selected" ng-click="changeType('title')"></span>
+                    </div>
                 </form>
             </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
                 <button id="upload-btn-phone" ng-show="loggedIn">
@@ -203,6 +193,7 @@
     <script src="/bower_components/wavesurfer.js/dist/wavesurfer.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/clipboard/dist/clipboard.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js(.) scripts/plugins.js -->

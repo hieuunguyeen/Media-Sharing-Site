@@ -1,6 +1,8 @@
 angular.module('myApp')
     .controller('singleItemController', function ($sce, $scope, $rootScope, $routeParams, $localStorage, $location, $route, mediaFactory, ajaxFactory, $compile) {
 
+        var clipboard = new Clipboard('.copy');
+
         // control the data tab on phone
         $scope.metadataTab = 1;
         $scope.selectTab = function (tab) {
@@ -48,14 +50,14 @@ angular.module('myApp')
                     var a = '<div ng-controller="thumbMediaController" class="videogular-container" ng-init = "setVideo(path , mimeType, title)"><thumbnail-video></thumbnail-video></div>';
                     $('.content__image').html($compile(a)($scope));
 
-                    $('.info__general-data h3').eq(3).hide();
+                    $('.single-item__resolution').closest('h5').hide();
                 } else {
-                    $('.content__image').html('<audio src="' +  $scope.trustURL($scope.mediaPath) + '" controls></audio>');
-                    $('.info__general-data h3').eq(3).hide();
+                    $('.content__image').html('<div class="thumbnail__audio-vertical"><audio src="' +  $scope.trustURL($scope.mediaPath) + '" controls></audio></div>');
+                    $('.single-item__resolution').closest('h5').hide();
                 }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
-                $scope.imageItemLink = 'http://localhost:9000/#/singleItem/:' + $scope.itemId;
+                $scope.imageItemLink = 'http://localhost:9000/#/singleItem/' + $scope.itemId;
                 $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
                 $scope.itemTitle = media.title;
                 $scope.itemloadDate = media.uploadTime;

@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../mixin';
+
 .search-container {
 	display: flex;
 	flex-flow: row wrap;
@@ -5,14 +8,29 @@
 
 .search-result {
 	display: flex;
-	flex-basis: 50%;
+	flex-basis: 45%;
 	margin: 16px 0;
+	color: $color-light;
+	background: $color-dark;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+	margin-right: 32px;
+	position: relative;
+	cursor: pointer;
 
+	@include tablet {
+        flex-basis: 100%;
+    }
+
+    @include phone {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
 }
 
 .result__thumbnail {
 	height: 80px;
 	overflow: hidden;
+	background: $color-dark;
 
 	img {
 		object-fit: cover;
@@ -23,48 +41,90 @@
 
 .result__content {
 	width: 100%;
-	margin: 0 16px;
+	margin-left: 16px;
 }
 
 .result__metadata {
-	position: relative;
+	margin-top: 8px;
 	display: flex;
 	flex-flow: row wrap;
 
 	h5 {
 		margin: 0;
-		margin-right: 12px;
+		margin-right: 24px;
 		font-size: 12px;
 		text-transform: uppercase;
-		font-weight: bolder;
+
+		@include phone {
+	        margin: 0;
+	    }
 	}
 
 	h5:last-child {
 		margin-left: auto;
+		margin-right: 0;
+
 		span {
-			padding: 4px;
+			padding: 6px;
 		}
+
+		@include phone {
+	        position: absolute;
+	        bottom: 6px;
+	        left: 0;
+	    }
 	}
+
+	@include phone {
+        flex-flow: column wrap;
+    }
 }
 
 .result__author {
 	position: relative;
+	color: $color-red;
 
 	&::after {
 		position: absolute;
 		content: '';
 		width: 4px;
 		height: 4px;
-		background-color: $color-dark;
+		background-color: $color-light;
 		top: 50%;
 		display: block;
 		right: 0;
 		transform: translate(12px, -50%);
 	}
+
+	@include phone {
+        &::after {
+        	display: none;
+        }
+    }
 }
 
 .result__name {
 	margin-top: 12px;
 	font-size: 18px;
-	text-transform: uppercase;
+	overflow: ellipsis;
+
+	@include phone {
+        font-size: 14px;
+    }
+	
+	span {
+		position: relative;
+		text-transform: capitalize;
+
+		&::after {
+		content: '';
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 2px;
+		background-color: $color-light;
+		left: 0;
+
+		}
+	}
 }

@@ -19,6 +19,7 @@
     "wavesurfer.js": "^1.0.52",
     "angular-ui-router": "^0.2.18",
     "moment": "~2.11.2",
+    "clipboard": "~1.5.9",
     "jquery": "^2.2.1"
   },
   "overrides": {

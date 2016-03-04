@@ -39,6 +39,11 @@ angular.module('myApp')
             });
         });
 
+        if ($scope.searchResults.length < 1) {
+            $('.search-container').text('Cannot find any results from the search key');
+            console.log('no search result');
+        }
+
         $scope.color = {
             'video': '#50d752',
             'image': '#0bcea0',

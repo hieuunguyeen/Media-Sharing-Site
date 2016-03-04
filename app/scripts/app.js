@@ -11,6 +11,6 @@ angular.module('myApp',
 ).filter('javaDate', function () {
     return function (javaDateString) {
       return moment(javaDateString, "ddd MMM DD HH:mm:ss zzz gggg")
-        .format("HH:mm, ddd, DD.MM.YYYY ");
+        .format("ddd, DD.MM.YYYY ");
     };
   });
