@@ -177,6 +177,23 @@ header {
         }
     }
 
+    /* search options */
+    .search-options {
+        position: absolute;
+        right: 32px;
+        top: 50%;
+        transform: translateY(-50%);
+
+        span {
+            margin: 0 8px;
+            transition: color 0.3s ease;
+        }
+
+        span.selected {
+            color: $color-red;
+        }
+    }
+
     #control-panel {
         width: 100%;
         height: calc(#{$header-height} - 5px);
@@ -219,6 +236,20 @@ header {
             position: relative;
         }
 
+        .search-options {
+            right: 0px;
+            transition: all 0.2s ease;
+
+            span {
+                margin: 0 8px;
+                transition: color 0.3s ease;
+            }
+
+            span.selected {
+                color: $color-red;
+            }
+        }
+
         #search-text-phone {
             font-size: $font-size-regular;
             width: 100%;
@@ -231,6 +262,11 @@ header {
                 width: 100vw;
                 z-index: 30;
                 transition: width .2s ease-in-out;
+                position: static;
+            }
+
+            &:focus + .search-options {
+                right: -100%;
             }
         }
 

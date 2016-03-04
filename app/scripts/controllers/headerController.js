@@ -1,7 +1,29 @@
 angular.module('myApp')
     .controller('headerController', function ($scope, $route, $location, $window, $localStorage, mediaFactory, ajaxFactory) {
 
-        $scope.search = function () {
+        $scope.typeSearch = 'title';
+
+        $('.search-options .fa').click(function () {
+            $(this).siblings().removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+        $scope.changeType = function(type) {
+            $scope.typeSearch = type;
+            console.log($scope.typeSearch);
+        };
+
+        $scope.doSearch = function (type) {
+            console.log(type);
+            if (type === 'title') {
+                searchTitle();
+            }
+            if (type === 'user') {
+                searchUser();
+            }
+        };
+
+        var searchTitle = function () {
             if ($scope.searchContent.length > 0) {
 	        	var searchFormTitle = {
 	                'title': $scope.searchContent
@@ -45,7 +67,7 @@ angular.module('myApp')
         	}
         };
 
-        $scope.searchUser = function () {
+        var searchUser = function () {
             var searchUsername = $scope.searchContent;
             ajaxFactory.getUsers()
                 .then(function (success) {
@@ -56,7 +78,11 @@ angular.module('myApp')
                             ajaxFactory.getFilesByUserId(searchUserId)
                                 .then(function (success) {
                                     console.log(success.data);
+                                    success.data.forEach(function (file) {
+                                        file.userId = searchUserId;
+                                    });
                                     mediaFactory.setVariables('searchData', success.data);
+                                    console.log(mediaFactory.searchData);
                                     $location.path('/search-page');
                                     $route.reload();
                                 }, function (error) {
@@ -69,5 +95,5 @@ angular.module('myApp')
                     mediaFactory.handleError(error);
             });
 
-        }
+        };
     });
