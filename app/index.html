@@ -13,6 +13,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="/bower_components/videogular-themes-default/videogular.css" />
+    <link rel="stylesheet" href="/bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,7 +22,6 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/src/modernizr.js"></script>
     <!-- endbuild -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body ng-app="myApp">
@@ -61,11 +61,12 @@
     <header class="pure-g hidden__phone" id="desktop-header" ng-controller="userController">
         <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4">
             <div id="search-panel" class="flex__center" ng-controller="headerController">
-                <form ng-submit="doSearch(typeSearch)">       
+                <form ng-submit="doSearch(typeSearch)">
                     <input ng-model="searchContent" type="text" id="search-text" placeholder="Search">
                     <div class="search-options">
                         <span class="fa fa-user" ng-click="changeType('user')"></span>
                         <span class="fa fa-file selected" ng-click="changeType('title')"></span>
+                        <span class="search-type fa" ng-style="{color: colors[currentType]}" ng-class="typeMedia[currentType]" ng-click="changeMedia()"></span>
                     </div>
                 </form>
             </div>
@@ -97,6 +98,7 @@
                     <div class="search-options">
                         <span class="fa fa-user" ng-click="changeType('user')"></span>
                         <span class="fa fa-file selected" ng-click="changeType('title')"></span>
+                        <span class="search-type fa" ng-style="{color: colors[currentType]}" ng-class="typeMedia[currentType]" ng-click="changeMedia()"></span>
                     </div>
                 </form>
             </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
@@ -159,7 +161,7 @@
             <div id="waveform" ng-class="{'waveform-show': show}">
                 <div class="loading-indication"></div>
             </div>
-            <div class="waveform-time"><p>{{currentTime | date: 'm:ss'}} / {{length | date: 'm:ss'}}</p></div>
+            <div class="hidden__phone" id="waveform-time"><p>{{currentTime | date: 'm:ss'}} / {{length | date: 'm:ss'}}</p></div>
         </div>
     </div>
 
