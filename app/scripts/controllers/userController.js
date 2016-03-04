@@ -3,12 +3,10 @@ angular.module('myApp')
         var userctrl = this;
 
         $scope.username = 'N/a';
-        $scope.joinDate = 'N/a';
         $scope.imagesSum = 'N/a';
         $scope.videosSum = 'N/a';
         $scope.audiosSum = 'N/a';
         $scope.likesSum = 'N/a';
-        $scope.viewsSum = 'N/a';
 
         //Login
         $scope.wrongLogin = false;
@@ -26,11 +24,8 @@ angular.module('myApp')
                             username: $scope.loginUsername
                         });
                         $scope.username = $scope.loginUsername;
-                        $scope.userId = $scope.loginUsername;
+                        $scope.userId = success.data.userId;
                         $window.location.reload();
-                        // $location.path();
-                        // $location.path('/hot');
-                        // $scope.closeLogin();
                     } else {
                         console.log("Wrong login");
                         $scope.wrongLogin = true;
