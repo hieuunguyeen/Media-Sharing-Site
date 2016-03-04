@@ -126,19 +126,54 @@ header {
         width: 100%;
         height: calc(#{$header-height} - 5px);
         margin-left: 24px;
+        position: relative;
 
         form {
             width: 95%;
+
+            p {
+                display: inline;
+                font-size: $font-size-regular;
+            }
         }
 
         #search-text {
             font-size: $font-size-regular;
             width: 100%;
-            min-hfleight: $button-height;
+            min-height: $button-height;
             padding: 12px;
             border: 0;
             outline: none;
             border-bottom: 1px solid $color-accent;
+        }
+
+        #dropdown-options {
+            // display: none;
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            border: 1px solid #ccc;
+            background-color: white;
+            display: none;
+            ul {
+                 list-style-type: none;
+                 padding: 0;
+                 margin:0;
+            }
+            ul > li {
+                cursor: pointer;
+                width: 100%;
+                padding-left: 20px;
+                margin: 5px;
+                font-size: $font-size-regular;
+                &:hover {
+                    background-color: #ccc;
+                }
+            }
+        }
+
+        #search-text:focus + #dropdown-options {
+            display: block;
         }
     }
 
@@ -190,6 +225,43 @@ header {
             height: $button-height;
             padding-left: 30px;
             border: 0;
+            transition: width .2s ease-in-out;
+
+            &:focus {
+                width: 100vw;
+                z-index: 30;
+                transition: width .2s ease-in-out;
+            }
+        }
+
+        #dropdown-options-phone {
+            // display: none;
+            overflow: hidden;
+            position: absolute;
+            width: 100vw;
+            border: 1px solid #ccc;
+            background-color: white;
+            display: none;
+            z-index: 30;
+            ul {
+                 list-style-type: none;
+                 padding: 0;
+                 margin:0;
+            }
+            ul > li {
+                cursor: pointer;
+                width: 100%;
+                padding-left: 20px;
+                margin: 5px;
+                font-size: $font-size-regular;
+                &:hover {
+                    background-color: #ccc;
+                }
+            }
+        }
+
+        #search-text-phone:focus + #dropdown-options-phone {
+            display: block;
         }
     }
 
@@ -243,6 +315,9 @@ header {
             a {
                 text-decoration: none;
                 color: $color-dark;
+                display: block;
+                width: 100%;
+                height: 100%;
 
                 i {
                     @extend .position__center;
@@ -303,9 +378,6 @@ header {
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s;
-    @include phone {
-        left: 0px;
-    }
 }
 #waveform-toggle {
     position: fixed;
@@ -333,10 +405,10 @@ header {
     float: left;
     background-color: #fff;
     height: 40px;
-    width: calc(100% - 200px);
+    width: calc(100% - 220px);
     transition: all 0.5s;
     @include phone {
-        width: calc(100% - 120px);
+        width: 100%;
     }
     .loading-indication {
         height: 40px;
@@ -543,15 +615,34 @@ button.scroll-btn {
         height: 50vh;
         color: $color-green;
         overflow-y: hidden;
+
+        @include phone {
+            height: 200px;
+        }
+
+        @include tablet {
+            height: 300px;
+        }
     }
 
     #hot-audio-stripe {
         color: $color-yellow;
+        height: 300px;
+        @include phone {
+            height: 160px;
+        }
+        @include tablet {
+            height: 240px;
+        }
     }
 
     h1 {
         font-size: $font-size-large;
         text-transform: capitalize;
+
+        @include phone {
+            font-size: 18px;
+        }
     }
 
     hr {

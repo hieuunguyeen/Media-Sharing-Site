@@ -8,20 +8,32 @@
 			<p><b>Uploaded audio number:</b> {{audiosSum}}</p>
 			<p><b>Total likes:</b> {{likesSum}}</p>
 		</article>
-		<button id="my-images-btn" ng-click="">
+		<button id="my-images-btn" ng-click="changeCurrentMediaType('image')">
 			My Images
 		</button>
-		<button id="my-videos-btn" ng-click="">
+		<button id="my-videos-btn" ng-click="changeCurrentMediaType('video')">
 			My Videos
 		</button>
-		<button id="my-audios-btn" ng-click="">
+		<button id="my-audios-btn" ng-click="changeCurrentMediaType('audio')">
 			My Audios
 		</button>
 		<button ng-click="logout()" id="signout-btn">Sign out</button>
 	</div><div class="pure-u-1 pure-u-md-1-2 pure-u-lg-2-3 pure-g" ng-controller="remoteDataController" ng-init="getUserItems($parent.userId)" id="user-gallery">
 		<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2" data-ng-repeat="column in [1,2]">
-            <div class="thumbnail__picture-vertical" ng-repeat="item in userItems" ng-if="$index % 2 == $parent.$index && item.type === 'image'">
+            <div class="thumbnail__picture-vertical" ng-repeat="item in userItems" ng-if="$index % 2 == $parent.$index && item.type === 'image' && $parent.currentMediaType === 'image'">
                 <thumbnail-image></thumbnail-image>
+            </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1 pure-u-lg-1" ng-controller="thumbMediaController">
+            <div class="thumbnail__video-vertical" ng-repeat="item in userItems" ng-if="$parent.currentMediaType === 'video' && item.type === 'video'">
+                <div class="videogular-container" ng-init = "setVideo(item.path, item.mimeType, item.title)">
+                    <thumbnail-video></thumbnail-video>
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1 pure-u-md-1 pure-u-lg-1" ng-controller="audioController">
+            <div class="thumbnail__audio-vertical" ng-repeat="item in userItems" ng-if=" $parent.currentMediaType === 'audio' && item.type === 'audio'">
+                <thumbnail-audio></thumbnail-audio>
             </div>
         </div>
 	</div>

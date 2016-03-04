@@ -8,6 +8,12 @@ angular.module('myApp')
         $scope.audiosSum = 'N/a';
         $scope.likesSum = 'N/a';
 
+        // Change media type show on profile
+        $scope.currentMediaType = 'image';
+        $scope.changeCurrentMediaType = function(type) {
+            $scope.currentMediaType = type;
+        }
+
         //Login
         $scope.wrongLogin = false;
         $scope.login = function () {

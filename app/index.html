@@ -61,8 +61,17 @@
     <header class="pure-g hidden__phone" id="desktop-header" ng-controller="userController">
         <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-3-4">
             <div id="search-panel" class="flex__center" ng-controller="headerController">
-                <form ng-submit="search()">
-                    <input ng-model="searchContent" type="text" id="search-text" placeholder="Search">
+                <form ng-submit="search()">       
+                    <input ng-model="searchContent" type="text" id="search-text" placeholder="Search" autocomplete="off">
+                    <section id="dropdown-options">
+                        <ul>
+                            <li><a href="">by Title / Desc</a></li>
+                            <li><a href="">by User</a></li>
+                            <li><a href="">Images</a></li>
+                            <li><a href="">Videos</a></li>
+                            <li><a href="">Audios</a></li>
+                        </ul>
+                    </section>
                 </form>
             </div>
         </div><div class="pure-u-md-1-3 pure-u-lg-1-4">
@@ -89,16 +98,27 @@
         <div class="pure-g pure-u-1">
             <div class="pure-u-sm-1-2" id="search-panel-phone">
                 <form action="">
-                    <input type="text" id="search-text-phone" placeholder="Search">
+                    <input type="text" id="search-text-phone" placeholder="Search" autocomplete="off">
+                    <section id="dropdown-options-phone">
+                        <ul>
+                            <li><a href="">by Title / Desc</a></li>
+                            <li><a href="">by User</a></li>
+                            <li><a href="">Images</a></li>
+                            <li><a href="">Videos</a></li>
+                            <li><a href="">Audios</a></li>
+                        </ul>
+                    </section>
                 </form>
             </div><div class="pure-g pure-u-sm-1-2" id="control-panel-phone">
                 <button id="upload-btn-phone" ng-show="loggedIn">
                     <span class="fa fa-upload"></span>
                 </button><button id="signin-btn-phone" modal-data="login" ng-hide="loggedIn">
                     <span class="fa fa-sign-in"></span>
-                </button><button id="profile-btn-phone" ng-show="loggedIn">
-                    <span class="fa fa-user"></span>
-                </button>
+                </button><a href="#/profile">
+                <button id="profile-btn-phone" ng-show="loggedIn">
+                    <span class="fa fa-user">
+                    </span>
+                </button></a>
             </div>
         </div>
         <div class="pure-g pure-u-1" id="tabs-phone">
