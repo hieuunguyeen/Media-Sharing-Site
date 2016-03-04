@@ -10,7 +10,6 @@
 @import "modules/loadingIndicate";
 @import "modules/singleItem";
 @import "modules/searchPage";
-
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "bower_components/components-font-awesome/scss/font-awesome.scss";
@@ -27,6 +26,7 @@ body.body--overlay {
     overflow: hidden;
 }
 
+
 /* Responsive: Portrait tablets and up */
 
 nav {
@@ -37,7 +37,6 @@ nav {
     color: $color-light;
     background-color: $color-dark;
     min-height: 450px;
-
     img#logo {
         position: absolute;
         top: 10px;
@@ -45,52 +44,41 @@ nav {
         width: calc(#{$nav-width} / 1.5);
         transform: translateX(-50%);
     }
-
     #nav-panel {
         width: 100%;
         height: 40%;
-
         @extend .position__center;
-
         a {
             text-decoration: none;
             color: $color-light;
-
             i {
                 font-size: calc(#{$nav-width} / 2.8);
                 width: 100%;
                 height: 25%;
                 cursor: pointer;
                 transition: background-color .3s ease-in-out;
-
                 @extend .flex__center;
             }
-
             i:hover {
                 transition: background-color .3s ease-in-out;
             }
         }
-
         #hot-nav-btn:hover,
         #hot-nav-btn.active {
             background-color: $color-red;
         }
-
         #picture-nav-btn:hover,
         #picture-nav-btn.active {
             background-color: $color-blue;
         }
-
         #video-nav-btn:hover,
         #video-nav-btn.active {
             background-color: $color-green;
         }
-
         #audio-nav-btn:hover,
         #audio-nav-btn.active {
             background-color: $color-yellow;
         }
-
         #setting-btn:hover,
         #setting-btn.active {
             background-color: lighten($color-dark, 10%);
@@ -111,33 +99,26 @@ header {
     height: $header-height;
     background-color: inherit;
     transition: all 0.3s ease-in-out;
-
     @include phone {
         width: 100vw;
         padding: 0;
     }
-
-
     i:hover {
         transition: background-color .3s ease-in-out;
     }
-
     #search-panel {
         font-size: 20px;
         width: 100%;
         height: calc(#{$header-height} - 5px);
         margin-left: 24px;
         position: relative;
-
         form {
             width: 95%;
-
             p {
                 display: inline;
                 font-size: $font-size-regular;
             }
         }
-
         #search-text {
             font-size: $font-size-regular;
             width: 100%;
@@ -147,7 +128,6 @@ header {
             outline: none;
             border-bottom: 1px solid $color-accent;
         }
-
         #dropdown-options {
             // display: none;
             overflow: hidden;
@@ -157,9 +137,9 @@ header {
             background-color: white;
             display: none;
             ul {
-                 list-style-type: none;
-                 padding: 0;
-                 margin:0;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
             }
             ul > li {
                 cursor: pointer;
@@ -172,55 +152,45 @@ header {
                 }
             }
         }
-
         #search-text:focus + #dropdown-options {
             display: block;
         }
     }
-
     /* search options */
     .search-options {
         position: absolute;
         right: 32px;
         top: 50%;
         transform: translateY(-50%);
-
         span {
             cursor: pointer;
             margin: 0 8px;
             transition: color 0.3s ease;
         }
-
         span.selected {
             color: $color-red;
         }
     }
-
     #control-panel {
         width: 100%;
         height: calc(#{$header-height} - 5px);
         padding: 0 10px;
-
         p,
         a {
             display: inline;
             text-decoration: none;
             color: inherit;
         }
-
         a {
             width: $button-width;
         }
-
         #upload-btn {
             background-color: transparent;
         }
-
         #signin-btn {
             color: $color-light;
             background-color: $color-red;
         }
-
         #profile-btn {
             color: $color-light;
             background-color: $color-red;
@@ -228,30 +198,24 @@ header {
             width: 100%;
         }
     }
-
     #search-panel-phone {
         height: $font-size-xx-large;
-
         form {
             min-width: 100%;
             min-height: 100%;
             position: relative;
         }
-
         .search-options {
             right: 0px;
             transition: all 0.2s ease;
-
             span {
                 margin: 0 8px;
                 transition: color 0.3s ease;
             }
-
             span.selected {
                 color: $color-red;
             }
         }
-
         #search-text-phone {
             font-size: $font-size-regular;
             width: 100%;
@@ -259,19 +223,18 @@ header {
             padding-left: 30px;
             border: 0;
             transition: width .2s ease-in-out;
-
-            &:focus, &:hover {
+            &:focus,
+            &:hover {
                 width: 100vw;
                 z-index: 30;
                 transition: width .2s ease-in-out;
                 position: static;
             }
-
-            &:focus + .search-options, &:hover + .search-options {
+            &:focus + .search-options,
+            &:hover + .search-options {
                 right: -100%;
             }
         }
-
         #dropdown-options-phone {
             // display: none;
             overflow: hidden;
@@ -282,9 +245,9 @@ header {
             display: none;
             z-index: 30;
             ul {
-                 list-style-type: none;
-                 padding: 0;
-                 margin:0;
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
             }
             ul > li {
                 cursor: pointer;
@@ -297,45 +260,37 @@ header {
                 }
             }
         }
-
         #search-text-phone:focus + #dropdown-options-phone {
             display: block;
         }
     }
-
     #control-panel-phone {
         button {
             margin: 0;
             display: inline;
             width: 50%;
-
             span {
                 font-size: $font-size-large;
             }
         }
-
         #upload-btn-phone {
             background-color: $color-light;
             color: $color-dark;
         }
-
         #signin-btn-phone {
             background-color: $color-red;
             color: $color-light;
             float: right;
         }
-
         #profile-btn-phone {
             background-color: $color-red;
             color: $color-light;
             float: right;
         }
     }
-
     #tabs-phone {
         background-color: inherit;
         font-size: 0;
-
         #hot-tab-phone,
         #picture-tab-phone,
         #video-tab-phone,
@@ -348,56 +303,47 @@ header {
             border: {
                 bottom: 1px solid $color-accent;
                 top: 1px solid $color-accent;
-            };
-
+            }
+            ;
             a {
                 text-decoration: none;
                 color: $color-dark;
                 display: block;
                 width: 100%;
                 height: 100%;
-
                 i {
                     @extend .position__center;
                 }
             }
         }
-
         #hot-tab-phone {
             &:hover {
                 background-color: $color-red;
             }
-
             &.active {
                 background-color: $color-red;
             }
         }
-
         #picture-tab-phone:hover {
             &:hover {
                 background-color: $color-blue;
             }
-
             &.active {
                 background-color: $color-blue;
             }
         }
-
         #video-tab-phone:hover {
             &:hover {
                 background-color: $color-green;
             }
-
             &.active {
                 background-color: $color-green;
             }
         }
-
         #audio-tab-phone:hover {
             &:hover {
                 background-color: $color-yellow;
             }
-
             &.active {
                 background-color: $color-yellow;
             }
@@ -409,89 +355,99 @@ header {
     position: fixed;
     background-color: #fff;
     height: 0px;
-    width: 100%;
+    width: calc(100% - #{$nav-width});
     bottom: 0px;
     left: 80px;
     border-top: 1px solid $color-dark;
     overflow: hidden;
     opacity: 0;
     transition: all 0.3s;
-}
-#waveform-toggle {
-    position: fixed;
-    background-color: $color-dark;
-    width: 100%;
-    height: 25px;
-    bottom: -1px;
-    transition: all 0.3s;
-    z-index: 100;
-}
-#waveform-toggle.waveform-toggle-up {
-    bottom: 41px;
-    height: 0px;
-}
-.waveform-toggle-button-down {
-    position: fixed;
-    width: 40px;
-    height: 40px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 0;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.waveform-toggle-button-up {
-    bottom: 15px;
-}
-
-#waveform-container.waveform-show {
-    height: 40px;
-    opacity: 1;
-}
-.white {
-    color: #fff;
-}
-#waveform {
-    position: relative;
-    float: left;
-    background-color: #fff;
-    height: 40px;
-    width: calc(100% - 220px);
-    transition: all 0.5s;
+    z-index: 20;
     @include phone {
-        width: 100%;
-    }
-    .loading-indication {
-        height: 40px;
-        transform: translate3d(0,0,0);
-        position: absolute;
-        right: auto;
         left: 0;
-        width: 0%;
-        transition: width 0.2s;
+        width: 100vw;
     }
 }
 
-.waveform-button {
-    position: relative;
-    float: left;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    i {
-        color: $color-red;
-        line-height: 1.5em;
+#waveform-toggle {
+        position: fixed;
+        background-color: $color-dark;
+        width: 100%;
+        height: 25px;
+        bottom: -1px;
+        transition: all 0.3s;
+        z-index: 100;
     }
-}
-.waveform-button:hover {
-    background-color: $color-red;
-    i {
+    #waveform-toggle.waveform-toggle-up {
+        bottom: 41px;
+        height: 0px;
+    }
+    .waveform-toggle-button-down {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 0;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .waveform-toggle-button-up {
+        bottom: 15px;
+    }
+    #waveform-container.waveform-show {
+        height: 40px;
+        opacity: 1;
+    }
+    .white {
         color: #fff;
     }
-}
+    #waveform {
+        position: relative;
+        float: left;
+        background-color: #fff;
+        height: 40px;
+        width: calc(100% - 150px);
+        transition: all 0.5s;
+        @include phone {
+            float: right;
+            width: calc(100vw - 100px);
+        }
+        .loading-indication {
+            height: 40px;
+            transform: translate3d(0, 0, 0);
+            position: absolute;
+            right: auto;
+            left: 0;
+            width: 0%;
+            transition: width 0.2s;
+        }
+    }
+    .waveform-button {
+        position: relative;
+        float: left;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        i {
+            color: $color-red;
+            line-height: 1.5em;
+        }
+    }
+    .waveform-button:hover {
+        background-color: $color-red;
+        i {
+            color: #fff;
+        }
+    }
+
+    #waveform-time {
+        width: 40px;
+        float: right;
+    }
 
 main {
     position: absolute;
@@ -499,7 +455,6 @@ main {
     width: calc(100vw - #{$nav-width} - 17px);
     margin-top: calc(#{$button-height} * 2 + 1%);
     padding: $main-padding;
-
     @include phone {
         width: 100vw;
     }
@@ -510,7 +465,6 @@ button {
     height: $button-height;
     margin: 0 10px;
     border: 1px solid #ccc;
-
     @include phone {
         border: 0;
     }
@@ -522,7 +476,6 @@ button.scroll-btn {
     transition: all .3s ease-in-out;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-
     &:hover {
         background-color: $color-red;
         color: $color-light;
@@ -555,20 +508,17 @@ button.scroll-btn {
 
 .flex__center {
     @extend .flex;
-
     justify-content: center;
     align-items: center;
 }
 
 .flex__direction-column {
     flex-direction: column;
-
     @extend .flex;
 }
 
 .flex__direction-row {
     flex-direction: row;
-
     @extend .flex;
 }
 
@@ -622,7 +572,12 @@ button.scroll-btn {
     }
 }
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
     display: none !important;
 }
 
@@ -630,7 +585,6 @@ button.scroll-btn {
     width: 100%;
     min-height: 100px;
     padding: 0;
-
     .stripe {
         height: 300px;
         margin: 40px 0;
@@ -638,45 +592,35 @@ button.scroll-btn {
         overflow-x: scroll;
         overflow-y: hidden;
         white-space: nowrap;
-
         @include phone {
             height: 250px;
             max-height: 250px;
         }
     }
-
     #hot-picture-stripe {
         height: 320px;
         color: $color-blue;
-
         p {
             color: $color-blue;
         }
-
         @include phone {
             height: 160px;
         }
-
-
         @include tablet {
             height: 220px;
         }
     }
-
     #hot-video-stripe {
         height: 50vh;
         color: $color-green;
         overflow-y: hidden;
-
         @include phone {
             height: 200px;
         }
-
         @include tablet {
             height: 300px;
         }
     }
-
     #hot-audio-stripe {
         color: $color-yellow;
         height: 175px;
@@ -687,20 +631,17 @@ button.scroll-btn {
             height: 240px;
         }
     }
-
     h1 {
         font-size: $font-size-large;
         text-transform: capitalize;
-
         @include phone {
             font-size: 18px;
         }
     }
-
     hr {
         border: 0;
         height: 1px;
-       background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.75));
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.75));
     }
 }
 
@@ -708,7 +649,6 @@ button.scroll-btn {
 
 .container#profile-page {
     font-size: 0;
-
     article {
         font-size: $font-size-regular;
         width: 99%;
@@ -716,37 +656,30 @@ button.scroll-btn {
         border: 1px solid #ccc;
         margin-bottom: 10px;
     }
-
     button {
         width: 33%;
         font-size: $font-size-regular;
         margin: 0;
         color: $color-light;
     }
-
     button#my-images-btn {
         background-color: $color-blue;
     }
-
     button#my-videos-btn {
         background-color: $color-green;
     }
-
     button#my-audios-btn {
         background-color: $color-yellow;
     }
-
     button#signout-btn {
         margin-top: 20px;
         width: 100%;
         background-color: $color-red;
     }
-
     #user-gallery {
         max-height: calc(100vh - #{$header-height} - 50px);
         overflow-y: scroll;
         padding: 0 30px;
-
         @include phone {
             overflow: visible;
             margin-top: 30px;
@@ -754,10 +687,8 @@ button.scroll-btn {
             padding: 0;
         }
     }
-
     .item-thumbnail {
         height: 40%;
-
         img {
             height: 100%;
             object-fit: cover;

@@ -40,7 +40,7 @@ angular.module('myApp')
         });
 
         $scope.startAutohide = function () {
-            // $scope.autohide = setTimeout(function () { $scope.show = false; }, 3000);
+            $scope.autohide = setTimeout(function () { $scope.show = false; }, 3000);
         };
         $scope.cancelAutohide = function () {
             clearTimeout($scope.autohide);
