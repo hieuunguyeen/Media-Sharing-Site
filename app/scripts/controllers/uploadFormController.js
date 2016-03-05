@@ -18,7 +18,7 @@ angular.module('myApp')
                     console.log(success.data.fileId);
                     
                     $timeout(function () {
-                        $location.path('/singleItem/:' + success.data.fileId);
+                        $location.path('/singleItem/' + success.data.fileId);
                         $window.location.reload();
                     }, 2100);
                     $('.loading-indication').addClass('loading-indication--load');
