@@ -30,7 +30,7 @@ angular.module('myApp')
                 $scope.path = media.path;
                 $scope.mimeType = media.mimeType;
                 $scope.title = media.title;
-
+$
                 if (media.type === "image") {
                     $('.content__image').html('<img src="' + $scope.mediaPath + '" alt="some alt">');
 
@@ -58,7 +58,7 @@ angular.module('myApp')
                 }
 
                 $scope.imageDirectLink = 'http://util.mw.metropolia.fi/uploads/' + media.path;
-                $scope.imageItemLink = 'http://localhost:9000/#/singleItem/' + $scope.itemId;
+                $scope.imageItemLink = 'http://users.metropolia.fi/~duyn/Media%20Sharing%20Site/#/singleItem/' + $scope.itemId;
                 $scope.imageHtmlLink = '<img src="http://util.mw.metropolia.fi/uploads/' + media.path + '">';
                 $scope.itemTitle = media.title;
                 $scope.itemloadDate = media.uploadTime;

@@ -2,8 +2,8 @@
     <!-- Parent: thumbnail__audio-vertical -->
     <img ng-src="https://unsplash.it/320/640/?random={{item.fileId}}" ng-if="isSinglePage != true">
     <img ng-src="https://unsplash.it/320/640/?random={{audioPath}}" ng-if="isSinglePage == true">
-    <i ng-controller="wavesurferController" class="fa fa-music music-note fa-3x" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + item.path)" ng-if="isSinglePage != true"></i>
-    <i ng-controller="wavesurferController" class="fa fa-music music-note fa-3x" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + audioPath)" ng-if="isSinglePage == true"></i>
+    <i ng-controller="wavesurferController" class="fa fa-play music-note fa-3x" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + item.path)" ng-if="isSinglePage != true"></i>
+    <i ng-controller="wavesurferController" class="fa fa-play music-note fa-3x" ng-click="loadSong('http://util.mw.metropolia.fi/uploads/' + audioPath)" ng-if="isSinglePage == true"></i>
 
     <figcaption>
         <p ng-click="sendDataToModal(item.fileId)" class="position__center">{{item.title}}</p>
