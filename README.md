@@ -6,11 +6,11 @@ Major libraries used are Videogular for video playback and Wavesurfer for audio 
 Registeration, logging in, uploading. Browsing of various media. Playback for videos and audio. Media liking, commenting and social media sharing.
 ##Screenshots
 ### Desktop - Frontpage
-![Desktop](/../screenshots/desktop.jpg?raw=true "Desktop")
+![Desktop](/../master/screenshots/desktop.jpg?raw=true "Desktop")
 ### Tablet and mobile - Frontpage
-![TabletMobile](/../screenshots/tabletMobile.jpg?raw=true "Tablet and Mobile")
+![TabletMobile](/../master/screenshots/tabletMobile.jpg?raw=true "Tablet and Mobile")
 ### Mobile - Various views from the site
-![Views](/../screenshots/views.jpg?raw=true "Various views from the site")
+![Views](/../master/screenshots/views.jpg?raw=true "Various views from the site")
 #### Premaid mixin for media queries:
 ````scss
   @include phone
