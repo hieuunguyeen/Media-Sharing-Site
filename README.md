@@ -5,9 +5,9 @@ Major libraries used are Videogular for video playback and Wavesurfer for audio 
 ## Functions
 Registeration, logging in, uploading. Browsing of various media. Playback for videos and audio. Media liking, commenting and social media sharing.
 ##Screenshots
-![Desktop](/../Screenshots/desktop.jpg?raw=true "Desktop")
-![TabletMobile](/../Screenshots/tabletMobile.jpg?raw=true "Tablet and Mobile")
-![Views](/../Screenshots/views.jpg?raw=true "Various views from the site")
+![Desktop](/../Screenshots/screenshots/desktop.jpg?raw=true "Desktop")
+![TabletMobile](/../Screenshots/screenshots/tabletMobile.jpg?raw=true "Tablet and Mobile")
+![Views](/../Screenshots/screenshots/views.jpg?raw=true "Various views from the site")
 #### Premaid mixin for media queries:
 ````scss
   @include phone
