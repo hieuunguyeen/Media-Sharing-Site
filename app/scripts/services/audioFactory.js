@@ -27,10 +27,6 @@ angular.module('myApp')
             $rootScope.$broadcast('seeking');
         });
         
-        /*wavesurfer.on('audioprocess', function () {
-            $rootScope.$broadcast('currentlyPlaying');
-        });*/
-        
         //Functions
         var audioFunctions = {
             'percent': 0
