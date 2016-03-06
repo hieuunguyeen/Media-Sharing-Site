@@ -376,14 +376,14 @@ header {
         height: 25px;
         bottom: -1px;
         transition: all 0.3s;
-        z-index: 100;
+        z-index: 80;
     }
     #waveform-toggle.waveform-toggle-up {
         bottom: 41px;
         height: 0px;
     }
     .waveform-toggle-button-down {
-        position: fixed;
+        position: absolute;
         width: 40px;
         height: 40px;
         left: 0;
@@ -392,9 +392,12 @@ header {
         bottom: 0;
         cursor: pointer;
         transition: all 0.3s;
+        span {
+            position: absolute;
+        }
     }
     .waveform-toggle-button-up {
-        bottom: 15px;
+        bottom: -25px;
     }
     #waveform-container.waveform-show {
         height: 40px;
