@@ -18,7 +18,7 @@ angular.module('myApp')
             $scope.show = true;
             $('#waveform .loading-indication').css('opacity', 0);
             $('#waveform .loading-indication').css('width', 0 + '%');
-            $scope.update = setInterval(updateTime, 1000);
+            $scope.update = setInterval(updateTime, 500);
             $scope.startAutohide();
         });
 
@@ -50,7 +50,6 @@ angular.module('myApp')
             $scope.show = !$scope.show;
         };
         $scope.loadSong = function (args) {
-            clearInterval($scope.update);
             audioFactory.loadSong(args);
         };
         $scope.playPause = function () {
