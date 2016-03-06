@@ -2,50 +2,6 @@ angular.module('myApp')
     .controller('searchPageController', function ($scope, $window, $location, $route, mediaFactory, ajaxFactory) {
 
         $scope.searchResults = mediaFactory.searchData;
-        var tempSearchResults = mediaFactory.searchData;
-        $scope.finalResults = [];
-
-        $scope.displayType = $('.search-type').attr('class');
-        console.log($scope.displayType);
-
-        $scope.filterSearch = function (type) {
-            if (!$scope.displayType.includes('files-o')) {
-                $scope.searchResults.forEach(function (file) {
-                    if ($scope.displayType.includes(file.type)) {
-                        $scope.finalResults.push(file);
-                    }
-                });
-                console.log($scope.searchResults);
-            } else {
-                $scope.finalResults = $scope.searchResults;
-            }
-            if ($scope.finalResults.length < 1) {
-                $('.search-container').text('Cannot find any results from the search key');
-                console.log('no search result');
-            }
-        };
-
-        $scope.searchImages = [], $scope.searchAudios = [];
-
-        console.log($scope.searchResults);
-
-        // for (var key in $scope.searchResults) {
-        //     ajaxFactory.getFileById($scope.searchResults[key].fileId)
-        //         .then(function (success) {
-        //             console.log(key);
-        //             $scope.searchResults[key].uploadTime = success.data.uploadTime;
-        //             console.log($scope.searchResults[key].uploadTime);
-        //             console.log($scope.searchResults[key]);
-        //         }, function (error) {
-        //             console.log(error.data);
-        //     });
-        //
-        //     //console.log($scope.searchResults);
-        //
-        //     ajaxFactory.getUserById($scope.searchResults[key].userId).then(function (success) {
-        //         $scope.itemAuthor = success.data['username'];
-        //     });
-        // }
 
         $scope.searchResults.forEach(function (file) {
             ajaxFactory.getFileById(file.fileId).then(function (success) {
@@ -67,4 +23,48 @@ angular.module('myApp')
             'image': '#0bcea0',
             'audio': '#efc445'
         };
+
+        var tempSearchResults = mediaFactory.searchData;
+        $scope.finalResults = [];
+
+        $scope.displayType = $('#desktop-header .search-type').attr('class');
+        $scope.displayTypePhone = $('#phone-header .search-type').attr('class');
+        console.log($scope.displayType);
+
+        $scope.filterSearch = function (type) {
+            if (screen.width < 600) {
+                if (!$scope.displayTypePhone.includes('files-o')) {
+                    $scope.searchResults.forEach(function (file) {
+                        if ($scope.displayTypePhone.includes(file.type)) {
+                            $scope.finalResults.push(file);
+                        }
+                    });
+                } else {
+                    $scope.finalResults = $scope.searchResults;
+                }
+                if ($scope.finalResults.length < 1) {
+                    $('.search-container').text('Cannot find any results from the search key');
+                    console.log('no search result');
+                }
+            } else {
+                if (!$scope.displayType.includes('files-o')) {
+                    $scope.searchResults.forEach(function (file) {
+                        if ($scope.displayType.includes(file.type)) {
+                            $scope.finalResults.push(file);
+                        }
+                    });
+                    console.log($scope.searchResults);
+                } else {
+                    $scope.finalResults = $scope.searchResults;
+                }
+                if ($scope.finalResults.length < 1) {
+                    $('.search-container').text('Cannot find any results from the search key');
+                    console.log('no search result');
+                }
+            }
+        };
+
+        $scope.searchImages = [], $scope.searchAudios = [];
+
+        console.log($scope.searchResults);
     });
