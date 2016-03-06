@@ -53,8 +53,7 @@ angular.module('myApp')
             delete $localStorage.userId;
             delete $localStorage.username;
             $window.location.reload();
-            // $location.path();
-            // $location.path('/hot');
+            location.assign('/#/hot');
         };
 
         //Signup
