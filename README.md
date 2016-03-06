@@ -4,6 +4,10 @@ Media sharing site with support for image, video and audio files. AngularJS proj
 Major libraries used are Videogular for video playback and Wavesurfer for audio playback.
 ## Functions
 Registeration, logging in, uploading. Browsing of various media. Playback for videos and audio. Media liking, commenting and social media sharing.
+##Screenshots
+![Desktop](/../Screenshots/desktop.jpg?raw=true "Desktop")
+![TabletMobile](/../Screenshots/tabletMobile.jpg?raw=true "Tablet and Mobile")
+![Views](/../Screenshots/views.jpg?raw=true "Various views from the site")
 #### Premaid mixin for media queries:
 ````scss
   @include phone
